@@ -1,0 +1,85 @@
+@use "sass:map";
+@use "./palettes/blue" as *;
+
+$vars: ();
+
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@function v2c($var) {
+    @debug $var;
+    @return map.get($vars, $str-replace(str-replace($var, ")", ""), "var(--ds-", ""));
+}
+
+@mixin fontFace($fontName, $fontUrl, $font-weight, $font-ext, $font-style, $font-format) {
+    @font-face {
+        @font-face {
+            font-family: $fontName;
+            src: url($fontUrl + "." + $font-ext) format($font-format);
+            font-weight: $font-weight;
+            font-style: $font-style;
+            font-smoothing: subpixel-antialiased;
+        }
+    }
+}
+
+@function wrappetFontPath($basePath, $file) {
+    @return $basePath + "/font" + "/" + $file;
+}
+
+@mixin ds-theme($colors, $fonts: (), $fontPath: "../..") {
+    $vars: map.merge($colors, $fonts) !global;
+
+    @if $fonts {
+        @each $font, $details in $fonts {
+            @include fontFace(
+                map.get($details, name),
+                wrappetFontPath($fontPath, map.get($details, file)) map.get($details, weight),
+                map.get($details, style),
+                map.get($details, ext),
+                map.get($details, format)
+            );
+        }
+    }
+
+    @each $var, $value in $vars {
+        @if type-of($value) == "color" {
+            #{"--ds-"+ $var}: $value;
+        }
+        @if type-of($value) == "map" {
+            #{"--ds-"+ $var}: map.get($value, "name");
+        }
+    }
+}
+
+@mixin theme-classic($params) {
+    --CB-0: #{map-get($params, "CB0")};
+    --CB-1: #{map-get($params, "CB1")};
+    --CP-1: #{map-get($params, "CP1")};
+    --CP-2: #{map-get($params, "CP2")};
+    --CP-3: #{map-get($params, "CP3")};
+}
+
+$CB0: var(--ds-base-0);
+$CB1: var(--ds-base-1);
+$CP1: var(--ds-primary-1);
+$CP2: var(--ds-primary-2);
+$CP3: var(--ds-primary-3);
+$CP4: var(--ds-primary-4);
+$CP5: var(--ds-primary-5);
+$CP6: var(--ds-primary-6);
+$CG1: var(--ds-gray-1);
+$CG2: var(--ds-gray-2);
+$CG3: var(--ds-gray-3);
+$CG4: var(--ds-grays-4);
+$CS4: var(--ds-success);
+$CE4: var(--ds-error);
+$CC4: var(--ds-caution);
+$CI4: var(--ds-info);
