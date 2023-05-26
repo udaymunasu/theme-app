@@ -1,0 +1,62 @@
+@use "../index.scss" as *;
+
+@mixin header-content {
+    .ds-header {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 28px;
+        line-height: 1;
+        justify-content: var(--header-justift, space-between);
+
+        
+
+        &.ds-header--line {
+            border-bottom: 1px solid var(--header-line, $CG4);
+        }
+
+        .ds-header--line {
+            border-bottom: 1px solid var(--header-line, $CG4);
+        }
+
+        .ds-sub-header {
+            display: flex;
+            align-items: flex-end;
+            line-height: 1.1rem;
+            font-size: var(--sub-header-fs, 14px);
+            padding: var(--sub-header-pd, 8px 0 0 0);
+        }
+        > span {
+            line-height: 10px;
+        }
+    }
+
+    .ds-header-action {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        .ds-button + .ds-button {
+            margin-left: 10px;
+        }
+        button + button {
+            margin-left: 10px;
+        }
+        > * {
+            display: flex;
+        }
+    }
+}
+
+@mixin header {
+    header {
+        width:100%;
+        color: var(--header-txt, $CG4);
+        padding: 0- 0 8px 0;
+        display:flex;
+        position: relative;
+        flex-flow: row;
+        justify-content: space-between;
+        @include header-content();
+    }
+}
