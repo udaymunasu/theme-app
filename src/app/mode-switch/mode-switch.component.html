@@ -1,0 +1,6 @@
+<div class="mode-switch-wrapper" [ngClass]="modeConfig.position">
+    <div class="px-toggle">
+        <input class="px-switch" type="checkbox" (change)="toggleTheme($event)">
+    </div>
+    <span class="px-icons dark-theme-toggle" (click)="modeChange()" [ngClass]="modeIcon"></span>
+</div>

@@ -1,7 +1,8 @@
 @use "sass:meta";
 @use "./base/" as *;
-@use "./components/insex.scss" as *;
+@use "./components/index.scss" as *;
 
 @use "./index.scss" as *;
 
 @include header();
+@include icons();

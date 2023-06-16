@@ -1,10 +1,10 @@
-<header>
- <div class="ds-header">Header
-    <div class="ds-sub-header">Sub Header</div>
- </div>
+<div class="container">
+  <header>
+    <div class="ds-header">
+      Header
+      <div class="ds-sub-header">Sub Header</div>
+    </div>
 
- <div class="ds-header-action">Action</div>
-
- 
- 
-</header>
+    <div class="ds-header-action"><app-mode-switch *ngIf="themeConfig" [modeConfig]="themeConfig"></app-mode-switch></div>
+  </header>
+</div>
