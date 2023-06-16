@@ -1,0 +1,9 @@
+<div class="container">
+  <div
+    *ngFor="let icon of icons"
+    class="px-panel px-panel--card bny-css-tooltip tooltip-bottom"
+    bnyCssTooltip="{{ icon.name }}"
+  >
+    <span class="px-icons {{ icon.name }}"></span>
+  </div>
+</div>

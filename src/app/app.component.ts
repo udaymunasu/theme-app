@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'theme-app';
 
+  public sidebarShow: boolean = false;
+
   modeConfig= {
     themes: [
       "blue"
