@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '../components/modal/modal-ref';
 
 @Component({
   selector: 'app-example-modal',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExampleModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+  }
+
+  close() {
+    this.activeModal.close()
   }
 
 }

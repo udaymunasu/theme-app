@@ -17,7 +17,6 @@ import { ngbFocusTrap } from './focus-trap';
 
 import { Subject, Subscription } from 'rxjs';
 import { ModalDismissReasons } from './modal-dismiss-reason';
-import { Nullable } from 'src/app/primeng-modal/dialog/ts-helpers/public_api';
 import { DynamicDialogConfig } from 'src/app/primeng-modal/dialog/dynamicdialog/public_api';
 
 @Component({
@@ -48,9 +47,8 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   draggableHeader: HTMLElement;
   localModalWrapperRef: HTMLElement;
   hasAnimationPilot: boolean = false;
-  modalCmptWrapper: ElementRef;
-  @ViewChild('modalCmptWrapper', { read: ElementRef, static: false })
-  // @ViewChild('content') contentViewChild: Nullable<ElementRef>;
+
+
   mouseMoveCB: () => void = this.mouseMoveHandler.bind(this);
   mouseUpCB: () => void = this.mouseUpHandler.bind(this);
 
@@ -63,45 +61,26 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   @Input() stopDrag: string;
   @Output('dismiss') dismissEvent = new EventEmitter();
 
+
+  
+  @ViewChild('modalCmptWrapper', { read: ElementRef, static: false })
+  modalCmptWrapper: ElementRef;
+
   private _closed$ = new Subject<void>();
 
-  @ViewChild('dialog', { static: true })
-  private _dialogEl: ElementRef<HTMLElement>;
-
-  @Input() animation: boolean;
-  @Input() ariaLabelledBy: string;
-  @Input() ariaDescribedBy: string;
-
-  @Input() fullscreen: string | boolean;
-  @Input() scrollable: string;
-
-  @Input() modalDialogClass: string;
-
-  shown = new Subject<void>();
-  hidden = new Subject<void>();
+  
 
   constructor(
     @Inject(DOCUMENT) private document: any,
     private _elRef: ElementRef,
     private _renderer: Renderer2,
-    public config: DynamicDialogConfig
   ) {
     this._document = document;
     ngbFocusTrap(this._elRef.nativeElement, this.dismissEvent);
   }
 
-  get position(): string {
-    return this.config.position!;
-  }
 
-  container: Nullable<HTMLDivElement>;
-
-  resetPosition() {
-    (this.container as HTMLDivElement).style.position = '';
-    (this.container as HTMLDivElement).style.left = '';
-    (this.container as HTMLDivElement).style.top = '';
-    (this.container as HTMLDivElement).style.margin = '';
-  }
+  
   backdropClock($event): void {
     if (this.backdrop === true && this._elRef.nativeElement === $event.target) {
       this.dismiss(ModalDismissReasons.BACKDROP_CLICK);
@@ -119,6 +98,7 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
+    this.hasAnimationPilot = this.document.body.classList.contains('animate-modal-enabed');
     this.findElWithFocus();
     this._renderer.addClass(this._document.body, 'modal-open');
   }
@@ -139,7 +119,7 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
 
     if (this.hasAnimationPilot && this._elWithFocus === this.document.body) {
       this._elWithFocus =
-        window?.event.target instanceof HTMLElement
+        window?.event?.target instanceof HTMLElement
           ? window.event.target
           : null;
     }
@@ -149,7 +129,7 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
 
   handleModalAnimation() {
     this.localModalWrapperRef =
-      this._elRef.nativeElement.querySelector('#modalCmotWrapper');
+      this._elRef.nativeElement.querySelector('#modalCmptWrapper');
 
     if (!this.localModalWrapperRef || this._elWithFocus) {
       return;
@@ -214,11 +194,16 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   }
 
   mouseDown(e: any) {
+    if(!this.hasAnimationPilot) {
+      return
+    }
     this.x = e.clientX;
     this.y = e.clientY;
 
     this._elRef.nativeElement.addEventListner('mousemove', this.mouseMoveCB);
     this._elRef.nativeElement.addEventListner('mouseup', this.mouseUpCB);
+
+    this._renderer.addClass(this.localModalWrapperRef, 'no-transition')
   }
 
   mouseMoveHandler(e: any) {

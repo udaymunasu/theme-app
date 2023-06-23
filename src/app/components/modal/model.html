@@ -1,66 +1,16 @@
 <div
-  #mask
-  [ngClass]="{
-                'p-dialog-mask': true,
-                'p-component-overlay p-component-overlay-enter p-dialog-mask-scrollblocker': config.modal !== false,
-                'p-dialog-left': position === 'left',
-                'p-dialog-right': position === 'right',
-                'p-dialog-top': position === 'top',
-                'p-dialog-bottom': position === 'bottom',
-                'p-dialog-top-left': position === 'topleft' || position === 'top-left',
-                'p-dialog-top-right': position === 'topright' || position === 'top-right',
-                'p-dialog-bottom-left': position === 'bottomleft' || position === 'bottom-left',
-                'p-dialog-bottom-right': position === 'bottomright' || position === 'bottom-right'
-            }"
-  [class]="config.maskStyleClass"
+  #dialog
+  role="document"
+  [class]="
+    'ds-modal__dialog' +
+    (size ? ' modal-' + size : '') +
+    (centered ? ' modal-dialog--centered' : '') 
+  "
+  
 >
-  <div
-    #container
-    [ngClass]="{ 'p-dialog p-dynamic-dialog p-component': true, 'p-dialog-rtl': config.rtl, 'p-dialog-resizable': config.resizable, 'p-dialog-draggable': config.draggable }"
-    [ngStyle]="config.style"
-    [class]="config.styleClass"
-    role="dialog"
-    [style.width]="config.width"
-    [style.height]="config.height"
-  >
-    <div
-      *ngIf="config.resizable"
-      class="p-resizable-handle"
-      style="z-index: 90"
-    ></div>
-    <div
-      #titlebar
-      class="p-dialog-header"
-      *ngIf="config.showHeader === false ? false : true"
-    >
-      <span class="p-dialog-title">{{ config.header }}</span>
-      <div class="p-dialog-header-icons">
-        <!-- <button
-          *ngIf="config.maximizable"
-          type="button"
-          [ngClass]="{ 'p-dialog-header-icon p-dialog-header-maximize p-link': true }"
-          (click)="maximize()"
-          (keydown.enter)="maximize()"
-          tabindex="-1"
-          pRipple
-        >
-          <span
-            class="p-dialog-header-maximize-icon"
-            [ngClass]="maximized ? minimizeIcon : maximizeIcon"
-          ></span>
-        </button>
-        <button
-          [ngClass]="'p-dialog-header-icon p-dialog-header-maximize p-link'"
-          type="button"
-          (click)="hide()"
-          (keydown.enter)="hide()"
-          *ngIf="config.closable !== false"
-        ></button> -->
-      </div>
-    </div>
-    <div #content class="p-dialog-content" [ngStyle]="config.contentStyle">
-      <ng-template pDynamicDialogContent></ng-template>
-    </div>
-    <div class="p-dialog-footer" *ngIf="config.footer">{{ config.footer }}</div>
-  </div>
+<ng-container *ngTemplateOutlet="contentTpl"></ng-container>
 </div>
+
+<ng-template #contentTpl>
+  <ng-content></ng-content>
+</ng-template>

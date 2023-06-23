@@ -1,25 +1,20 @@
+
 import {
   ApplicationRef,
   ComponentFactory,
   ComponentFactoryResolver,
   ComponentRef,
-  EventEmitter,
   Inject,
   Injectable,
   Injector,
-  NgZone,
-  RendererFactory2,
   TemplateRef,
-  Type,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
-import { Subject } from 'rxjs';
-
 import { NgbModalBackdrop } from './modal-backdrop';
+import { NgbModalWindow } from './modal-window';
 import { NgbModalOptions } from './modal-config';
 import { NgbActiveModal, NgbModalRef } from './modal-ref';
-import { NgbModalWindow } from './modal-window';
 import { ContentRef } from './popup';
 import { isDefined, isString } from './util';
 import { AnimationBuilder } from '@angular/animations';
@@ -73,10 +68,6 @@ export class NgbModalStack {
 
     this._props = options?.data?.props;
 
-    // contentInjector = options.injector || contentInjector;
-    // const environmentInjector =
-    //   contentInjector.get(EnvironmentInjector, null) ||
-    //   this._environmentInjector;
     const contentRef = this._getContentRef(
       moduleCFR,
       options.injector || contentInjector,
@@ -133,7 +124,7 @@ export class NgbModalStack {
   ): ComponentRef<NgbModalWindow> {
     let windowFactory =
       this._componentFactoryResolver.resolveComponentFactory(NgbModalWindow);
-    const windowCmptRef = windowFactory.create(this._injector);
+    const windowCmptRef = windowFactory.create(this._injector, contentRef.nodes);
     this._applicationRef.attachView(windowCmptRef.hostView);
     containerEl.appendChild(windowCmptRef.location.nativeElement);
     return windowCmptRef;
@@ -210,15 +201,13 @@ export class NgbModalStack {
     );
 
     const componentRef: any = contentCmptFactory.create(modalContentInjector);
-    const componentNativeEl = componentRef.location.nativeElement;
     if (this._props) {
       for (let prop in this._props) {
         componentRef.instance[prop] = this._props[prop];
       }
     }
     this._applicationRef.attachView(componentRef.hostView);
-    // FIXME: we should here get rid of the component nativeElement
-    // and use `[Array.from(componentNativeEl.childNodes)]` instead and remove the above CSS class.
+   
     return new ContentRef(
       [[componentRef.location.nativeElement]],
       componentRef.hostView,
