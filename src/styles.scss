@@ -6,6 +6,7 @@
 
 
 html {
+    @include ds-theme($theme-blue);
     &.blue{
         @include ds-theme($theme-blue);
         .dark-mode {

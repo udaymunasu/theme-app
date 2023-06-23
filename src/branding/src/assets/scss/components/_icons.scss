@@ -1,5 +1,7 @@
+@use "../index.scss" as *;
+
 $icon-prefix: px-iocns;
-$icon-color: var(--icon-color, #005b8f);
+$icon-color: var(--icon-color, $CP3);
 
 @mixin icons() {
     .px-icons {

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <header>
     <div class="ds-header">
       Header
@@ -9,15 +9,11 @@
     </div>
 
     <div class="ds-header-action">
-      <app-mode-switch
-        *ngIf="themeConfig"
-        [modeConfig]="themeConfig"
-      ></app-mode-switch>
+      
     </div>
   </header>
 </div>
 
-<router-outlet></router-outlet>
 
 <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
   <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
@@ -30,4 +26,26 @@
     <div>Downloads</div>
     <div>Contact Us</div>
   </div>
+</div> -->
+
+<!-- Side navigation -->
+<div class="sidenav">
+  <div class="sidenav-hedding">Sidebar</div>
+  <div class="link" routerLink="header" routerLinkActive="active">Header</div>
+  <div class="link" routerLink="panel" routerLinkActive="active">Panel</div>
+  <div class="link" routerLink="card" routerLinkActive="active">Card</div>
+  <div class="link" routerLink="Icons" routerLinkActive="active">Icon</div>
+  <div class="link" routerLink="modal" routerLinkActive="active">Modal</div>
+  <div class="link" routerLink="Icons" routerLinkActive="active">
+    Contact Us
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="main">
+  <!-- <app-mode-switch
+        *ngIf="themeConfig"
+        [modeConfig]="themeConfig"
+      ></app-mode-switch> -->
+  <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,7 @@
+@use '../../../branding/src/assets/scss/index.scss' as *;
+
+.px-panel--card {
+    &.ds-card--elevation-md {
+        box-shadow: $box-shadow-sm;
+    }
+}

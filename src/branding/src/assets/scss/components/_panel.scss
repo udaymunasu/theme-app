@@ -4,16 +4,16 @@
     .px-panel {
         width: 100%;
         font-size: 14px;
-        display:flex;
-        background: white;
+        display: flex;
+        background: $CB0;
         border: 1px solid lightblue;
-        gap: 16px;
-        flex-direction: column;
+        gap: var(--layout-direction, 16px);
+        flex-direction: var(--layout-direction, column);
 
         &.px-panel--card {
             border-radius: 4px;
             padding: 16px;
-            box-shadow: 0px 0px 6px 0px $CG4 0px 0px 6px 0px $CG4 0px 0px 6px 0px $CG4;
+            box-shadow: $box-shadow-md;
         }
     }
 }
