@@ -10,12 +10,14 @@ export class MegamenuComponent implements OnInit {
 
   @Input() menuItems: any
 
+  isMenuPanelVisible: boolean
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  showPanel($event){
+  showPanel(event , isCollapseClick?: boolean){
 
   }
 
