@@ -1,0 +1,9 @@
+@use "../../../branding/src/assets/scss/index.scss" as *;
+
+ds-header {
+    .ds-header-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0px
+    }
+}

@@ -21,6 +21,12 @@ import { NgbModalBackdrop } from './components/modal/modal-backdrop';
 import { NgbActiveModal } from './components/modal/modal-ref';
 import { ExampleModalComponent } from './example-modal/example-modal.component';
 import { DialogService } from './primeng-modal/dialog/dynamicdialog/public_api';
+import { ModalDismissDirective, ModalCloseDirective } from './components/modal/modal-close-dir.directive';
+import { HeaderComponent } from './components/header/header.component';
+import { HeaderActionComponent } from './components/header/ds-header-action/ds-header-action';
+import { SubHeaderComponent } from './components/header/ds-sub-header/ds-sub-header';
+import { MegamenuComponent } from './components/megamenu/megamenu.component';
+import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
 // import { ChevronLeftIcon } from './primeng-modal/dialog/icons/chevronleft/chevronleft';
 // import { ChevronRightIcon } from './primeng-modal/dialog/icons/chevronright/chevronright';
 // import { TimesIcon } from './primeng-modal/dialog/icons/times/times';
@@ -41,7 +47,14 @@ import { DialogService } from './primeng-modal/dialog/dynamicdialog/public_api';
     CardDemoComponent,
     ModelDemoComponent,
     NgbModalWindow,
-    ExampleModalComponent
+    ModalDismissDirective,
+    ModalCloseDirective,
+    ExampleModalComponent,
+    HeaderComponent,
+    HeaderActionComponent,
+    SubHeaderComponent,
+    MegamenuComponent,
+    MegamenuDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +63,8 @@ import { DialogService } from './primeng-modal/dialog/dynamicdialog/public_api';
     
   ],
   entryComponents: [NgbModalWindow, NgbModalBackdrop],
-  exports: [bnyCssTooltipDirective],
+  exports: [bnyCssTooltipDirective,ModalDismissDirective,
+    ModalCloseDirective,HeaderComponent],
   providers: [DsModal, NgbModalStack, NgbActiveModal,
 
     DialogService

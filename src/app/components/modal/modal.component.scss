@@ -1,3 +1,5 @@
+@use "../../../branding/src/assets/scss/index.scss" as *;
+
 .show.window-flex {
     display: flex !important;
 }
@@ -11,10 +13,15 @@
     top: 0;
     right: 0;
     bottom: 0;
+    justify-content: center;
     left: 0;
-    z-index: 1100;
+    outline: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
     opacity: 0.5;
     background-color: black;
+    align-items: center;
+
 }
 
 .modal-open {
@@ -38,7 +45,7 @@
         transition: all 0.3s ease-in-out;
 
         .ds-modal__dialog {
-            box-shadow: 0 0 35px 7px rgba(0, 0, 0, 0.5);
+            box-shadow: $EL2;
             position: absolute;
             min-width: 600px;
             min-height: 100px;

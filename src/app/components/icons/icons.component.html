@@ -1,9 +1,14 @@
 <div class="container">
   <div
+  
     *ngFor="let icon of icons"
+    (click)="copyCode(icon.name)"
     class="px-panel px-panel--card bny-css-tooltip tooltip-bottom"
     bnyCssTooltip="{{ icon.name }}"
   >
     <span class="px-icons {{ icon.name }}"></span>
   </div>
+
+  <span *ngIf="copyStatus"  class="copy-status" @fadeIn @fadeOut>{{copyStatusMsg}}</span>
+
 </div>

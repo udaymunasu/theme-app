@@ -81,7 +81,7 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
 
 
   
-  backdropClock($event): void {
+  backdropClick($event): void {
     if (this.backdrop === true && this._elRef.nativeElement === $event.target) {
       this.dismiss(ModalDismissReasons.BACKDROP_CLICK);
     }

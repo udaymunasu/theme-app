@@ -1,0 +1,114 @@
+<div
+  class="bny-megamenu"
+  #rootList
+  (mouseEnter)="showPanel($event)"
+  (mouseLeave)="hidePanel()"
+  (click)="clickShow($event)"
+>
+  <div #item class="bny-megamenu-item">
+    <span class="bny-mm-link">
+      <div class="px-icons close"></div>
+      <div class="bny-mm-text">Discovery and planning</div>
+    </span>
+  </div>
+  <div #item class="bny-megamenu-item">
+    <span class="bny-mm-link">
+      <div class="px-icons close"></div>
+      <div class="bny-mm-text">Accounts</div>
+    </span>
+  </div>
+  <div #item class="bny-megamenu-item">
+    <span class="bny-mm-link">
+      <div class="px-icons close"></div>
+      <div class="bny-mm-text">Monitering</div>
+    </span>
+  </div>
+  <div #item class="bny-megamenu-item">
+    <span class="bny-mm-link">
+      <div class="px-icons close"></div>
+      <div class="bny-mm-text">Service</div>
+    </span>
+  </div>
+</div>
+
+<div
+  class="bny-megamenu-content"
+  [ngClass]="{'hide-menu': !isMenuPanelVisible}"
+  (mouseEnter)="showPanel($event)"
+  (mouseLeave)="hidePanel()"
+  style="visibility: hidden"
+>
+  <div class="mm-container">
+    <div class="mm-column">
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> AdvicePath </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Fashion </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Trending </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Reach </span>
+      </span>
+    </div>
+
+    <div class="mm-column">
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> AdvicePath </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Fashion </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Trending </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Reach </span>
+      </span>
+    </div>
+
+    <div class="mm-column">
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> AdvicePath </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Fashion </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Trending </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Reach </span>
+      </span>
+    </div>
+
+    <div class="mm-column">
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> AdvicePath </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Fashion </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Trending </span>
+      </span>
+
+      <span class="bny-mm-link">
+        <span class="bny-mm-text"> Reach </span>
+      </span>
+    </div>
+  </div>
+</div>

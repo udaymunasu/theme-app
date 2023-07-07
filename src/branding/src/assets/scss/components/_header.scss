@@ -1,7 +1,7 @@
 @use "../index.scss" as *;
 
 @mixin header-content {
-    .ds-header {
+    .px-header {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -20,19 +20,20 @@
             border-bottom: 1px solid var(--header-line, $CG4);
         }
 
-        .ds-sub-header {
-            display: flex;
-            align-items: flex-end;
-            line-height: 1.1rem;
-            font-size: var(--sub-header-fs, 14px);
-            padding: var(--sub-header-pd, 8px 0 0 0);
-        }
+        
         > span {
             line-height: 10px;
         }
     }
+    .px-sub-header {
+        display: flex;
+        align-items: flex-end;
+        line-height: 1.1rem;
+        font-size: var(--sub-header-fs, 14px);
+        padding: var(--sub-header-pd, 8px 0 0 0);
+    }
 
-    .ds-header-action {
+    .px-header-action {
         display: flex;
         align-items: center;
         font-size: 14px;
@@ -49,7 +50,7 @@
 }
 
 @mixin header {
-    header {
+    ds-header {
         width:100%;
         color: var(--header-txt, $CG4);
         padding: 0- 0 8px 0;

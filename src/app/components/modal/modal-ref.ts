@@ -114,12 +114,15 @@ export class NgbModalRef {
    */
   dismiss(reason?: any): void {
     if (this._windowCmptRef) {
+
+      // if(this._windowCmptRef.instance.sidePanelCofig)
+
       if (!this._beforeDismiss) {
         this._dismiss(reason);
       } else {
         const dismiss = this._beforeDismiss();
         if (dismiss && dismiss.then) {
-          dismiss.then((result) => {
+          dismiss.then(result => {
             if (result !== false) {
               this._dismiss(reason);
             }

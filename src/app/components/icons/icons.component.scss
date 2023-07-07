@@ -5,4 +5,16 @@
         width:20px;
         margin:10px
     }
+
+    .copy-status {
+        position: fixed;
+        bottom:50%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+        
+    }
 }
