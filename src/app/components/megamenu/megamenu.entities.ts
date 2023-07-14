@@ -3,11 +3,11 @@ export interface MenuItems {
     icon?: string;
     url?: string;
     routerLink?: string;
-    items?: Array<MenuItems>;
+    items?: MenuItems;
     expanded?: string;
     routerLinkActive?: string;
     styleClass?: string;
-    id: string;
+    id?: string;
     title: string;
     name: string;
 }

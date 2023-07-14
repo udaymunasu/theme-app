@@ -1,26 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-@use "../src/branding/src/assets/scss/theme/palettes/blue" as *;
-// @use "../src/branding/src/assets/scss/theme/fonts" as *;
-@use "../src/branding/src/assets/scss/globals.scss" as *;
-@use "../src/branding/src/assets/scss/index.scss" as *;
 
-
-html {
-    @include ds-theme($theme-blue);
-    &.blue{
-        @include ds-theme($theme-blue);
-        .dark-mode {
-            @include ds-theme($theme-dark-blue);
-        }
-    }
-    &.purple{
-        @include ds-theme($theme-blue);
-        .dark-mode {
-            @include ds-theme($theme-dark-blue);
-        }
-    }
-   
-}
 
 .popover-right {
     transform-origin: center left;
@@ -31,11 +9,6 @@ html {
     display:none;
     padding: .25em .5rem;
     max-width: 12.5rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    background: #fff;
-        border-radius: 5px;
-        padding: 10px;
-
 }
 
 .p-tooltip.p-tooltip-right,
@@ -45,6 +18,7 @@ html {
 
 .p-tooltip.p-tooltip-top,
 .p-tooltip.p-tooltip-bottom {
+    padding:.25em 0;
 }
 
 .p-tooltip .p-tooltip-text {
@@ -91,11 +65,3 @@ html {
     margin-left: -.25rem;
     border-width: 0 .25em .25rem;
 }
-
-// div {
-//     display: inline;
-// }
-
-// body {
-//     display: inline;
-// }

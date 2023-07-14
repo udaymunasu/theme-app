@@ -27,6 +27,8 @@ import { HeaderActionComponent } from './components/header/ds-header-action/ds-h
 import { SubHeaderComponent } from './components/header/ds-sub-header/ds-sub-header';
 import { MegamenuComponent } from './components/megamenu/megamenu.component';
 import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
+import {   PopoverDirective } from './components/popover/popover.component';
+import { Tooltip } from './components/popover/popover.directive';
 // import { ChevronLeftIcon } from './primeng-modal/dialog/icons/chevronleft/chevronleft';
 // import { ChevronRightIcon } from './primeng-modal/dialog/icons/chevronright/chevronright';
 // import { TimesIcon } from './primeng-modal/dialog/icons/times/times';
@@ -54,7 +56,9 @@ import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.compo
     HeaderActionComponent,
     SubHeaderComponent,
     MegamenuComponent,
-    MegamenuDemoComponent
+    MegamenuDemoComponent,
+    Tooltip,
+    PopoverDirective
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,7 @@ import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.compo
   ],
   entryComponents: [NgbModalWindow, NgbModalBackdrop],
   exports: [bnyCssTooltipDirective,ModalDismissDirective,
-    ModalCloseDirective,HeaderComponent],
+    ModalCloseDirective,HeaderComponent, PopoverDirective],
   providers: [DsModal, NgbModalStack, NgbActiveModal,
 
     DialogService
