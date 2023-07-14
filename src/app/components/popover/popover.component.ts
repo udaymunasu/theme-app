@@ -2,6 +2,8 @@ import { isPlatformBrowser } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
+  ComponentFactoryResolver,
+  ComponentRef,
   Directive,
   ElementRef,
   HostListener,
@@ -16,6 +18,7 @@ import {
   SimpleChanges,
   TemplateRef,
 } from '@angular/core';
+import { CustomPopoverComponent } from './custom-popover';
 
 export interface Position {
   top: string;
@@ -50,56 +53,99 @@ export type PlacementArray = Placement | Array<Placement>;
 //   templateUrl: './popover.component.html',
 //   styleUrls: ['./popover.component.scss'],
 // })
-export class PopoverDirective {
+export class PopoverDirective implements OnInit {
   @Input('newPopover') content: string;
+  @Input() position: string = 'top';
   private popovarElement: HTMLElement;
+  private popoverVisible: boolean;
+
+  private popoverRef: ComponentRef<CustomPopoverComponent>
 
   constructor(
-    public el: ElementRef,
+    public elementRef: ElementRef,
     public zone: NgZone,
+    private componentFactoryResolver: ComponentFactoryResolver,
     private changeDetector: ChangeDetectorRef,
     private rendererFactory: RendererFactory2,
     private renderer: Renderer2
   ) {}
 
+  ngOnInit() {
+    this.createPopoverElement();
+  }
+
+  private createPopoverElement() {
+    this.popovarElement = document.createElement('div');
+
+    this.popovarElement.className = 'popover';
+    this.popovarElement.textContent = this.content;
+
+    document.body.appendChild(this.popovarElement);
+  }
+
+  private popoverPosition() {
+    const target = this.elementRef.nativeElement;
+    const targetRect = target.getBoundingClientRect();
+    const popoverRect = this.popovarElement.getBoundingClientRect();
+
+    const displayRatio = window.innerWidth / window.innerHeight;
+
+    let position: string;
+
+    if(displayRatio >= 1) {
+      position = 'right';
+    }else {
+      position = 'bottom';
+    }
+
+    let top, left;
+
+    switch (this.position) {
+      case 'top':
+        top = targetRect.top - popoverRect.height;
+        left = targetRect.left + (targetRect.width - popoverRect.width) / 2;
+        break;
+      case 'bottom':
+        top = targetRect.bottom;
+        left = targetRect.left + (targetRect.width - popoverRect.width) / 2;
+        break;
+      case 'left':
+        top = targetRect.top -  (targetRect.height - popoverRect.height) / 2;
+        left = targetRect.left + popoverRect.width;
+        break;
+      case 'right':
+        top = targetRect.top - popoverRect.height;
+        left = targetRect.left + (targetRect.width - popoverRect.width) / 2;
+        break;
+    }
+
+    this.popovarElement.style.top = `${top}px`;
+    this.popovarElement.style.left = `${left}px`;
+
+  }
+
   @HostListener('mouseenter') onMouseEnter() {
-    this.showPopover();
+    if (!this.popoverVisible) {
+      this.popoverVisible = true;
+      this.popoverPosition();
+      this.showPopover();
+
+    }
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    this.hidePopover();
+    if (this.popoverVisible) {
+      this.popoverVisible = false;
+      this.hidePopover();
+    }
   }
 
   private showPopover() {
-    if (!this.popovarElement) {
-      this.popovarElement = this.createPopoverElement();
-
-      document.body.appendChild(this.popovarElement);
-      this.popovarElement.style.position = 'absolute';
-    }
-
-    const { top, left } = this.el.nativeElement.getBoundingClientRect();
-
-    this.popovarElement.style.top = `${top + window.scrollY}px`;
-    this.popovarElement.style.left = `${left + window.scrollY}px`;
     this.popovarElement.style.display = 'block';
   }
 
   private hidePopover() {
-    if (this.popovarElement) {
-        this.popovarElement.style.display = 'none';
-
-    }
+    this.popovarElement.style.display = 'none';
   }
-  contentElement: any;
-  private createPopoverElement(): HTMLElement {
-    const popovarElement = this.renderer.createElement('div');
-    popovarElement.textContent = this.content;
-
-    popovarElement.classList.add('popover')
-    this.popovarElement.style.position = 'absolute';
-
-
-    return popovarElement;
-  }
+  // contentElement: any;
 }

@@ -29,6 +29,7 @@ import { MegamenuComponent } from './components/megamenu/megamenu.component';
 import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
 import {   PopoverDirective } from './components/popover/popover.component';
 import { Tooltip } from './components/popover/popover.directive';
+import { CustomPopoverComponent } from './components/popover/custom-popover';
 // import { ChevronLeftIcon } from './primeng-modal/dialog/icons/chevronleft/chevronleft';
 // import { ChevronRightIcon } from './primeng-modal/dialog/icons/chevronright/chevronright';
 // import { TimesIcon } from './primeng-modal/dialog/icons/times/times';
@@ -58,7 +59,7 @@ import { Tooltip } from './components/popover/popover.directive';
     MegamenuComponent,
     MegamenuDemoComponent,
     Tooltip,
-    PopoverDirective
+    PopoverDirective, CustomPopoverComponent
   ],
   imports: [
     BrowserModule,
