@@ -21,15 +21,23 @@ import { NgbModalBackdrop } from './components/modal/modal-backdrop';
 import { NgbActiveModal } from './components/modal/modal-ref';
 import { ExampleModalComponent } from './example-modal/example-modal.component';
 import { DialogService } from './primeng-modal/dialog/dynamicdialog/public_api';
-import { ModalDismissDirective, ModalCloseDirective } from './components/modal/modal-close-dir.directive';
+import {
+  ModalDismissDirective,
+  ModalCloseDirective,
+} from './components/modal/modal-close-dir.directive';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderActionComponent } from './components/header/ds-header-action/ds-header-action';
 import { SubHeaderComponent } from './components/header/ds-sub-header/ds-sub-header';
 import { MegamenuComponent } from './components/megamenu/megamenu.component';
 import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
+<<<<<<< Updated upstream
 import {   PopoverDirective } from './components/popover/popover.component';
 import { Tooltip } from './components/popover/popover.directive';
 import { CustomPopoverComponent } from './components/popover/custom-popover';
+import { SidebarService } from './components/sidebar/sidebar.service';
+=======
+import { SidebarService } from './components/sidebar/sidebar.service';
+>>>>>>> Stashed changes
 // import { ChevronLeftIcon } from './primeng-modal/dialog/icons/chevronleft/chevronleft';
 // import { ChevronRightIcon } from './primeng-modal/dialog/icons/chevronright/chevronright';
 // import { TimesIcon } from './primeng-modal/dialog/icons/times/times';
@@ -58,24 +66,24 @@ import { CustomPopoverComponent } from './components/popover/custom-popover';
     SubHeaderComponent,
     MegamenuComponent,
     MegamenuDemoComponent,
-    Tooltip,
-    PopoverDirective, CustomPopoverComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,BrowserAnimationsModule,   
-
-    
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   entryComponents: [NgbModalWindow, NgbModalBackdrop],
-  exports: [bnyCssTooltipDirective,ModalDismissDirective,
-    ModalCloseDirective,HeaderComponent, PopoverDirective],
-  providers: [DsModal, NgbModalStack, NgbActiveModal,
+  exports: [
+    bnyCssTooltipDirective,
+    ModalDismissDirective,
+    ModalCloseDirective,
+    HeaderComponent,
+  ],
+  providers: [
+    DsModal,
+    NgbModalStack,
+    NgbActiveModal,
+    SidebarService,
 
-    DialogService
-  
+    DialogService,
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
