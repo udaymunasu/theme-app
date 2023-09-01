@@ -14,17 +14,16 @@ import { NgbModalWindow } from './modal-window';
  * So you can `.update()`, `.close()` or `.dismiss()` the modal window from your component.
  */
 export class NgbActiveModal {
- 
-  close(result?: any): void { }
+  close(result?: any): void {}
 
   /**
    * Dismisses the modal with an optional `reason` value.
    *
    * The `NgbModalRef.result` promise will be rejected with the provided value.
    */
-  dismiss(reason?: any): void { }
+  dismiss(reason?: any): void {}
 
-  setChildernHeader(element: HTMLElement): void { }
+  setChildernHeader(element: HTMLElement): void {}
 
   data: any;
 }
@@ -114,7 +113,6 @@ export class NgbModalRef {
    */
   dismiss(reason?: any): void {
     if (this._windowCmptRef) {
-
       // if(this._windowCmptRef.instance.sidePanelCofig)
 
       if (!this._beforeDismiss) {
@@ -122,7 +120,7 @@ export class NgbModalRef {
       } else {
         const dismiss = this._beforeDismiss();
         if (dismiss && dismiss.then) {
-          dismiss.then(result => {
+          dismiss.then((result) => {
             if (result !== false) {
               this._dismiss(reason);
             }
@@ -134,79 +132,70 @@ export class NgbModalRef {
     }
   }
 
-
   setChildernHeader(element: HTMLElement): void {
-    this._windowCmptRef.instance.setDraggableHeader(element)
+    this._windowCmptRef.instance.setDraggableHeader(element);
   }
 
   private _removeModalElements() {
-
     if (this._windowCmptRef.instance.coordinates) {
       this._windowCmptRef.instance.localModalWrapperRef.classList.add(
         'transform-modal'
-        );
+      );
 
       const animation = this._builder.build([
         style({
           opacity: '1',
-          transform: 'scale(0.5)'
+          transform: 'scale(0.5)',
         }),
-        animate('350ms ease-in-out',
-        style({
-          opacity: '0',
-          transform: 'scale(0.2)'
-        }),
-        )
+        animate(
+          '350ms ease-in-out',
+          style({
+            opacity: '0',
+            transform: 'scale(0.2)',
+          })
+        ),
       ]);
 
-      const player = animation.create(this._windowCmptRef?.instance.modalCmptWrapper.nativeElement, {});
+      const player = animation.create(
+        this._windowCmptRef?.instance.modalCmptWrapper.nativeElement,
+        {}
+      );
 
       setTimeout(() => {
         player.play();
-      }, 300)
+      }, 300);
 
       setTimeout(() => {
-       this._destroyModal();
-       this._windowCmptRef.instance.localModalWrapperRef.classList.remove(
-        'transform-modal');
+        this._destroyModal();
+        this._windowCmptRef.instance.localModalWrapperRef.classList.remove(
+          'transform-modal'
+        );
       }, 750);
-    
-    }
-    else {
+    } else {
       this._destroyModal();
     }
   }
 
   private _destroyModal() {
-    const windowsNativeEl = this._windowCmptRef.location.nativeElement
+    const windowsNativeEl = this._windowCmptRef.location.nativeElement;
 
-    if(windowsNativeEl && windowsNativeEl.parentNode) {
-      windowsNativeEl.parentNode.removeChild(windowsNativeEl)
+    if (windowsNativeEl && windowsNativeEl.parentNode) {
+      windowsNativeEl.parentNode.removeChild(windowsNativeEl);
     }
 
     this._windowCmptRef?.destroy();
-    if(this._backdropCmptRef) {
+    if (this._backdropCmptRef) {
       const backdropNativeEl = this._backdropCmptRef.location.nativeElement;
-      backdropNativeEl.parentNode.removeChild(backdropNativeEl)
-      this._backdropCmptRef.destroy()
+      backdropNativeEl.parentNode.removeChild(backdropNativeEl);
+      this._backdropCmptRef.destroy();
     }
 
-    if(this._contentRef && this._contentRef.viewRef) {
-      this._contentRef.viewRef.destroy()
+    if (this._contentRef && this._contentRef.viewRef) {
+      this._contentRef.viewRef.destroy();
     }
 
     this._windowCmptRef = null;
     this._backdropCmptRef = null;
-    this._contentRef = null
+    this._contentRef = null;
   }
-    
-    
-    
-    
-
-
-
-
-
-
 }

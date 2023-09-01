@@ -1,0 +1,42 @@
+.sidebar {
+    width: 0px;
+    background-color: #263238;
+    backdrop-filter: blur(10px);
+    font-size: 20px;
+    transition: width 0.5s ease-in-out;
+
+    color: #ffffff;
+    overflow: hidden;
+    height: 100%;
+    &.expanded {
+        width: 300px;
+        padding: 20px;
+    }
+
+    .link {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #ffffff;
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+            color: #64b5f6;
+        }
+
+        &.active {
+            font-weight: bold;
+            color: #ff7043;
+        }
+
+
+    }
+}
+
+
+
+
+.collapsed .sidebar {
+    width: 20px;
+}

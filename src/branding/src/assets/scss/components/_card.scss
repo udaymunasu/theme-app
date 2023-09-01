@@ -1,0 +1,47 @@
+@use "../index.scss" as *;
+
+@mixin card {
+    .ds-card {
+        font-size: 20px;
+        width: 100%;
+        display: flex;
+        background: var(--card-bg, white);
+        border: var(--card-bdr-width, 0px) solid var(--card-bdr-color, lightgray);
+        flex-direction: var(--card-direction, column);
+        gap: var(--card-gap, 10px);
+        padding: 16px; //global-padding
+        border-radius: 4px; //$border-rd
+        box-shadow: $EL1;
+        transition: all 0.4s ease-in-out;
+        overflow: auto;
+
+        &.card--secondary {
+            --card-bg: #{$CG1};
+        }
+
+        &.card--row {
+            --card-direction: row;
+        }
+
+        &.card--column {
+            --card-direction: column;
+        }
+
+        &.card-elevation--xs {
+            box-shadow: $EL1;
+        }
+        &.card-elevation--md {
+            box-shadow: $EL2;
+        }
+        &.card-elevation--lg {
+            box-shadow: $EL3;
+        }
+
+        &.card--hover {
+            cursor: pointer;
+            &:hover {
+                box-shadow: $EL4;
+            }
+        }
+    }
+}

@@ -1,1 +1,52 @@
-<app-card>This Is Panel</app-card>
+<div class="card-demo-container">
+  <div class="card-type-container">
+    <div>
+      <div class="card-title">Default</div>
+      <app-card>
+        <section>Some Card content</section>
+      </app-card>
+    </div>
+    <div>
+      <div class="card-title">elevation md</div>
+      <app-card elevation="md">
+        <section>Some Card content</section>
+      </app-card>
+    </div>
+    <div>
+      <div class="card-title">elevation lg</div>
+      <app-card elevation="lg">
+        <section>Some Card content</section>
+      </app-card>
+    </div>
+  </div>
+
+  <div class="card-type-container">
+    <div>
+      <div class="card-title">Multiple content in carg</div>
+      <app-card [direction]="'row'">
+        <section>Section 1</section>
+        <section>Section 2</section>
+        <section>Section 3</section>
+        <section>Section 4</section>
+      </app-card>
+    </div>
+    <div>
+      <div class="card-title">Multiple content in carg</div>
+      <app-card [direction]="'column'">
+        <section>Section 1</section>
+        <section>Section 2</section>
+        <section>Section 3</section>
+        <section>Section 4</section>
+      </app-card>
+    </div>
+  </div>
+
+  <div class="card-type-container">
+    <div>
+      <div class="card-title">Clickable</div>
+      <app-card [addEventsFor]="eventPasses">
+        <section>Some Card content</section>
+      </app-card>
+    </div>
+  </div>
+</div>

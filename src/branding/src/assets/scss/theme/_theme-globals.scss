@@ -1,12 +1,17 @@
 @use "sass:map";
+@use "sass:string";
+
 @use "./palettes/blue" as *;
+@use "./common/elevation.scss" as *;
 
 $vars: ();
+$lob: elv !default;
 
-@function str-replace($string, $search, $replace: '') {
+@function str-replace($string, $search, $replace: "") {
     $index: str-index($string, $search);
     @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
     }
 
     @return $string;
@@ -56,12 +61,15 @@ $vars: ();
             #{"--ds-"+ $var}: map.get($value, "name");
         }
     }
-    #{"--ds-el-1"}: 0px 1px 3px 0px hexToRba(v2c($CB1), 0.20),0px 2px 2px 0px hexToRba(v2c($CB1), 0.12),0px 0px 2px 0px hexToRba(v2c($CB0), 0.14);
-    #{"--ds-el-2"}: 0px 1px 10px 0px hexToRba(v2c($CB1), 0.20),0px 4px 5px 0px hexToRba(v2c($CB1), 0.12),0px 2px 4px 0px hexToRba(v2c($CB0), 0.14);
-    #{"--ds-el-3"}: 0px 3px 5px 0px hexToRba(v2c($CB1), 0.20),0px 1px 10px 0px hexToRba(v2c($CB1), 0.12),0px 6px 10px 0px hexToRba(v2c($CB0), 0.14);
+
+    @each $var, $elevation in $elevations {
+        #{"--ds-"+ $var}: string.unquote(map.get($elevation, $lob));
+    }
+    // #{"--ds-el-1"}: 0px 1px 3px 0px rgba(0,0,0,0.20),0px 2px 2px 0px rgba(0,0,0,0.12),0px 0px 2px 0px rgba(0,0,0,0.14);
+    // #{"--ds-el-2"}: 0px 1px 3px 0px rgba(0,0,0,0.20),0px 2px 2px 0pxrgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
+    // #{"--ds-el-3"}: 0px 1px 10px 0px rgba(0,0,0,0.20),0px 4px 5px 0px rgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
+    // #{"--ds-el-4"}: 0px 3px 5px 0px rgba(0,0,0,0.20),0px 1px 18px 0px rgba(0,0,0,0.12),0px 6px 10px 0px rgba(0,0,0,0.14);
 }
-
-
 
 @function hexToRba($variable, $alpha) {
     $red: red($variable);
@@ -70,7 +78,7 @@ $vars: ();
 
     $rgbaValue: rgba($red, $green, $blue, $alpha);
     // @debug  $rgbaValue;
-    @return  $rgbaValue;
+    @return $rgbaValue;
 }
 
 $CB0: var(--ds-base-0);
@@ -90,10 +98,10 @@ $CE4: var(--ds-error);
 $CC4: var(--ds-caution);
 $CI4: var(--ds-info);
 
+// Box-shadows:
 
-// Box-shadows: 
-
-$EL1: var(--ds-el-1);
-$EL2: var(--ds-el-2);
-$EL3: var(--ds-el-3);
+$EL1: var(--ds-elevation-xs);
+$EL2: var(--ds-elevation-sm);
+$EL3: var(--ds-elevation-md);
+$EL4: var(--ds-elevation-lg);
 

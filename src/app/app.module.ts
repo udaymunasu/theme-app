@@ -30,19 +30,26 @@ import { HeaderActionComponent } from './components/header/ds-header-action/ds-h
 import { SubHeaderComponent } from './components/header/ds-sub-header/ds-sub-header';
 import { MegamenuComponent } from './components/megamenu/megamenu.component';
 import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
-<<<<<<< Updated upstream
-import {   PopoverDirective } from './components/popover/popover.component';
+import { PopoverDirective } from './components/popover/popover.component';
 import { Tooltip } from './components/popover/popover.directive';
 import { CustomPopoverComponent } from './components/popover/custom-popover';
 import { SidebarService } from './components/sidebar/sidebar.service';
-=======
-import { SidebarService } from './components/sidebar/sidebar.service';
->>>>>>> Stashed changes
-// import { ChevronLeftIcon } from './primeng-modal/dialog/icons/chevronleft/chevronleft';
-// import { ChevronRightIcon } from './primeng-modal/dialog/icons/chevronright/chevronright';
-// import { TimesIcon } from './primeng-modal/dialog/icons/times/times';
-// import { WindowMaximizeIcon } from './primeng-modal/dialog/icons/windowmaximize/windowmaximize';
-// import { WindowMinimizeIcon } from './primeng-modal/dialog/icons/windowminimize/windowminimize';
+import { PopoverDemoComponent } from './demos/popover-demo/popover-demo.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { closeDirective } from './components/sidebar/close-directive';
+import { SidebarWindow } from './components/sidebar/sidebar-window';
+import { appSidebarComponent } from './layout/sidebar/sidebar.component';
+import { appHeaderComponent } from './layout/header/header.component';
+import { DsDropdownComponent } from './components/ds-dropdown/ds-dropdown.component';
+import { DsDropdownInputComponent } from './components/ds-dropdown/ds-dropdown-input/ds-dropdown-input.component';
+import { DsDropdownItemComponent } from './components/ds-dropdown/ds-dropdown-item/ds-dropdown-item.component';
+import { DsTabsComponent } from './components/ds-tabs/ds-tabs.component';
+import { DsTabComponent } from './components/ds-tabs/ds-tab/ds-tab.component';
+import { DsTabHeaderComponent } from './components/ds-tabs/ds-tab-header/ds-tab-header.component';
+import { DsTabBodyComponent } from './components/ds-tabs/ds-tab-body/ds-tab-body.component';
+import { DSTabsService } from './components/ds-tabs/ds-tab.service';
+import { PortalModule } from '@angular/cdk/portal';
+import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
 
 @NgModule({
   declarations: [
@@ -64,24 +71,41 @@ import { SidebarService } from './components/sidebar/sidebar.service';
     HeaderComponent,
     HeaderActionComponent,
     SubHeaderComponent,
+    closeDirective,
     MegamenuComponent,
     MegamenuDemoComponent,
+    PopoverDirective,
+    Tooltip,
+    PopoverDemoComponent,
+    SidebarComponent,
+    appSidebarComponent,
+    appHeaderComponent,
+    SidebarWindow,
+    DsDropdownComponent,
+    DsDropdownInputComponent,
+    DsDropdownItemComponent,
+    DsTabsComponent,
+    DsTabComponent,
+    DsTabHeaderComponent,
+    DsTabBodyComponent,
+    TabsDemoComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,PortalModule],
   entryComponents: [NgbModalWindow, NgbModalBackdrop],
   exports: [
     bnyCssTooltipDirective,
     ModalDismissDirective,
     ModalCloseDirective,
     HeaderComponent,
+    closeDirective,
   ],
   providers: [
     DsModal,
     NgbModalStack,
     NgbActiveModal,
     SidebarService,
-
-    DialogService,
+    closeDirective,
+    DialogService,appSidebarComponent, DSTabsService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

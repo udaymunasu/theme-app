@@ -6,6 +6,8 @@ import { HeaderDemoComponent } from './demos/header-demo/header-demo.component';
 import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
 import { ModelDemoComponent } from './demos/model-demo/model-demo.component';
 import { PanelDemoComponent } from './demos/panel-demo/panel-demo.component';
+import { PopoverDemoComponent } from './demos/popover-demo/popover-demo.component';
+import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,14 @@ const routes: Routes = [
   {
     path: 'megamenu',
     component: MegamenuDemoComponent
+  },
+  {
+    path: 'popover',
+    component: PopoverDemoComponent
+  },
+  {
+    path: 'tabs',
+    component: TabsDemoComponent
   },
 ];
 

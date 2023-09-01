@@ -1,0 +1,44 @@
+<ds-tab-header>
+  <div class="ds-tabs" #tabRef>
+    <ng-container *ngFor="let tab of tabs; let i = index">
+      <div
+        class="ds-tab"
+        tabindex="0"
+        [attr.tabid]="i"
+        (click)="selectTab(tab, i)"
+        (mouseenter)="mouseEnter(tab)"
+        (mouseleave)="mouseOut()"
+        (keydown)="selectFocusTab($event)"
+        [ngClass]="{ active: tab.active }"
+      >
+        <ng-template [ngIf]="tab.titleTemplate" [ngIfElse]="tabTextLabel">
+          <ng-template *ngTemplateOutlet="tab.titleTemplate"></ng-template>
+        </ng-template>
+
+        <ng-template #tabTextLabel>{{ tab.title }}</ng-template>
+      </div>
+    </ng-container>
+
+    <span class="highlight selected-highlight"
+      [style.--highlight-left]="hightLightObj.highlightLeft"
+      [style.--highlight-width]="hightLightObj.highLightWidth"
+    ></span>
+    <span
+    class="highlight hover-highlight"
+      [style.--highlight-left]="hightLightObj.hoverHighlightLeft"
+      [style.--highlight-width]="hightLightObj.hoverHighLightWidth"
+    ></span>
+  </div>
+</ds-tab-header>
+
+<div
+  class="ds-tabs-carousal"
+  [style.--tabs-cnt]="tabs.length"
+  [style.--tabs-pos]="selectedIndex"
+>
+  <div class="ds-tabs-carousal-content">
+    <ng-container *ngFor="let tab of tabs; let i = index">
+      <ds-tab-body [content]="tab.content!"> </ds-tab-body>
+    </ng-container>
+  </div>
+</div>

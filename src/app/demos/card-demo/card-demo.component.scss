@@ -1,7 +1,21 @@
+.card-demo-container {
+    display: flex;
+    flex-direction: column;
 
-app-card {
-    width: 100px;
-    height: 100px;
-    padding: 16px;
-    margin: 10px;
+    .card-type-container {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+        padding: 20px;
+
+        div {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        app-card {
+            width: 100px;
+            height: 100px;
+        }
+    }
 }

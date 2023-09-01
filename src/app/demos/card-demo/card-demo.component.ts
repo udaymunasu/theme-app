@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDemoComponent implements OnInit {
 
+  eventPasses = ["click"]
+
   constructor() { }
 
   ngOnInit(): void {
