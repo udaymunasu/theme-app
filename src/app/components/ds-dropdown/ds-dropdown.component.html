@@ -1,10 +1,11 @@
-<div>
-  <div class="select-input-container" #selectInputContainer>
+<div class="px-select">
+  <div class="select-input-container" #selectInputContainerTpl
+  (focus)="onFocus($event)" (blur)="onBlur($event)">
     <ds-dropdown-input
       [placeholder]="configOptions?.placeholder"
     ></ds-dropdown-input>
   </div>
-  <div #listContainer>
-    <ds-dropdown-item [options]="items"></ds-dropdown-item>
+  <div class="px-select-list" #listContainerTpl>
+    <ng-container></ng-container>
   </div>
 </div>

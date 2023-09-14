@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="panels">
+        <div class="panels-header"></div>
+        <div class="panels-body">
+            <form #iconGeneratorForm="ngForm" (submit)="generate(iconGeneratorForm)" noValidate>
+                <label>Icon Name</label>
+                <input type="text" name="iconName" [(ngModel)]="iconGeneratorForm.value.iconName" required
+                    placeholder="Please insert icon name" />
+
+                <label>Svg Upload</label>
+                <input type="file" (click)="clear()" #svgUpload name="svgUpload" (change)="convertImage($event)"
+                    [(ngModel)]="iconGeneratorForm.value.svgUpload" required placeholder="Svg Upload" />
+
+                <div class="or">OR</div>
+
+                <label>Svg Code</label>
+                <input (click)="clearForm()" type="text" name="svgCode" [(ngModel)]="iconGeneratorForm.value.svgCode"
+                    required placeholder="Svg Code" />
+
+                <label>Width And Height</label>
+
+                <input type="range" min="1" max="100" [(ngModel)]="svgwh" class="slider" name="svgwh" />
+
+                <input type="text" [(ngModel)]="svgwh" class="slider" name="svgwhValue" />
+
+                <div class="forn-footer">
+                    <div class="sapmle" (click)="loadSampleSvg()"></div>
+                    Sample Svg
+                </div>
+
+                <button [disabled]="!iconGeneratorForm.value.svgCode">Generate</button>
+            </form>
+
+            <div class="panel-header">Svg Icon Links</div>
+            <div class="panel-body">
+                <ul class="svg-icon-links">
+                    <li>
+                        <a href="https://www.svgrepo.com/">svgRepo.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="panels">
+        <div class="panels-header">Output</div>
+        <div class="panels-body">
+            <div class="generated-icon">
+                <span class="preview" *ngIf="!generatedCss" @fadeIn @fadeOut>Icon Preview</span>
+                <span class="demo-icon" *ngIf="generatedCss" @fadeIn @fadeOut></span>
+            </div>
+
+            <div class="generated-code">
+                <span class="preview" *ngIf="!generatedCss" @fadeIn @fadeOut>Generated Css Preview</span>
+                <pre *ngIf="generatedCss" @fadeIn @fadeOut>
+                {{ generatedCss }}
+            </pre>
+                <span class="copy-code" *ngIf="generatedCss" @fadeIn @fadeOut (click)="copyCode()">Copy
+                </span>
+                <span class="copy-status" *ngIf="copyStatusMassage" @fadeIn @fadeOut (click)="copyCode()">{{
+                    copyStatusMassage }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

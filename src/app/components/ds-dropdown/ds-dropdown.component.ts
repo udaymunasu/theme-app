@@ -36,7 +36,9 @@ export class DsDropdownComponent implements OnInit {
 
 
   @ViewChild('selectInputContainer', {static: true}) selectInputContainer: ElementRef;
-  @ViewChild('listContainer') listContainer: ElementRef;
+  @ViewChild('listContainerTpl') listContainerTpl: ElementRef;
+
+
   ngOnInit(): void {
     this.show()
   }
@@ -55,9 +57,18 @@ export class DsDropdownComponent implements OnInit {
     // this.addPopupEventListner();
 
     DomHandlere.absolutePosition(
-      this.listContainer.nativeElement,
+      this.listContainerTpl.nativeElement,
       this.selectInputContainer.nativeElement
     )
+  }
+
+  onFocus(event) {
+    console.log("onFocus", event)
+  }
+
+  onBlur(event) {
+    console.log("onBlur", event)
+
   }
 
 }

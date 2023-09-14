@@ -80,75 +80,91 @@ $icon-color: var(--icon-color, $CP3);
             background-color: $icon-color;
             mask-image: url('data:image/svg+xml;utf-8, <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 6C5.34315 6 4 7.34315 4 9H20C20 7.34315 18.6569 6 17 6H7Z" fill="currentColor" /><path d="M7 18C5.34315 18 4 16.6569 4 15H20C20 16.6569 18.6569 18 17 18H7Z" fill="currentColor" /><path d="M3 11C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H21C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11H3Z" fill="currentColor" /></svg> ');
         }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }// &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
+        //  Arrows :
 
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        // &.alarm {
-        //     background-color: $icon-color;
-        //     mask-image: url('data:image/svg+xml;utf-8, ');
-        // }
-        
+        &.caret_down {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 14 8">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"/>   </svg>');
+        }
 
+        &.caret_left {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 8 14">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>   </svg>');
+        }
+
+        &.caret_right {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 8 14">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>   </svg>');
+        }
+
+        &.caret_up {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 14 8">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>   </svg>');
+        }
+
+        &.arrow_down {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 10 14">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1v12m0 0 4-4m-4 4L1 9"/>   </svg>');
+        }
+
+        &.arrow_download {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 18">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>   </svg>');
+        }
+
+        &.arrow_left {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 14 10">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>   </svg>');
+        }
+
+        &.arrow_right {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 14 10">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>   </svg>');
+        }
+
+        &.caret_down {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 10">     <path d="M15.434 1.235A2 2 0 0 0 13.586 0H2.414A2 2 0 0 0 1 3.414L6.586 9a2 2 0 0 0 2.828 0L15 3.414a2 2 0 0 0 .434-2.179Z"/>   </svg>');
+        }
+
+        &.caret_left {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 10 16">     <path d="M8.766.566A2 2 0 0 0 6.586 1L1 6.586a2 2 0 0 0 0 2.828L6.586 15A2 2 0 0 0 10 13.586V2.414A2 2 0 0 0 8.766.566Z"/>   </svg>');
+        }
+
+        &.caret_right {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 10 16">     <path d="M3.414 1A2 2 0 0 0 0 2.414v11.172A2 2 0 0 0 3.414 15L9 9.414a2 2 0 0 0 0-2.828L3.414 1Z"/>   </svg>');
+        }
+
+        &.caret_up {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 10">     <path d="M9.207 1A2 2 0 0 0 6.38 1L.793 6.586A2 2 0 0 0 2.207 10H13.38a2 2 0 0 0 1.414-3.414L9.207 1Z"/>   </svg>');
+        }
+
+        &.external_link {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 18 18">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>   </svg>');
+        }
+
+        &.maximize {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 18 18">     <path d="M18 .989a1.016 1.016 0 0 0-.056-.277c-.011-.034-.009-.073-.023-.1a.786.786 0 0 0-.066-.1.979.979 0 0 0-.156-.224l-.007-.01a.873.873 0 0 0-.116-.073.985.985 0 0 0-.2-.128.959.959 0 0 0-.231-.047A.925.925 0 0 0 17 0h-4a1 1 0 1 0 0 2h1.664l-3.388 3.552a1 1 0 0 0 1.448 1.381L16 3.5V5a1 1 0 0 0 2 0V.989ZM17 12a1 1 0 0 0-1 1v1.586l-3.293-3.293a1 1 0 0 0-1.414 1.414L14.586 16H13a1 1 0 0 0 0 2h4a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1ZM3.414 2H5a1 1 0 0 0 0-2H1a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V3.414l3.536 3.535A1 1 0 0 0 6.95 5.535L3.414 2Zm2.139 9.276L2 14.665V13a1 1 0 1 0-2 0v4c.006.046.015.09.027.135.006.08.022.16.048.235a.954.954 0 0 0 .128.2.95.95 0 0 0 .073.117l.01.007A.983.983 0 0 0 1 18h4a1 1 0 0 0 0-2H3.5l3.436-3.276a1 1 0 0 0-1.38-1.448h-.003Z"/>   </svg>');
+        }
+
+        &.forward {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 19 17">     <path d="M2.057 6.9a8.718 8.718 0 0 1 6.41-3.62v-1.2A2.064 2.064 0 0 1 9.626.2a1.979 1.979 0 0 1 2.1.23l5.481 4.308a2.107 2.107 0 0 1 0 3.3l-5.479 4.308a1.977 1.977 0 0 1-2.1.228 2.063 2.063 0 0 1-1.158-1.876v-.942c-5.32 1.284-6.2 5.25-6.238 5.44a1 1 0 0 1-.921.807h-.06a1 1 0 0 1-.953-.7A10.24 10.24 0 0 1 2.057 6.9Z"/>   </svg>');
+        }
+
+        &.rotate {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 18 20">     <path d="M17 9a1 1 0 0 0-1 1 6.994 6.994 0 0 1-11.89 5H7a1 1 0 0 0 0-2H2.236a1 1 0 0 0-.585.07c-.019.007-.037.011-.055.018-.018.007-.028.006-.04.014-.028.015-.044.042-.069.06A.984.984 0 0 0 1 14v5a1 1 0 1 0 2 0v-2.32A8.977 8.977 0 0 0 18 10a1 1 0 0 0-1-1ZM2 10a6.994 6.994 0 0 1 11.89-5H11a1 1 0 0 0 0 2h4.768a.992.992 0 0 0 .581-.07c.019-.007.037-.011.055-.018.018-.007.027-.006.04-.014.028-.015.044-.042.07-.06A.985.985 0 0 0 17 6V1a1 1 0 1 0-2 0v2.32A8.977 8.977 0 0 0 0 10a1 1 0 1 0 2 0Z"/>   </svg>');
+        }
+
+        &.reply {
+            background-color: $icon-color;
+            mask-image: url('data:image/svg+xml;utf-8,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 16">     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.5 4.046H9V2.119c0-.921-.9-1.446-1.524-.894l-5.108 4.49a1.2 1.2 0 0 0 0 1.739l5.108 4.49C8.1 12.5 9 11.971 9 11.051V9.123h2a3.023 3.023 0 0 1 3 3.046V15a5.593 5.593 0 0 0-1.5-10.954Z"/>   </svg>');
+          }
     }
 }

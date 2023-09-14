@@ -3,6 +3,8 @@
 
 @use "./palettes/blue" as *;
 @use "./common/elevation.scss" as *;
+@use "./fonts/inter" as *;
+
 
 $vars: ();
 $lob: elv !default;
@@ -38,14 +40,15 @@ $lob: elv !default;
     @return $basePath + "/font" + "/" + $file;
 }
 
-@mixin ds-theme($colors, $fonts: (), $fontPath: "../..") {
+@mixin ds-theme($colors, $fonts: $inter, $fontPath: "../..") {
     $vars: map.merge($colors, $fonts) !global;
 
     @if $fonts {
         @each $font, $details in $fonts {
             @include fontFace(
                 map.get($details, name),
-                wrappetFontPath($fontPath, map.get($details, file)) map.get($details, weight),
+                wrappetFontPath($fontPath, map.get($details, file)),
+                map.get($details, weight),
                 map.get($details, style),
                 map.get($details, ext),
                 map.get($details, format)
@@ -97,6 +100,26 @@ $CS4: var(--ds-success);
 $CE4: var(--ds-error);
 $CC4: var(--ds-caution);
 $CI4: var(--ds-info);
+
+
+/*Fonts:*/
+
+$FT1: var(--ds-FT1);
+$FT2: var(--ds-FT2);
+$FT3: var(--ds-FT3);
+$FT4: var(--ds-FT4);
+$FT5: var(--ds-FT5);
+$FT6: var(--ds-FT6);
+$FT7: var(--ds-FT7);
+$FT8: var(--ds-FT8);
+$FT1i: var(--ds-FT1i);
+$FT2i: var(--ds-FT2i);
+$FT3i: var(--ds-FT3i);
+$FT4i: var(--ds-FT4i);
+$FT5i: var(--ds-FT5i);
+$FT6i: var(--ds-FT6i);
+$FT7i: var(--ds-FT7i);
+$FT8i: var(--ds-FT8i);
 
 // Box-shadows:
 

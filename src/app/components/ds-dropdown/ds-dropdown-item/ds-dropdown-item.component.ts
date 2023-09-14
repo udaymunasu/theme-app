@@ -19,6 +19,7 @@ export class DsDropdownItemComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log("Label in select item", this.label)
   }
 
   selectedOptionValue(isChecked?: boolean) {

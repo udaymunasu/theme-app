@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IconGenComponent } from './components/icon-gen/icon-gen.component';
 import { IconsComponent } from './components/icons/icons.component';
 import { CardDemoComponent } from './demos/card-demo/card-demo.component';
+import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.component';
 import { HeaderDemoComponent } from './demos/header-demo/header-demo.component';
 import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
 import { ModelDemoComponent } from './demos/model-demo/model-demo.component';
@@ -13,6 +15,10 @@ const routes: Routes = [
   {
     path: 'Icons',
     component: IconsComponent
+  },
+  {
+    path: 'iconGen',
+    component: IconGenComponent
   },
   {
     path: 'panel',
@@ -45,6 +51,10 @@ const routes: Routes = [
   {
     path: 'tabs',
     component: TabsDemoComponent
+  },
+  {
+    path: 'dropdown',
+    component: DropdownDemoComponent
   },
 ];
 

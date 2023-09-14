@@ -50,6 +50,9 @@ import { DsTabBodyComponent } from './components/ds-tabs/ds-tab-body/ds-tab-body
 import { DSTabsService } from './components/ds-tabs/ds-tab.service';
 import { PortalModule } from '@angular/cdk/portal';
 import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
+import { IconGenComponent } from './components/icon-gen/icon-gen.component';
+import { FormsModule } from '@angular/forms';
+import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.component';
 
 @NgModule({
   declarations: [
@@ -88,9 +91,11 @@ import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
     DsTabComponent,
     DsTabHeaderComponent,
     DsTabBodyComponent,
-    TabsDemoComponent
+    TabsDemoComponent,
+    IconGenComponent,
+    DropdownDemoComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,PortalModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,PortalModule, FormsModule],
   entryComponents: [NgbModalWindow, NgbModalBackdrop],
   exports: [
     bnyCssTooltipDirective,
