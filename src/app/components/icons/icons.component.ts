@@ -89,6 +89,10 @@ export class IconsComponent implements OnInit {
     {
       name: 'menu',
     },
+    {
+      name: 'file-check',
+    },
+
   ];
 
   generatedCss: string;

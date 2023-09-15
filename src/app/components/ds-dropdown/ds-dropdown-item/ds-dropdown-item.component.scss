@@ -1,0 +1,12 @@
+@use "../../../../branding/src/assets/scss/index.scss" as *;
+
+.px-list-item {
+    display: flex;
+    color: black;
+    cursor: pointer;
+    font-family: $FT4;
+    padding: 14px 16px;
+    font-size: 16px;
+    border-bottom: 1px solid grey;
+    transition: all 0.3s ease-in-out;
+}

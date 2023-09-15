@@ -26,9 +26,6 @@ export class DsDropdownItemComponent implements OnInit {
     if(this.disabled) {
       return
     }
-    // if(!isNullOrUndefined(isChecked)) {
-    //   this.isChecked = isChecked;
-    // }
   }
 
 }

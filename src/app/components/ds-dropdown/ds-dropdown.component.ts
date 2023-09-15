@@ -34,6 +34,7 @@ export class DsDropdownComponent implements OnInit {
     }
   ];
 
+  showList: boolean = false
 
   @ViewChild('selectInputContainer', {static: true}) selectInputContainer: ElementRef;
   @ViewChild('listContainerTpl') listContainerTpl: ElementRef;
@@ -41,6 +42,13 @@ export class DsDropdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.show()
+  }
+
+  toggleDropDown() {
+    this.showList = !this.showList;
+    if(this.showList) {
+      this.listContainerTpl.nativeElement.focus()
+    }
   }
 
   visible: boolean;
