@@ -1,0 +1,11 @@
+<button
+  class="px-btn"
+  [class]="classes"
+  [disabled]="disabled"
+  (click)="onButtonClick($event)"
+  #dsbutton
+>
+  <ng-content select="[position]='left'"></ng-content>
+  <ng-content></ng-content>
+  <ng-content select="[position]='right'"></ng-content>
+</button>

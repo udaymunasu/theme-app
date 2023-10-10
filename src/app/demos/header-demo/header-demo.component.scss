@@ -1,1 +1,14 @@
 @use "../../../branding/src/assets/scss/index.scss" as *;
+
+
+.header-demo-container {
+    display: flex;
+    flex-direction: column;
+    gap:48px;
+
+    .header-demo {
+        display: flex;
+        flex-direction: column;
+        gap:24px;
+    }
+}

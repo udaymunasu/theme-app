@@ -1,82 +1,86 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { DomHandlere } from '../dom-handler';
+import { fromEvent, Subscription } from 'rxjs';
+import { UDDomHandlere } from '../dom-handler';
 import { DsDropdownConfigOptions } from './dropdown.entities';
+import { DsDropdownService } from './dropdown.service';
 
 @Component({
   selector: 'ds-dropdown',
   templateUrl: './ds-dropdown.component.html',
-  styleUrls: ['./ds-dropdown.component.scss']
+  styleUrls: ['./ds-dropdown.component.scss'],
 })
 export class DsDropdownComponent implements OnInit {
+  constructor(
+    private elementRef: ElementRef,
+    private ddmenuservice: DsDropdownService
+  ) {}
 
-  constructor() { }
+  isBtmPosition: boolean = false;
+  isMenuOpen: boolean;
+  clickOutsideSubscription: Subscription | any;
 
+  observer: IntersectionObserver;
+  @Input() alignMenu: string = 'left';
   @Input() configOptions: DsDropdownConfigOptions;
 
-  items = [
-    {
-      label: 'label 1',
-      value: 'value 1',
-      isChecked: false,
-      isDisabled: false
-    },
-    {
-      label: 'label 2',
-      value: 'value 2',
-      isChecked: false,
-      isDisabled: false
-    },
-    {
-      label: 'label 3',
-      value: 'value 3',
-      isChecked: false,
-      isDisabled: false
-    }
-  ];
 
-  showList: boolean = false
+  showMenu: boolean = false;
 
-  @ViewChild('selectInputContainer', {static: true}) selectInputContainer: ElementRef;
-  @ViewChild('listContainerTpl') listContainerTpl: ElementRef;
-
+  @ViewChild('selectInputContainer', { static: true })
+  selectInputContainer: ElementRef;
+  @ViewChild('dropdownItemCtn') dropdownItemCtn: ElementRef;
 
   ngOnInit(): void {
-    this.show()
   }
 
-  toggleDropDown() {
-    this.showList = !this.showList;
-    if(this.showList) {
-      this.listContainerTpl.nativeElement.focus()
+  menuPosition(isBtm: boolean) {
+    if (this.selectInputContainer?.nativeElement && this.dropdownItemCtn?.nativeElement) {
+      this.ddmenuservice.setMenuPosition(
+        this.selectInputContainer?.nativeElement,
+        this.dropdownItemCtn?.nativeElement,
+        isBtm,
+        this.alignMenu
+      );
     }
   }
 
-  visible: boolean;
-  isListOpen: boolean
 
-  toggle() {
-    if(!this.visible) this.show()
+  toggleDropDown(dropdownState: boolean) {
+    this.isMenuOpen = dropdownState;
+    this.showMenu = true;
+    if (this.isMenuOpen) {
+      this.addEventListners()
+      this.menuPosition(this.isBtmPosition);
+    } else if(this.dropdownItemCtn?.nativeElement) {
+      this.showMenu = false;
+      this.isBtmPosition =  false;
+      // DomHandlere.removeClild()
+    }
   }
 
-
-  show() {
-    this.visible = true;
-    this.isListOpen = true;
-    // this.addPopupEventListner();
-
-    DomHandlere.absolutePosition(
-      this.listContainerTpl.nativeElement,
-      this.selectInputContainer.nativeElement
-    )
+  private addEventListners() {
+    this.clickOutsideSubscription = fromEvent(window, 'click').subscribe(
+      (event: any) => {
+        this.clickOutside(event);
+      }
+    );
   }
 
-  onFocus(event) {
-    console.log("onFocus", event)
+  private removeEventListner() {
+    this.clickOutsideSubscription?.unsubscribe();
+    this.clickOutsideSubscription = null;
+    this.observer?.unobserve(this.dropdownItemCtn?.nativeElement);
   }
 
-  onBlur(event) {
-    console.log("onBlur", event)
-
+  private clickOutside(event: any) {
+    if (
+      document.contains(event.target) &&
+      !this.dropdownItemCtn.nativeElement.contains(event.target) &&
+      !this.elementRef.nativeElement.contains(event.target)
+    ) {
+      this.toggleDropDown(false);
+      this.removeEventListner();
+    }
   }
 
 }

@@ -1,4 +1,4 @@
-export class DomHandlere {
+export class UDDomHandlere {
   public static absolutePosition(
     element: any,
     target: any,
@@ -44,5 +44,28 @@ export class DomHandlere {
       return true;
     }
     return false;
+  }
+
+  /**
+   * Dropdown open :
+   *
+   */
+
+  public static isElement(obj: any) {
+    return typeof HTMLElement === 'object'
+      ? obj instanceof HTMLElement
+      : obj &&
+          typeof obj === 'object' &&
+          obj != null &&
+          obj.nodeType === 1 &&
+          typeof obj.nodeName === 'string';
+  }
+
+  public static appendChild(element: any, targetElm: any) {
+    const target: any = targetElm === 'body' ? document.body : targetElm;
+    if (this.isElement(target)) target.appendChild(element);
+    else if (target.el && target.el.nativeElement)
+      target.el.nativeElement.appendChild(element);
+    else throw 'cannot Append' + target + 'to' + element;
   }
 }

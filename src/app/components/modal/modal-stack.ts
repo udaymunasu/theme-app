@@ -12,9 +12,9 @@ import {
 import { DOCUMENT } from '@angular/common';
 
 import { NgbModalBackdrop } from './modal-backdrop';
-import { NgbModalWindow } from './modal-window';
+import { DsModalWindow } from './modal-window';
 import { NgbModalOptions } from './modal-config';
-import { NgbActiveModal, NgbModalRef } from './modal-ref';
+import { DsActiveModal, DsModalRef } from './modal-ref';
 import { ContentRef } from './popup';
 import { isDefined, isString } from './util';
 import { AnimationBuilder } from '@angular/animations';
@@ -49,7 +49,7 @@ export class NgbModalStack {
     contentInjector: Injector,
     content: any,
     options
-  ): NgbModalRef {
+  ): DsModalRef {
     const containerEl = isDefined(options.container)
       ? this._document.querySelector(options.container)
       : this._document.body;
@@ -62,7 +62,7 @@ export class NgbModalStack {
       );
     }
 
-    const activeModal = new NgbActiveModal();
+    const activeModal = new DsActiveModal();
 
     activeModal.data = options?.data;
 
@@ -78,10 +78,10 @@ export class NgbModalStack {
     let backdropCmptRef: ComponentRef<NgbModalBackdrop> | any =
       options.backdrop !== false ? this._attachBackdrop(containerEl) : null;
 
-    let windowCmptRef: ComponentRef<NgbModalWindow> =
+    let windowCmptRef: ComponentRef<DsModalWindow> =
       this._attachWindowComponent(containerEl, contentRef);
 
-    let ngbModalRef: NgbModalRef = new NgbModalRef(
+    let ngbModalRef: DsModalRef = new DsModalRef(
       windowCmptRef,
       contentRef,
       backdropCmptRef,
@@ -121,9 +121,9 @@ export class NgbModalStack {
   private _attachWindowComponent(
     containerEl: any,
     contentRef: any
-  ): ComponentRef<NgbModalWindow> {
+  ): ComponentRef<DsModalWindow> {
     let windowFactory =
-      this._componentFactoryResolver.resolveComponentFactory(NgbModalWindow);
+      this._componentFactoryResolver.resolveComponentFactory(DsModalWindow);
     const windowCmptRef = windowFactory.create(this._injector, contentRef.nodes);
     this._applicationRef.attachView(windowCmptRef.hostView);
     containerEl.appendChild(windowCmptRef.location.nativeElement);
@@ -131,7 +131,7 @@ export class NgbModalStack {
   }
 
   private _applyWindowOptions(
-    windowInstance: NgbModalWindow,
+    windowInstance: DsModalWindow,
     options: NgbModalOptions
   ): void {
     this._windowAttributes.forEach((optionName: string) => {
@@ -142,7 +142,7 @@ export class NgbModalStack {
   }
 
   private _applyBackdropOptions(
-    backdropInstance: NgbModalWindow,
+    backdropInstance: DsModalWindow,
     options: NgbModalOptions
   ): void {
     this._backdropAttributes.forEach((optionName: string) => {
@@ -156,7 +156,7 @@ export class NgbModalStack {
     moduleCFR: ComponentFactoryResolver,
     contentInjector: Injector,
     content: any,
-    context: NgbActiveModal
+    context: DsActiveModal
   ): ContentRef {
     if (!content) {
       return new ContentRef([]);
@@ -176,7 +176,7 @@ export class NgbModalStack {
 
   private _createFromTemplateRef(
     content: TemplateRef<any>,
-    context: NgbActiveModal
+    context: DsActiveModal
   ): ContentRef {
     const viewRef = content.createEmbeddedView(context);
     this._applicationRef.attachView(viewRef);
@@ -192,11 +192,11 @@ export class NgbModalStack {
     moduleCFR: ComponentFactoryResolver,
     contentInjector: Injector,
     content: any,
-    context: NgbActiveModal
+    context: DsActiveModal
   ): ContentRef {
     const contentCmptFactory = moduleCFR.resolveComponentFactory(content);
     const modalContentInjector = Injector.create(
-      [{ provide: NgbActiveModal, useValue: context }],
+      [{ provide: DsActiveModal, useValue: context }],
       contentInjector
     );
 

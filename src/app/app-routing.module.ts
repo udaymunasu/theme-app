@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IconGenComponent } from './components/icon-gen/icon-gen.component';
 import { IconsComponent } from './components/icons/icons.component';
+import {  AgGridDemoComponent } from './demos/ag-grid/ag-grid.component';
+import { ButtonDemoComponent } from './demos/button-demo/button-demo.component';
 import { CardDemoComponent } from './demos/card-demo/card-demo.component';
 import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.component';
 import { HeaderDemoComponent } from './demos/header-demo/header-demo.component';
@@ -12,6 +14,15 @@ import { PopoverDemoComponent } from './demos/popover-demo/popover-demo.componen
 import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/header', pathMatch: 'full' },
+  {
+    path: 'buttons',
+    component: ButtonDemoComponent
+  },
+  {
+    path: 'grid',
+    component: AgGridDemoComponent
+  },
   {
     path: 'Icons',
     component: IconsComponent

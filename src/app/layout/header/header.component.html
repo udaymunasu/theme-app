@@ -1,10 +1,11 @@
 <header>
   <div class="header-container">
     <div class="header-logo">
+      <div class="px-icons {{isSideBarCollapsed ? 'close' : ' hamburger'}}" (click)="toggleSideBar()"></div>
       <h1>Custom header</h1>
-      <div class="menu-icon" (click)="toggleSideBar()">
-        <button>Toggle Sidebar</button>
-      </div>
     </div>
+<div>
+  <app-mode-switch [modeConfig]="modeConfig"></app-mode-switch>
+</div>
   </div>
 </header>

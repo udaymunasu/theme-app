@@ -5,7 +5,7 @@ import { ContentRef } from './popup';
 import { from, Observable } from 'rxjs';
 
 import { NgbModalBackdrop } from './modal-backdrop';
-import { NgbModalWindow } from './modal-window';
+import { DsModalWindow } from './modal-window';
 
 /**
  * A reference to the currently opened (active) modal.
@@ -13,7 +13,7 @@ import { NgbModalWindow } from './modal-window';
  * Instances of this class can be injected into your component passed as modal content.
  * So you can `.update()`, `.close()` or `.dismiss()` the modal window from your component.
  */
-export class NgbActiveModal {
+export class DsActiveModal {
   close(result?: any): void {}
 
   /**
@@ -46,7 +46,7 @@ const BACKDROP_ATTRIBUTES: string[] = ['animation', 'backdropClass'];
 /**
  * A reference to the newly opened modal returned by the `NgbModal.open()` method.
  */
-export class NgbModalRef {
+export class DsModalRef {
   private _resolve: (result?: any) => void;
   private _reject: (reason?: any) => void;
 
@@ -69,7 +69,7 @@ export class NgbModalRef {
   result$: Observable<any>;
 
   constructor(
-    private _windowCmptRef: ComponentRef<NgbModalWindow>,
+    private _windowCmptRef: ComponentRef<DsModalWindow>,
     private _contentRef: ContentRef,
     private _backdropCmptRef?: ComponentRef<NgbModalBackdrop>,
     private _beforeDismiss?: () => any,

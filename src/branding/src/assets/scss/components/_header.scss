@@ -6,21 +6,16 @@
         align-items: center;
         flex-direction: column;
         justify-content: space-between;
-        font-size: 28px;
+        font-size: var(--mu-header-fs, var(--header-fs, 28px));
         line-height: 1;
         justify-content: var(--header-justift, space-between);
 
         
 
-        &.ds-header--line {
+        .px-header--line {
             border-bottom: 1px solid var(--header-line, $CG4);
         }
 
-        .ds-header--line {
-            border-bottom: 1px solid var(--header-line, $CG4);
-        }
-
-        
         > span {
             line-height: 10px;
         }
@@ -31,6 +26,9 @@
         line-height: 1.1rem;
         font-size: var(--sub-header-fs, 14px);
         padding: var(--sub-header-pd, 8px 0 0 0);
+    }
+    &.px-header--line {
+        border-bottom: 1px solid var(--header-line, $CG4);
     }
 
     .px-header-action {
@@ -51,13 +49,26 @@
 
 @mixin header {
     ds-header {
-        width:100%;
+        width: 100%;
         color: var(--header-txt, $CG4);
         padding: 0- 0 8px 0;
-        display:flex;
+        padding: var(--mu-header-pading, 0 0 8px 0);
+        display: flex;
         position: relative;
         flex-flow: row;
         justify-content: space-between;
         @include header-content();
+
+        &.px-header--sm {
+            --mu-header-fs: 20px;
+        }
+
+        &.px-header--md {
+            --mu-header-fs: 28px;
+        }
+
+        &.px-header--lg {
+            --mu-header-fs: 32px;
+        }
     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './components/sidebar/sidebar.service';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { appSidebarComponent } from './layout/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   public sidebarShow: boolean = false;
 
   openSidebar() {
-    this.sidebar.open(SidebarComponent, 'left');
+    this.sidebar.open(appSidebarComponent);
   }
 
   items = [
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   ];
 
   modeConfig = {
-    themes: ['blue'],
+    themes: ['purple'],
     defaultTheme: 'blue',
     enableDarkModeSwitch: true,
     enableThemeSwitch: true,

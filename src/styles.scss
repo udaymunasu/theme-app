@@ -1,11 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@use "../src/branding/src/assets/scss/theme/palettes/blue" as *;
-@use "../src/branding/src/assets/scss/theme/fonts" as *;
+@use "../src/branding/src/assets/scss/theme/palettes" as *;
+// @use "../src/branding/src/assets/scss/theme/fonts" as *;
 @use "../src/branding/src/assets/scss/globals.scss" as *;
 @use "../src/branding/src/assets/scss/index.scss" as *;
 
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
 html {
-    @include ds-theme($theme-blue);
+    @include ds-theme($theme-purple);
+    .dark-mode {
+        @include ds-theme($theme-dark-purple);
+    }
     &.blue {
         @include ds-theme($theme-blue);
         .dark-mode {
@@ -13,9 +19,32 @@ html {
         }
     }
     &.purple {
-        @include ds-theme($theme-blue);
+        @include ds-theme($theme-purple);
         .dark-mode {
-            @include ds-theme($theme-dark-blue);
+            @include ds-theme($theme-dark-purple);
+        }
+    }
+}
+
+.ag-cell {
+    display:flex;
+    align-items: center;
+    line-height: normal;
+}
+
+.security-container {
+    display:flex;
+    flex-flow: column;
+
+    .ticker-container {
+        display:flex;
+        font-size: 10px;
+        .ticker-value {
+            border-right: 1px solid grey;
+            padding: 2px 5px 3px 0;
+        }
+        .cusip-value {
+            padding: 2px 0px 2px 5px;
         }
     }
 }

@@ -1,47 +1,49 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2, SkipSelf } from "@angular/core";
-import { NgbActiveModal } from "./modal-ref";
-
-
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  SkipSelf,
+} from '@angular/core';
+import { DsActiveModal } from './modal-ref';
 
 @Directive({
-    selector: '[modal-close]',
-    exportAs: 'modal-close'
+  selector: '[modal-close]',
+  exportAs: 'modal-close',
 })
-
 export class ModalCloseDirective implements OnInit {
-    @Input('modal-close') modalClose: any;
+  @Input('modal-close') modalClose: any;
 
-    constructor(
-        @SkipSelf() private modal: NgbActiveModal,
-        private renderer: Renderer2,
-        private element: ElementRef
-    ) {}
+  constructor(
+    @SkipSelf() private modal: DsActiveModal,
+    private renderer: Renderer2,
+    private element: ElementRef
+  ) {}
 
-    ngOnInit(): void {
-        this.renderer.listen(this.element.nativeElement, 'click', () => {
-            this.modal.close(this.modalClose);
-        })
-    }
+  ngOnInit(): void {
+    this.renderer.listen(this.element.nativeElement, 'click', () => {
+      this.modal.close(this.modalClose);
+    });
+  }
 }
 
-
 @Directive({
-    selector: '[modal-dismiss]',
-    exportAs: 'modal-dismiss'
+  selector: '[modal-dismiss]',
+  exportAs: 'modal-dismiss',
 })
-
 export class ModalDismissDirective implements OnInit {
-    @Input('modal-dismiss') modalDismiss: any;
+  @Input('modal-dismiss') modalDismiss: any;
 
-    constructor(
-        @SkipSelf() private modal: NgbActiveModal,
-        private renderer: Renderer2,
-        private element: ElementRef
-    ) {}
+  constructor(
+    @SkipSelf() private modal: DsActiveModal,
+    private renderer: Renderer2,
+    private element: ElementRef
+  ) {}
 
-    ngOnInit(): void {
-        this.renderer.listen(this.element.nativeElement, 'click', () => {
-            this.modal.close(this.modalDismiss);
-        })
-    }
+  ngOnInit(): void {
+    this.renderer.listen(this.element.nativeElement, 'click', () => {
+      this.modal.close(this.modalDismiss);
+    });
+  }
 }

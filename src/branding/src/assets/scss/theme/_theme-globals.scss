@@ -1,10 +1,11 @@
 @use "sass:map";
 @use "sass:string";
 
-@use "./palettes/blue" as *;
+// @use "./pale" as *;
+@use "./palettes/index.scss" as *;
+
 @use "./common/elevation.scss" as *;
 @use "./fonts/inter" as *;
-
 
 $vars: ();
 $lob: elv !default;
@@ -40,21 +41,21 @@ $lob: elv !default;
     @return $basePath + "/font" + "/" + $file;
 }
 
-@mixin ds-theme($colors, $fonts: $inter, $fontPath: "../..") {
-    $vars: map.merge($colors, $fonts) !global;
+@mixin ds-theme($colors,  $fontPath: "../..") {
+    // $vars: map.merge($colors) !global;
 
-    @if $fonts {
-        @each $font, $details in $fonts {
-            @include fontFace(
-                map.get($details, name),
-                wrappetFontPath($fontPath, map.get($details, file)),
-                map.get($details, weight),
-                map.get($details, style),
-                map.get($details, ext),
-                map.get($details, format)
-            );
-        }
-    }
+    // @if $fonts {
+    //     @each $font, $details in $fonts {
+    //         @include fontFace(
+    //             map.get($details, name),
+    //             wrappetFontPath($fontPath, map.get($details, file)),
+    //             map.get($details, weight),
+    //             map.get($details, style),
+    //             map.get($details, ext),
+    //             map.get($details, format)
+    //         );
+    //     }
+    // }
 
     @each $var, $value in $vars {
         @if type-of($value) == "color" {
@@ -74,6 +75,41 @@ $lob: elv !default;
     // #{"--ds-el-4"}: 0px 3px 5px 0px rgba(0,0,0,0.20),0px 1px 18px 0px rgba(0,0,0,0.12),0px 6px 10px 0px rgba(0,0,0,0.14);
 }
 
+
+// @mixin ds-theme($colors, $fonts: $inter, $fontPath: "../..") {
+//     $vars: map.merge($colors, $fonts) !global;
+
+//     @if $fonts {
+//         @each $font, $details in $fonts {
+//             @include fontFace(
+//                 map.get($details, name),
+//                 wrappetFontPath($fontPath, map.get($details, file)),
+//                 map.get($details, weight),
+//                 map.get($details, style),
+//                 map.get($details, ext),
+//                 map.get($details, format)
+//             );
+//         }
+//     }
+
+//     @each $var, $value in $vars {
+//         @if type-of($value) == "color" {
+//             #{"--ds-"+ $var}: $value;
+//         }
+//         @if type-of($value) == "map" {
+//             #{"--ds-"+ $var}: map.get($value, "name");
+//         }
+//     }
+
+//     @each $var, $elevation in $elevations {
+//         #{"--ds-"+ $var}: string.unquote(map.get($elevation, $lob));
+//     }
+//     // #{"--ds-el-1"}: 0px 1px 3px 0px rgba(0,0,0,0.20),0px 2px 2px 0px rgba(0,0,0,0.12),0px 0px 2px 0px rgba(0,0,0,0.14);
+//     // #{"--ds-el-2"}: 0px 1px 3px 0px rgba(0,0,0,0.20),0px 2px 2px 0pxrgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
+//     // #{"--ds-el-3"}: 0px 1px 10px 0px rgba(0,0,0,0.20),0px 4px 5px 0px rgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
+//     // #{"--ds-el-4"}: 0px 3px 5px 0px rgba(0,0,0,0.20),0px 1px 18px 0px rgba(0,0,0,0.12),0px 6px 10px 0px rgba(0,0,0,0.14);
+// }
+
 @function hexToRba($variable, $alpha) {
     $red: red($variable);
     $green: green($variable);
@@ -86,21 +122,48 @@ $lob: elv !default;
 
 $CB0: var(--ds-base-0);
 $CB1: var(--ds-base-1);
+
 $CP1: var(--ds-primary-1);
 $CP2: var(--ds-primary-2);
 $CP3: var(--ds-primary-3);
 $CP4: var(--ds-primary-4);
 $CP5: var(--ds-primary-5);
 $CP6: var(--ds-primary-6);
+$CP7: var(--ds-primary-7);
+$CP8: var(--ds-primary-8);
+$CP9: var(--ds-primary-9);
+$CP10: var(--ds-primary-10);
+
 $CG1: var(--ds-gray-1);
 $CG2: var(--ds-gray-2);
 $CG3: var(--ds-gray-3);
-$CG4: var(--ds-grays-4);
-$CS4: var(--ds-success);
-$CE4: var(--ds-error);
-$CC4: var(--ds-caution);
-$CI4: var(--ds-info);
+$CG4: var(--ds-gray-4);
+$CG5: var(--ds-gray-5);
+$CG6: var(--ds-gray-6);
+$CG7: var(--ds-gray-7);
+$CG8: var(--ds-gray-8);
+$CG9: var(--ds-gray-9);
+$CG10: var(--ds-gray-10);
 
+$CS1: var(--ds-success-1);
+$CS2: var(--ds-success-2);
+$CS3: var(--ds-success-3);
+$CS4: var(--ds-success-4);
+
+$CE1: var(--ds-error-1);
+$CE2: var(--ds-error-2);
+$CE3: var(--ds-error-3);
+$CE4: var(--ds-error-4);
+
+$CC1: var(--ds-caution-1);
+$CC2: var(--ds-caution-2);
+$CC3: var(--ds-caution-3);
+$CC4: var(--ds-caution-4);
+
+$CI1: var(--ds-info-1);
+$CI2: var(--ds-info-2);
+$CI3: var(--ds-info-3);
+$CI4: var(--ds-info-4);
 
 /*Fonts:*/
 
@@ -127,4 +190,3 @@ $EL1: var(--ds-elevation-xs);
 $EL2: var(--ds-elevation-sm);
 $EL3: var(--ds-elevation-md);
 $EL4: var(--ds-elevation-lg);
-

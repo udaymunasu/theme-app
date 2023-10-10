@@ -21,7 +21,7 @@ export enum ThemePositions {
   styleUrls: ['./mode-switch.component.scss']
 })
 export class ModeSwitchComponent implements OnInit {
-  modeIcon: string;
+  modeIcon: string = 'sun';
   mode: string;
   @Input() modeConfig: ModeSwitchConfig
   constructor() { }

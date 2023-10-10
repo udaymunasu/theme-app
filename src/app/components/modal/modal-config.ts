@@ -119,10 +119,12 @@ export interface NgbModalOptions {
    * @since 1.1.0
    */
   backdropClass?: string;
+  data?: any;
+  sidePanelConfig?: { position: 'right' | 'left' | 'top' | 'bottom' };
 }
 
 /**
- * Options that can be changed on an opened modal with `NgbModalRef.update()` and `NgbActiveModal.update()` methods.
+ * Options that can be changed on an opened modal with `NgbModalRef.update()` and `DsActiveModal.update()` methods.
  *
  * @since 14.2.0
  */
@@ -165,7 +167,9 @@ export class NgbModalConfig implements Required<NgbModalOptions> {
 
   private _animation: boolean;
 
-  constructor(private _ngbConfig: NgbConfig) {}
+  constructor(private _ngbConfig: NgbConfig) { }
+  sidePanelConfig: { position: 'right' | 'left' | 'top' | 'bottom' };
+  data: any;
 
   get animation(): boolean {
     return this._animation === undefined

@@ -24,10 +24,17 @@ import {
 export class HeaderComponent implements OnInit {
   constructor(private hostElement: ElementRef) {}
 
-  @Input() headerLine: boolean = false;
+  @Input() seperator: boolean = false;
+
+  @Input() set size(value: string){
+    if(value) {
+      this.hostElement.nativeElement.classList.add('px-header--' + value);
+    }
+  };
+
 
   ngOnInit(): void {
-    if (this.headerLine == true) {
+    if (this.seperator == true) {
       this.hostElement.nativeElement.classList.add('px-header--line');
     }
   }

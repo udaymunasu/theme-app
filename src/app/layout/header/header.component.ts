@@ -17,12 +17,24 @@ export class appHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  modeConfig = {
+    themes: ['blue'],
+    defaultTheme: 'blue',
+    enableDarkModeSwitch: true,
+    enableThemeSwitch: true,
+    position: "'top-right'",
+  };
+
   toggleSideBar() {
+    this.isSideBarCollapsed = !this.isSideBarCollapsed
 
     let sidebar = document.querySelector('.sidebar');
     if(sidebar) {
       sidebar.classList.toggle('expanded')
+      
     }
+    
+
     // this.isSideBarCollapsed = !this.isSideBarCollapsed
     this.sidebarToggle.emit();
   }

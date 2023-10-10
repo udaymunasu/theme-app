@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DsActiveModal } from 'src/app/components/modal/modal-ref';
 import { DsModal } from 'src/app/components/modal/modal.service';
+import { SidebarService } from 'src/app/components/sidebar/sidebar.service';
 import { ExampleModalComponent } from 'src/app/example-modal/example-modal.component';
 import { DialogService, DynamicDialogRef } from 'src/app/primeng-modal/dialog/dynamicdialog/public_api';
 
@@ -10,7 +12,7 @@ import { DialogService, DynamicDialogRef } from 'src/app/primeng-modal/dialog/dy
 })
 export class ModelDemoComponent implements OnInit {
 
-  constructor(private service: DsModal, public dialogService: DialogService) { }
+  constructor(private service: DsModal, public dialogService: DialogService, private sidebar: SidebarService) { }
 
   ref: DynamicDialogRef | undefined;
 
@@ -23,6 +25,10 @@ export class ModelDemoComponent implements OnInit {
 
   openModal() {
     this.service.open(ExampleModalComponent)
+  }
+
+  openSidebar() {
+    this.sidebar.open(ExampleModalComponent, {position: "left"});
   }
 
 }

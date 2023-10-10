@@ -1,14 +1,26 @@
 <div class="container">
-  <div
-  
-    *ngFor="let icon of icons"
-    (click)="copyCode(icon.name)"
-    class="px-panel px-panel--card bny-css-tooltip tooltip-bottom"
-    bnyCssTooltip="{{ icon.name }}"
-  >
-    <span class="px-icons {{ icon.name }}"></span>
+  <input placeholder="Search icons..." (keyup)="searchInput($event)" />
+
+  <div class="Icons-wrapper">
+    <div *ngFor="let icon of filterIconData" (click)="copyCode(icon.category)">
+      <span class="px-icons">{{ icon.category }}</span>
+
+      <div class="icons-container">
+        <ng-container *ngFor="let iconName of icon.icons">
+          <div
+            class="bny-css-tooltip tooltip-bottom"
+            bnyCssTooltip="{{ iconName.name }}"
+          >
+            <div class="icon">
+              <span class="px-icons {{ iconName.name }}"></span>
+              <span>{{ iconName.name }}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
   </div>
-
-  <span *ngIf="copyStatus"  class="copy-status" @fadeIn @fadeOut>{{copyStatusMsg}}</span>
-
+  <span *ngIf="copyStatus" class="copy-status" @fadeIn @fadeOut>{{
+    copyStatusMsg
+  }}</span>
 </div>

@@ -18,9 +18,10 @@ import { ngbFocusTrap } from './focus-trap';
 import { Subject, Subscription } from 'rxjs';
 import { ModalDismissReasons } from './modal-dismiss-reason';
 import { DynamicDialogConfig } from 'src/app/primeng-modal/dialog/dynamicdialog/public_api';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'ngb-modal-window',
+  selector: 'ds-modal-window',
   host: {
     '[class]':
       '"ds-modal fade show d-block" + (windowClass ? " " + windowClass : " ") + ("window-flex")',
@@ -32,8 +33,29 @@ import { DynamicDialogConfig } from 'src/app/primeng-modal/dialog/dynamicdialog/
   styleUrls: ['./modal.component.scss'],
   templateUrl: './model.html',
   encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('modalAniate', [
+      transition('void => *', [
+        style({
+          opacity: '0',
+          transform: 'scale(0.1)',
+          top: 'calc(var(--modalStringY) - (var(--modalHt) / 2.25))',
+          left: 'calc(var(--modalStringX) - (var(--modalWd) / 2.25))',
+        }),
+        animate(
+          '350ms ease-in-out',
+          style({
+            top: '50%',
+            left: '50%',
+            opacity: '1',
+            transform: 'translate(-50%, -50%) scale(0.5)',
+          })
+        ),
+      ]),
+    ]),
+  ],
 })
-export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
+export class DsModalWindow implements OnInit, OnDestroy, AfterViewInit {
   private unSubscribeer: Subject<any> = new Subject();
 
   private _document: any;
@@ -48,7 +70,6 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   localModalWrapperRef: HTMLElement;
   hasAnimationPilot: boolean = false;
 
-
   mouseMoveCB: () => void = this.mouseMoveHandler.bind(this);
   mouseUpCB: () => void = this.mouseUpHandler.bind(this);
 
@@ -61,26 +82,19 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   @Input() stopDrag: string;
   @Output('dismiss') dismissEvent = new EventEmitter();
 
-
-  
   @ViewChild('modalCmptWrapper', { read: ElementRef, static: false })
   modalCmptWrapper: ElementRef;
 
-  private _closed$ = new Subject<void>();
-
-  
 
   constructor(
     @Inject(DOCUMENT) private document: any,
     private _elRef: ElementRef,
-    private _renderer: Renderer2,
+    private _renderer: Renderer2
   ) {
     this._document = document;
     ngbFocusTrap(this._elRef.nativeElement, this.dismissEvent);
   }
 
-
-  
   backdropClick($event): void {
     if (this.backdrop === true && this._elRef.nativeElement === $event.target) {
       this.dismiss(ModalDismissReasons.BACKDROP_CLICK);
@@ -98,7 +112,9 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
-    this.hasAnimationPilot = this.document.body.classList.contains('animate-modal-enabed');
+    this.hasAnimationPilot = this.document.body.classList.contains(
+      'animate-modal-enabed'
+    );
     this.findElWithFocus();
     this._renderer.addClass(this._document.body, 'modal-open');
   }
@@ -111,6 +127,10 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
 
     if (!this._elRef.nativeElement.contains(document.activeElement)) {
       this._elRef.nativeElement['focus'].apply(this._elRef.nativeElement, []);
+    }
+
+    if (this.sidePanelConfig) {
+      this.openSidePanle();
     }
   }
 
@@ -194,8 +214,8 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
   }
 
   mouseDown(e: any) {
-    if(!this.hasAnimationPilot) {
-      return
+    if (!this.hasAnimationPilot) {
+      return;
     }
     this.x = e.clientX;
     this.y = e.clientY;
@@ -203,7 +223,7 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
     this._elRef.nativeElement.addEventListner('mousemove', this.mouseMoveCB);
     this._elRef.nativeElement.addEventListner('mouseup', this.mouseUpCB);
 
-    this._renderer.addClass(this.localModalWrapperRef, 'no-transition')
+    this._renderer.addClass(this.localModalWrapperRef, 'no-transition');
   }
 
   mouseMoveHandler(e: any) {
@@ -225,6 +245,53 @@ export class NgbModalWindow implements OnInit, OnDestroy, AfterViewInit {
     this._elRef.nativeElement.addEventListner('mousemove', this.mouseMoveCB);
     this._elRef.nativeElement.addEventListner('mouseup', this.mouseUpCB);
     this._renderer.removeClass(this.localModalWrapperRef, 'transform-modal');
+  }
+
+  sidepanelModalDialog: any;
+  @Input() sidePanelConfig: { position: 'right' | 'left' | 'top' | 'bottom' };
+
+  openSidePanle() {
+    this.hasAnimationPilot = false;
+    this.sidepanelModalDialog =
+      this._elRef.nativeElement.querySelector('.ds-modal__dialog');
+    this.sidepanelModalDialog.classList.add(
+      'no-transition',
+      'no-opacity',
+      'side-panel'
+    );
+
+    setTimeout(() => {
+      this.sidepanelModalDialog.style.setProperty(
+        '--side-modal-width',
+        this.sidepanelModalDialog.getBoundingClientRect()?.width + 'px'
+      );
+      this.sidepanelModalDialog.classList.remove('no-transition');
+      if (this.sidePanelConfig.position == 'left') {
+        this.sidepanelModalDialog.classList.add(
+          'side-panel-opening',
+          'position-left'
+        );
+      } else if (this.sidePanelConfig.position == 'right') {
+        this.sidepanelModalDialog.classList.add(
+          'side-panel-opening',
+          'position-right'
+        );
+      } else if (this.sidePanelConfig.position == 'top') {
+        this.sidepanelModalDialog.classList.add(
+          'side-panel-opening',
+          'position-top'
+        );
+      } else if (this.sidePanelConfig.position == 'bottom') {
+        this.sidepanelModalDialog.classList.add(
+          'side-panel-opening',
+          'position-bottom'
+        );
+      }
+      setTimeout(() => {
+        this.sidepanelModalDialog.classList.remove('no-opacity');
+        this.sidepanelModalDialog.classList.add('side-panel-loaded');
+      }, 10);
+    }, 0);
   }
 
   ngOnDestroy() {

@@ -16,9 +16,9 @@ import { CardDemoComponent } from './demos/card-demo/card-demo.component';
 import { ModelDemoComponent } from './demos/model-demo/model-demo.component';
 import { DsModal } from './components/modal/modal.service';
 import { NgbModalStack } from './components/modal/modal-stack';
-import { NgbModalWindow } from './components/modal/modal-window';
+import { DsModalWindow } from './components/modal/modal-window';
 import { NgbModalBackdrop } from './components/modal/modal-backdrop';
-import { NgbActiveModal } from './components/modal/modal-ref';
+import { DsActiveModal } from './components/modal/modal-ref';
 import { ExampleModalComponent } from './example-modal/example-modal.component';
 import { DialogService } from './primeng-modal/dialog/dynamicdialog/public_api';
 import {
@@ -35,7 +35,6 @@ import { Tooltip } from './components/popover/popover.directive';
 import { CustomPopoverComponent } from './components/popover/custom-popover';
 import { SidebarService } from './components/sidebar/sidebar.service';
 import { PopoverDemoComponent } from './demos/popover-demo/popover-demo.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { closeDirective } from './components/sidebar/close-directive';
 import { SidebarWindow } from './components/sidebar/sidebar-window';
 import { appSidebarComponent } from './layout/sidebar/sidebar.component';
@@ -53,6 +52,12 @@ import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
 import { IconGenComponent } from './components/icon-gen/icon-gen.component';
 import { FormsModule } from '@angular/forms';
 import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.component';
+import { ButtonComponent } from './components/button/button.component';
+import { ButtonDemoComponent } from './demos/button-demo/button-demo.component';
+import { DsDropdownService } from './components/ds-dropdown/dropdown.service';
+import { AgGridDemoComponent } from './demos/ag-grid/ag-grid.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -67,7 +72,7 @@ import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.compo
     HeaderDemoComponent,
     CardDemoComponent,
     ModelDemoComponent,
-    NgbModalWindow,
+    DsModalWindow,
     ModalDismissDirective,
     ModalCloseDirective,
     ExampleModalComponent,
@@ -80,7 +85,7 @@ import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.compo
     PopoverDirective,
     Tooltip,
     PopoverDemoComponent,
-    SidebarComponent,
+    
     appSidebarComponent,
     appHeaderComponent,
     SidebarWindow,
@@ -93,10 +98,16 @@ import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.compo
     DsTabBodyComponent,
     TabsDemoComponent,
     IconGenComponent,
-    DropdownDemoComponent
+    DropdownDemoComponent,
+    ButtonComponent,
+    ButtonDemoComponent,
+    AgGridDemoComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,PortalModule, FormsModule],
-  entryComponents: [NgbModalWindow, NgbModalBackdrop],
+  imports: [
+    HttpClientModule,
+    AgGridModule,
+    BrowserModule, AppRoutingModule, BrowserAnimationsModule,PortalModule, FormsModule],
+  entryComponents: [DsModalWindow, NgbModalBackdrop],
   exports: [
     bnyCssTooltipDirective,
     ModalDismissDirective,
@@ -105,9 +116,10 @@ import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.compo
     closeDirective,
   ],
   providers: [
+    DsDropdownService,
     DsModal,
     NgbModalStack,
-    NgbActiveModal,
+    DsActiveModal,
     SidebarService,
     closeDirective,
     DialogService,appSidebarComponent, DSTabsService

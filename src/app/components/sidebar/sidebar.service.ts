@@ -1,118 +1,50 @@
-import { DOCUMENT } from '@angular/common';
-import {
-  Injectable,
-  ComponentFactoryResolver,
-  ApplicationRef,
-  Injector,
-  Type,
-  ComponentRef,
-  RendererFactory2,
-  Renderer2,
-  Component,
-} from '@angular/core';
-import { inject } from '@angular/core/testing';
-import { NgbModalBackdrop } from '../modal/modal-backdrop';
-import { isDefined } from '../modal/util';
+import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
-type SidebarPosition = 'top' | 'bottom' | 'left' | 'right';
+import { NgbModalOptions } from '../modal/modal-config';
+import { DsModal } from '../modal/modal.service';
+
+export interface SidebarOptions extends NgbModalOptions {
+  position?: 'top' | 'bottom' | 'left' | 'right' | any;
+  props?: { [key: string]: any };
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class SidebarService {
-  private isOpen: boolean = false;
-  private componentRef: ComponentRef<any> | null = null;
-  private sidebarElement: HTMLElement | null = null;
-  private backdropElement: HTMLElement | null = null;
-  private renderer: Renderer2;
+  componentInstance: any;
 
-  private position: SidebarPosition = 'left';
+  constructor(private modalSvc: DsModal) {}
 
-  private outsideClickListner: () => void;
+  open(component: any, options: SidebarOptions = {}) {
+    const consolidateOpt: any = Object.assign({}, options.data, {
+      positon: options.position,
+    });
 
-  constructor(
-    private resolver: ComponentFactoryResolver,
-    private appRef: ApplicationRef,
-    private injector: Injector,
-    private rendererFactory: RendererFactory2,
-    private applicationRef: ApplicationRef
-  ) {
-    this.renderer = this.rendererFactory.createRenderer(null, null);
-  }
-
-  open(component: Type<any>, position: SidebarPosition = 'left'): void {
-    if (!this.isOpen) {
-      this.isOpen = true;
-      this.position = position;
-
-      const componentFactory = this.resolver.resolveComponentFactory(component);
-      this.componentRef = componentFactory.create(this.injector);
-      this.appRef.attachView(this.componentRef.hostView);
-
-      this.sidebarElement = document.createElement('div');
-      this.sidebarElement.classList.add('sidebar');
-      this.sidebarElement.classList.add(`sidebar-${position}`);
-
-      const contentElement = this.componentRef.location.nativeElement;
-      this.sidebarElement.appendChild(contentElement);
-
-      this.backdropElement = document.createElement('div');
-      this.backdropElement.classList.add('sidebar-backdrop');
-
-      this.renderer.appendChild(document.body, this.sidebarElement);
-      this.renderer.appendChild(document.body, this.backdropElement);
-
+    if (options.props) {
+      consolidateOpt['props'] = {
+        ...options?.props,
+        position: options.position,
+      };
     }
+
+    const modelRef = this.modalSvc.open(component, {
+      data: consolidateOpt,
+      sidePanelConfig: { position: options.position },
+    });
+
+    this.componentInstance = modelRef.componentInstance;
+    return modelRef.result$.pipe(catchError((err) => of(err)));
   }
 
-  close(): void {
-    if (this.isOpen && this.sidebarElement && this.backdropElement) {
-      this.isOpen = false;
-
-      this.appRef.detachView(this.componentRef.hostView);
-      this.componentRef.destroy();
-      this.renderer.removeChild(document.body, this.sidebarElement);
-      this.renderer.removeChild(document.body, this.backdropElement);
-    }
-  }
-
-  // private _attachBackdrop(containerEl: any): ComponentRef<NgbModalBackdrop> {
-  //   const backdropFactory: ComponentFactoryResolver<NgbModalBackdrop> = this.resolver.resolveComponentFactory(NgbModalBackdrop);
-  //   const backdropCmptRef = backdropFactory.create(this.injector);
-  //   this.applicationRef.attachView(backdropCmptRef.hostView);
-  //   containerEl.appendChild(backdropCmptRef.location.nativeElement)
-  //   return
-  // }
-
-  private addOutsideClickListner(): void {
-    setTimeout(()=> {
-      document.addEventListener('click', this.handleOutsideClick.bind(this));
-
-    }, 0)
-  }
-
-  private removeOutsideClickListner(): void {
-    document.addEventListener('click', this.handleOutsideClick.bind(this));
-  }
-
-  private handleOutsideClick(event: MouseEvent): void {
-    if (
-      this.sidebarElement &&
-      !this.sidebarElement.contains(event.target as Node)
-    ) {
-      this.close();
-    }
-  }
-
-  isOpened(): boolean {
-    return this.isOpen;
-  }
-
-  setPosition(position: SidebarPosition): void {
-    if (this.isOpen && this.sidebarElement) {
-      this.sidebarElement.classList.remove(`sidebar-${this.position}`);
-      this.position = position;
-      this.sidebarElement.classList.add(`sidebar-${position}`);
-    }
+  beforeDismiss(): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.componentInstance.animateClose();
+      setTimeout(() => {
+        resolve(true);
+      }, 300);
+    });
   }
 }

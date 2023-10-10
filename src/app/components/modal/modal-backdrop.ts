@@ -7,12 +7,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
-import { ngbRunTransition } from './ngbTransition';
-
-import { reflow } from './util';
-
 @Component({
   selector: 'ngb-modal-backdrop',
   template: '',
@@ -27,34 +21,5 @@ export class NgbModalBackdrop implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    // this._zone.onStable
-    //   .asObservable()
-    //   .pipe(take(1))
-    //   .subscribe(() => {
-    //     ngbRunTransition(
-    //       this._zone,
-    //       this._el.nativeElement,
-    //       (element: HTMLElement, animation: boolean) => {
-    //         if (animation) {
-    //           reflow(element);
-    //         }
-    //         element.classList.add('show');
-    //       },
-    //       { animation: this.animation, runningTransition: 'continue' }
-    //     );
-    //   });
-  }
-
-  // hide(): Observable<void> {
-  //   return ngbRunTransition(
-  //     this._zone,
-  //     this._el.nativeElement,
-  //     ({ classList }) => classList.remove('show'),
-  //     {
-  //       animation: this.animation,
-  //       runningTransition: 'stop',
-  //     }
-  //   );
-  // }
+  ngOnInit() {}
 }

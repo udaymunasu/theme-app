@@ -1,21 +1,35 @@
+
+@use "../../../branding/src/assets/scss/index.scss" as *;
+
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    background: #3f51b5;
-    color: white;
+    background: $CP5;
+    color: $CB0;
+    --icon-color: #{$CB0};
 
     .header-logo {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        padding-left: 24px;
+
         h1 {
             font-size: 24px;
         }
 
-        .menu-icon {
+        .px-icons {
             cursor: pointer;
-            font-size: 24px;
+            &.hamburger {
+                transition: 0.3s all ease-in-out;
+            }
+            &.close {
+                transition: 0.3s all ease-in-out;
+                transform: rotate(180deg);
+            }
         }
     }
 }

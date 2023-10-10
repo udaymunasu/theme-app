@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal } from '../components/modal/modal-ref';
+import { DsActiveModal } from '../components/modal/modal-ref';
 
 @Component({
   selector: 'app-example-modal',
   templateUrl: './example-modal.component.html',
-  styleUrls: ['./example-modal.component.scss']
+  styleUrls: ['./example-modal.component.scss'],
 })
 export class ExampleModalComponent implements OnInit {
+  constructor(private activeModal: DsActiveModal) {}
 
-  constructor(private activeModal: NgbActiveModal) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   close() {
-    this.activeModal.close()
+    this.activeModal.close();
   }
-
 }
