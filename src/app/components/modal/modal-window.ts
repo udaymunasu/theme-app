@@ -17,7 +17,7 @@ import { ngbFocusTrap } from './focus-trap';
 
 import { Subject, Subscription } from 'rxjs';
 import { ModalDismissReasons } from './modal-dismiss-reason';
-import { DynamicDialogConfig } from 'src/app/primeng-modal/dialog/dynamicdialog/public_api';
+import { DynamicDialogConfig } from 'src/app/components/primeng-modal/dialog/dynamicdialog/public_api';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({

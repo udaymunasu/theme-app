@@ -1,0 +1,17 @@
+@use "../index.scss" as *;
+
+
+@mixin button() {
+    ds-button {
+        display: inline-block;
+
+        .ds-btn {
+          display:inline-flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          border-radius: 4px;
+          white-space: nowrap;
+        }
+    }
+}

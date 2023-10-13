@@ -1,0 +1,9 @@
+@use "../index.scss" as *;
+
+@mixin ag-grid {
+    .ag-cell {
+        display: flex;
+        align-items: center;
+        line-height: normal;
+    }
+}

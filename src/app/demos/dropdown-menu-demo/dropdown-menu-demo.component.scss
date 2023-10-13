@@ -1,0 +1,11 @@
+.dropdown-filter-demo-container {
+    width: 1000px;
+    height: 300px;
+    display: flex;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+    .dropdown-filter-demo {
+        align-items: center;
+    }
+}

@@ -9,7 +9,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { fromEvent, Subject, takeUntil } from 'rxjs';
-import { DomHandler } from 'src/app/primeng-modal/dialog/dom/domhandler';
+import { DomHandler } from 'src/app/components/primeng-modal/dialog/dom/domhandler';
 
 interface MenuItems {
   label: string;

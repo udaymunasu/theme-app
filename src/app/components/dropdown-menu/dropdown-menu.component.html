@@ -1,0 +1,51 @@
+<muk-flyout
+  (onToggle)="toggle()"
+  [isOpen]="isOpened"
+  [flyoutWidth]="dropdownButton?.clientWidth"
+>
+  <div
+    tabindex="0"
+    flyout-trigger
+    #dropdownButton
+    class="ds-dropdown-filter-container"
+    [ngClass]="{
+      'dropdown-active': isOpened
+    }"
+  >
+    <div
+      class="dropdown-pill-label"
+      [ngClass]="{
+        'has-items': selectedOptions?.list?.length,
+        'has-badge': selectedOptions?.list?.length > 1
+      }"
+    >
+      <span
+        [ngClass]="{
+          'dropdown-pill-heading': selectedOptions?.list?.length
+        }"
+        >{{ menuItems.label }}</span>
+        <div class="selected-item" *ngIf="selectedOptions?.list?.length <= 1; else multiselectTpl">{{selectedOptions?.list[selectedOptions?.list?.length - 1]?.label}}</div>
+
+        <ng-template #multiselectTpl>
+          <span class="selected-item">
+            {{selectedOptions?.list[selectedOptions?.list?.length - 1]?.label}}
+
+            +<div>{{selectedOptions?.list?.length - 1}}</div>
+          </span>
+        </ng-template>
+    </div>
+  </div>
+
+  <div class="dropdown-flyout-container" #dropdownFlyout flyout-content>
+    <div
+      tabindex="0"
+      class="dropdown-items"
+      *ngFor="let item of menuItems.actions"
+      (click)="optionClicked(item)"
+    >
+      <div class="dropdown-item-label"
+      >{{ item.label }}</div>
+      <!-- <div *ngFor="let filter of quickfilters?.list">{{filter.label == 'Selected' ? selectedOptions?.list?.length : menuItems?.actions?.length}}</div> -->
+    </div>
+  </div>
+</muk-flyout>

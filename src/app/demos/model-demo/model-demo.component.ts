@@ -3,7 +3,7 @@ import { DsActiveModal } from 'src/app/components/modal/modal-ref';
 import { DsModal } from 'src/app/components/modal/modal.service';
 import { SidebarService } from 'src/app/components/sidebar/sidebar.service';
 import { ExampleModalComponent } from 'src/app/example-modal/example-modal.component';
-import { DialogService, DynamicDialogRef } from 'src/app/primeng-modal/dialog/dynamicdialog/public_api';
+import { DialogService, DynamicDialogRef } from 'src/app/components/primeng-modal/dialog/dynamicdialog/public_api';
 
 @Component({
   selector: 'app-model-demo',

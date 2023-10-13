@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 
   modeConfig = {
     themes: ['purple'],
-    defaultTheme: 'blue',
+    defaultTheme: 'purple',
     enableDarkModeSwitch: true,
     enableThemeSwitch: true,
     position: "'top-right'",

@@ -1,0 +1,20 @@
+<div
+  class="ds-flyout-origin"
+  (click)="toggle()"
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
+>
+  <ng-content select="[flyout-trigger]"></ng-content>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+  [cdkConnectedOverlayWidth]="flyoutWidth"
+  [cdkConnectedOverlayPositions]="overlayPositions"
+>
+  <div class="ds-flyout-container" #flyoutContainer>
+    <ng-content select="[flyout-content]"></ng-content>
+  </div>
+</ng-template>

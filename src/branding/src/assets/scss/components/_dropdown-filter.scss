@@ -1,0 +1,46 @@
+@use "../index.scss" as *;
+
+@mixin dropdown-filter {
+    app-dropdown-menu {
+            display: flex;
+            width: 300px;
+
+            .ds-dropdown-filter-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                align-items: center;
+                width:100%;
+                position: relative;
+                padding: 0 16px;
+                border-width: 0px;
+                border-radius: 5px;
+                border-style: solid;
+                border-color: lavender;
+                background: purple;
+                color: white;
+                font-size: 14px;
+                height: 44px;
+                gap: 8px;
+                cursor: pointer;
+            }
+
+            
+        
+    }
+
+    .dropdown-flyout-container {
+        display: flex;
+        background-color: aliceblue;
+        box-shadow: $EL2;
+        overflow: hidden;
+        flex-flow: column;
+        border-radius: 5px;
+        .dropdown-items {
+            display: flex;
+            padding: 10px;
+            cursor: pointer;
+            align-items: center;
+        }
+    }
+}

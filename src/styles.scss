@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use "../src/branding/src/assets/scss/theme/palettes" as *;
-// @use "../src/branding/src/assets/scss/theme/fonts" as *;
+@use "../src/branding/src/assets/scss/theme/fonts" as *;
 @use "../src/branding/src/assets/scss/globals.scss" as *;
 @use "../src/branding/src/assets/scss/index.scss" as *;
 
@@ -26,11 +26,7 @@ html {
     }
 }
 
-.ag-cell {
-    display:flex;
-    align-items: center;
-    line-height: normal;
-}
+
 
 .security-container {
     display:flex;

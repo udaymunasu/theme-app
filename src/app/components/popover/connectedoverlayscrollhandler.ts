@@ -1,4 +1,4 @@
-import { DomHandler } from "src/app/primeng-modal/dialog/dom/domhandler";
+import { DomHandler } from "src/app/components/primeng-modal/dialog/dom/domhandler";
 
 export class ConnectedOverlayScrollHandler {
     element: any;

@@ -19,11 +19,11 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import { PrimeNGConfig } from 'src/app/primeng-modal/dialog/api/primengconfig';
-import { TooltipOptions } from 'src/app/primeng-modal/dialog/api/tooltipoptions';
-import { DomHandler } from 'src/app/primeng-modal/dialog/dom/domhandler';
-import { Nullable } from 'src/app/primeng-modal/dialog/ts-helpers/ts-helpers';
-import { ZIndexUtils } from 'src/app/primeng-modal/dialog/utils/public_api';
+import { PrimeNGConfig } from 'src/app/components/primeng-modal/dialog/api/primengconfig';
+import { TooltipOptions } from 'src/app/components/primeng-modal/dialog/api/tooltipoptions';
+import { DomHandler } from 'src/app/components/primeng-modal/dialog/dom/domhandler';
+import { Nullable } from 'src/app/components/primeng-modal/dialog/ts-helpers/ts-helpers';
+import { ZIndexUtils } from 'src/app/components/primeng-modal/dialog/utils/public_api';
 import { ConnectedOverlayScrollHandler } from './connectedoverlayscrollhandler';
 import { PlacementArray } from './popover.component';
 
