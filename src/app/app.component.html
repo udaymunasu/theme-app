@@ -1,23 +1,13 @@
-<app-comp-header></app-comp-header>
+<div class="app">
+  <app-comp-header></app-comp-header>
 
-<div class="container">
-  <!-- <button (click)="openSidebar()">open sidebar</button> -->
-  <app-comp-sidebar></app-comp-sidebar>
+  <div class="container">
+    <div class="app-comp-sidebar">
+      <app-comp-sidebar></app-comp-sidebar>
+    </div>
 
-  <!-- <ds-dropdown [confifOptions]="{ placeholder: 'Placeholder' }">
-    <ds-dropdown-item
-      *ngFor="let item of items"
-      [label]="item.label"
-      [value]="item.value"
-    >
-    </ds-dropdown-item>
-  </ds-dropdown> -->
-
- 
-
-  <div class="content">
-    <router-outlet></router-outlet>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <!-- <app-header></app-header>
-  <app-sidebar></app-sidebar> -->
 </div>

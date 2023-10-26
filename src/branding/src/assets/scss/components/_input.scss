@@ -1,0 +1,103 @@
+@use "../index.scss" as *;
+
+@mixin input {
+    ds-input {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        padding-top: var(--input-top-space, 0);
+        padding-bottom: var(--input-top-space, 0);
+        width: var(--input-totl-width, 100%);
+
+        .px-input {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: fit-content;
+            cursor: pointer;
+            background-color: var(--input-bg-color, $CG1);
+            .px-input__text {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: fit-content;
+                cursor: pointer;
+                background-color: var(--input-bg-color, white);
+
+                input {
+                    font-family:  Arial, sans-serif;
+                    font-size: var(--input-font-size, 14px);
+                    color: var(--input-text, black);
+                    background-color: var(--input-bg, white);
+                    width: var(--input-width, 100%);
+                    height: var(--input-hright, 44px);
+                    outline: none;
+                    padding-top: var(--input-padding-top, 0);
+                    padding-right: var(--input-padding-right, 0);
+                    padding-bottom: var(--input-padding-bottom, 0);
+                    padding-left: var(--input-padding-left, 8px);
+                    border-style: solid;
+                    border-width: var(--input-border-width, 1px);
+                    border-color: var(--input-border-color, #71797E);
+                    border-radius: $border-radius;
+
+                    &:disabled {
+
+                    }
+
+                    &:focus {
+                        transition: none;
+                        outline-color: var(--input-focus-color, purple);
+                        outline-width: var(--input-focus-width, 2px);
+                        outline-style: var(--input-focus-style, solid);
+                        outline-offset: $outline-offest;
+
+
+                    }
+
+                    &:hover {
+                        &:not(:focus) {
+                            --input-border-color: blue;
+                        }
+                    }
+                }
+            }
+
+            .ds-icon-rt,
+            .ds-icon-lt {
+                display: flex;
+                position: absolute;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .ds-icon-lt {
+                left: 8px;
+            }
+
+            .ds-icon-rt {
+                right: 8px;
+            }
+
+
+            .px-input__text--icon-lt {
+                left: 8px;
+                --input-padding-left: 28px;
+            }
+
+            .px-input__text--icon-rt {
+                right: 8px;
+                --input-padding-right: 28px;
+            }
+
+            .label-wrap {
+                position: absolute;
+                left: var(--input-label-left, 0);
+                top: var(--input-label-top, -24px);
+                padding: 0 5px;
+
+            }
+        }
+    }
+}

@@ -20,7 +20,12 @@ export class ButtonComponent implements OnInit {
 
   }
 
-  @Input() set size(value: string) {}
+  /**sm | md | lg */
+  @Input() set size(value: string) {
+    if(value) {
+      this.classes.push('btn--' + value)
+    }
+  }
   @Input() disabled: boolean = false;
 
   constructor() {}

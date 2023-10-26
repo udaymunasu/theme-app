@@ -1,17 +1,52 @@
 @use "../index.scss" as *;
 
-
 @mixin button() {
-    ds-button {
-        display: inline-block;
+  ds-button {
+    display: inline-block;
 
-        .ds-btn {
-          display:inline-flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 14px;
-          border-radius: 4px;
-          white-space: nowrap;
+    .ds-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      border-radius: var(--btn-border-rd, 4px);
+      white-space: nowrap;
+      text-transform: capitalize;
+      border-width: var(--btn-bdr-width, 0px);
+      border-style: solid;
+      color: var(--btn-text, #f5f0ff);
+      font-size: 14px;
+      border-color: var(--btn-bdr-color, transparent);
+      background-color: var(--btn-bg-color, #7101da);
+      height: var(--btn-height, 44px);
+      padding: var(--btn-pd, 0px 16px);
+
+      &:focus {
+        &:not(:disabled) {
+          outline: 2px solid $CP7;
+          outline-offset: 2px;
         }
+      }
+
+      &:hover {
+        --btn-bg-color: #{$CP3};
+      }
+
+      &:disabled {
+        cursor: default;
+        --btn-bg-color: grey;
+        --btn-text: white;
+      }
+
+      &.btn--sm {
+        --btn-pd: 0px 10px;
+        --btn-height: 36px
+      }
+
+      &.btn--lg {
+        --btn-pd: 0px 24px;
+        --btn-height: 50px
+      }
     }
+  }
 }

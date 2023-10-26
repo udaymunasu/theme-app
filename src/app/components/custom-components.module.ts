@@ -38,11 +38,12 @@ import { FlyoutComponent } from './flyout/flyout.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { DropdownMenuService } from './dropdown-menu/dropdown-menu.service';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { InputComponent } from './input/input.component';
+
 
 @NgModule({
   declarations: [
     ModeSwitchComponent,
-    IconsComponent,
     bnyCssTooltipDirective,
     HeaderComponent,
     HeaderActionComponent,
@@ -68,6 +69,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     IconGenComponent,
     FlyoutComponent,
     DropdownMenuComponent,
+    InputComponent,
+    IconsComponent
   ],
   imports: [CommonModule,
     FormsModule,OverlayModule],
@@ -110,7 +113,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
     ButtonComponent,
     IconGenComponent,
     FlyoutComponent,
-    DropdownMenuComponent
+    DropdownMenuComponent,
+    InputComponent,
+    IconsComponent
   ],
   entryComponents: [   
      HeaderComponent,

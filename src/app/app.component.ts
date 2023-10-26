@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './components/sidebar/sidebar.service';
 import { appSidebarComponent } from './layout/sidebar/sidebar.component';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,20 +25,20 @@ export class AppComponent implements OnInit {
       label: 'label 1',
       value: 'value 1',
       isChecked: false,
-      isDisabled: false
+      isDisabled: false,
     },
     {
       label: 'label 2',
       value: 'value 2',
       isChecked: false,
-      isDisabled: false
+      isDisabled: false,
     },
     {
       label: 'label 3',
       value: 'value 3',
       isChecked: false,
-      isDisabled: false
-    }
+      isDisabled: false,
+    },
   ];
 
   modeConfig = {

@@ -1,27 +1,19 @@
-<div class="sidebar" [ngClass]="{ collapsed: isCollapsed }">
-  <div class="link" routerLink="header" routerLinkActive="active">Header</div>
-  <div class="link" routerLink="buttons" routerLinkActive="active">Buttons</div>
-  <div class="link" routerLink="grid" routerLinkActive="active">Grid</div>
+<div class="sidebar">
+  <div *ngFor="let item of menuList" class="sidebar-panel">
+    <div class="sidebar-header" (click)="selectCategory(item)">
+      <span class="px-icons {{ item.expanded ? 'caret_down' : ' caret_right'}} expand-icon" ></span>
 
-  <div class="link" routerLink="panel" routerLinkActive="active">Panel</div>
-  <div class="link" routerLink="card" routerLinkActive="active">Card</div>
-  <div class="link" routerLink="Icons" routerLinkActive="active">Icon</div>
-  <div class="link" routerLink="iconGen" routerLinkActive="active">
-    Icon Generator
-  </div>
 
-  <div class="link" routerLink="modal" routerLinkActive="active">Modal</div>
-  <div class="link" routerLink="megamenu" routerLinkActive="active">
-    Megamenu
-  </div>
-  <div class="link" routerLink="tabs" routerLinkActive="active">Tabs</div>
-  <div class="link" routerLink="dropdown" routerLinkActive="active">
-    Dropdown
-  </div>
-  <div class="link" routerLink="dropdown-menu" routerLinkActive="active">
-    Dropdown-menu
-  </div>
-  <div class="link" routerLink="Icons" routerLinkActive="active">
-    Contact Us
+      {{ item.category }}
+    </div>
+
+    <div [ngClass]="{'sidebar-content' : true, 'expanded': item?.expanded}">
+      <ul>
+        <li *ngFor="let labels of item.labels"
+        [routerLink]="labels.routerLink" [routerLinkActive]="['is-active']">
+          <a > {{ labels.label }}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

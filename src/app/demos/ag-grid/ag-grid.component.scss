@@ -1,16 +1,20 @@
-.security-container {
-    display:flex;
-    flex-flow: column;
 
-    .ticker-container {
-        display:flex;
-        font-size: 10px;
-        .ticker-value {
-            border-right: 1px solid grey;
-            padding: 2px 5px 3px 0;
-        }
-        .cusip-value {
-            padding: 2px 0px 2px 5px;
-        }
-    }
-}
+ 
+// .ag-theme-alpine {
+//     .security-container {
+//         display:flex;
+//         flex-flow: column;
+    
+//         .ticker-container {
+//             display:flex;
+//             font-size: 10px;
+//             .ticker-value {
+//                 border-right: 1px solid grey;
+//                 padding: 2px 5px 3px 0;
+//             }
+//             .cusip-value {
+//                 padding: 2px 0px 2px 5px;
+//             }
+//         }
+//     }
+// }

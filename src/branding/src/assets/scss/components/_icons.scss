@@ -11,10 +11,11 @@ $icon-color: var(--icon-color, $CP3);
         mask-size: contain;
         mask-repeat: no-repeat;
         mask-position: center;
-        width: 25px;
-        height: 25px;
+        width: var(--icon-size, 20px);
+        height: var(--icon-size, 20px);
         color: $icon-color;
         isolation: isolate;
+        transition: all 0.4s ease-in-out ;
 
         &.hamburger {
             background-color: $icon-color;

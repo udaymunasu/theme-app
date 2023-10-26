@@ -1,16 +1,46 @@
 @use "../branding/src/assets/scss/index.scss" as *;
 
-.container {
+.app {
     display: flex;
+    flex-direction: column;
+    height: 100vh;
     overflow: hidden;
-
-    .content {
+    app-comp-header {
         width: 100%;
+        z-index: 10000;
+        background-color: $CP5;
+        color: $CB0;
+    }
+
+    .container {
+        display: flex;
         height: 100%;
-        padding: 16px;
-        margin: 16px;
+        overflow: hidden;
+    
+    
+        .app-comp-sidebar {
+            height: 100%;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            width:100%;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: calc(100% - 40px);
+
+            &::-webkit-scrollbar {
+                width:0
+            }
+        }
     }
 }
+
+
+
 
 // /* Style page content */
 // .main {

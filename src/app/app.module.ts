@@ -24,6 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { CustomComponentsModule } from './components/custom-components.module';
 import { DropdownMenuDemoComponent } from './demos/dropdown-menu-demo/dropdown-menu-demo.component';
+import { InputDemoComponent } from './demos/input-demo/input-demo.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
+import { IconDemoComponent } from './demos/icon-demo/icon-demo.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { DropdownMenuDemoComponent } from './demos/dropdown-menu-demo/dropdown-m
     ButtonDemoComponent,
     AgGridDemoComponent,
     DropdownMenuDemoComponent,
+    InputDemoComponent,
+    DashboardComponent,
+    IconDemoComponent,
   ],
   imports: [
     CustomComponentsModule,

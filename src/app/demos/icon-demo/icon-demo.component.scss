@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    input {
+        width: 500px;
+        height: 40px;
+        border: 2px solid #333;
+        background-color: white;
+        border-radius: 0.25rem;
+
+        &:focus {
+            outline: 2px solid blueviolet;
+            outline-offset: 2px;
+        }
+    }
+    .px-panel {
+        width: 20px;
+        margin: 10px;
+    }
+
+    .Icons-wrapper {
+        display:flex;
+        flex-direction: column
+    }
+
+    .icons-container {
+        display: flex;
+        flex-flow: wrap;
+        gap: 14px;
+        margin: 10px 0;
+        .icon {
+            display: flex;
+            flex-direction: column;
+            padding:15px;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+        }
+    }
+
+    .copy-status {
+        position: fixed;
+        bottom: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+    }
+}

@@ -4,3 +4,7 @@ $box-shadow-xs: $EL1;
 $box-shadow-sm: $EL2;
 $box-shadow-md: $EL3;
 $box-shadow-lg: $EL4;
+
+
+$border-radius: var(--border-rd, 8px);
+$outline-offest: var(--outline-offset, 2px);

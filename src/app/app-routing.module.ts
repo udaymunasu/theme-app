@@ -8,25 +8,37 @@ import { CardDemoComponent } from './demos/card-demo/card-demo.component';
 import { DropdownDemoComponent } from './demos/dropdown-demo/dropdown-demo.component';
 import { DropdownMenuDemoComponent } from './demos/dropdown-menu-demo/dropdown-menu-demo.component';
 import { HeaderDemoComponent } from './demos/header-demo/header-demo.component';
+import { IconDemoComponent } from './demos/icon-demo/icon-demo.component';
+import { InputDemoComponent } from './demos/input-demo/input-demo.component';
 import { MegamenuDemoComponent } from './demos/megamenu-demo/megamenu-demo.component';
 import { ModelDemoComponent } from './demos/model-demo/model-demo.component';
 import { PanelDemoComponent } from './demos/panel-demo/panel-demo.component';
 import { PopoverDemoComponent } from './demos/popover-demo/popover-demo.component';
 import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: '/header', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
   {
     path: 'buttons',
     component: ButtonDemoComponent
+  },
+  {
+    path: 'input',
+    component: InputDemoComponent
   },
   {
     path: 'grid',
     component: AgGridDemoComponent
   },
   {
-    path: 'Icons',
-    component: IconsComponent
+    path: 'icons',
+    component: IconDemoComponent
   },
   {
     path: 'iconGen',
