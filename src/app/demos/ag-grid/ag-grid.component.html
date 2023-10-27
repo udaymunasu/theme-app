@@ -1,8 +1,7 @@
-Hello
 
 
-<ag-grid-angular
-  style="width: 100%; height: 400px"
+<div class="grid-container" style="width: 100%; height: 400px">
+  <ag-grid-angular
   class="ag-theme-alpine"
   [columnDefs]="columnDefs"
   [defaultColDef]="defaultColDef"
@@ -12,3 +11,4 @@ Hello
   (gridReady)="onGridReady($event)"
   (cellClicked)="onCellClicked($event)"
 ></ag-grid-angular>
+</div>

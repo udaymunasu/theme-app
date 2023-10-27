@@ -98,11 +98,11 @@ export class appSidebarComponent implements OnInit {
   items: any = Sidebar_menu;
   selectedCategory: string;
 
-  menuList: { category: string, labels: any[], expanded?: boolean  }[] = [];
+  menuList: { category: string; labels: any[]; expanded?: boolean }[] = [];
 
   ngOnInit(): void {
     // this.fetchMenu()
-    this.restructerdItemsByCategory()
+    this.restructerdItemsByCategory();
   }
 
   private restructerdItemsByCategory() {
@@ -114,29 +114,14 @@ export class appSidebarComponent implements OnInit {
       }
       groupedItemsArray[item.category].push(item);
     });
-    this.menuList = Object.keys(groupedItemsArray).map(category => ({
+    this.menuList = Object.keys(groupedItemsArray).map((category) => ({
       category,
-      labels: groupedItemsArray[category]
+      labels: groupedItemsArray[category],
     }));
-    console.log('this.menuList ', this.menuList);
-
   }
 
   selectCategory(category) {
-    // from(this.config).pipe(
-    //   groupBy((p) => p.category),
-    //   mergeMap((group) =>
-    //     group.pipe(reduce((acc, curr) => [...acc, curr], [`${group.key}`]))
-    //   ),
-    //   map((arr) => ({ category: arr[0], values: arr.slice(1) }))
-    // )
-    // .subscribe(p => {
-    //   this.menuList.push(p)
-    // });
-
     category.expanded = !category.expanded;
-
-    console.log('menuList', this.menuList);
   }
 
   toggleSidebar() {

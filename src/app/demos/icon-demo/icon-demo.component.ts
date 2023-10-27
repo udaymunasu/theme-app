@@ -31,6 +31,10 @@ export class IconDemoComponent implements OnInit {
           value: 'add',
         },
         {
+          name: 'search',
+          value: 'search',
+        },
+        {
           name: 'alarm',
           value: 'alarm',
         },
