@@ -2,10 +2,10 @@
 @use "sass:string";
 
 // @use "./pale" as *;
-@use "./palettes/index.scss" as *;
+@use "./palettes" as *;
 
-@use "./common/elevation.scss" as *;
-@use "./fonts/inter" as *;
+@use "./common" as *;
+@use "./fonts" as *;
 
 $vars: ();
 $lob: elv !default;
@@ -13,8 +13,7 @@ $lob: elv !default;
 @function str-replace($string, $search, $replace: "") {
     $index: str-index($string, $search);
     @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace +
-            str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
     }
 
     @return $string;
@@ -25,15 +24,13 @@ $lob: elv !default;
     @return map.get($vars, str-replace(str-replace($var, ")", ""), "var(--ds-", ""));
 }
 
-@mixin fontFace($fontName, $fontUrl, $font-weight, $font-ext, $font-style, $font-format) {
+@mixin fontFace($fontName, $fontUrl, $font-weight, $font-style, $font-ext, $font-format) {
     @font-face {
-        @font-face {
             font-family: $fontName;
             src: url($fontUrl + "." + $font-ext) format($font-format);
             font-weight: $font-weight;
             font-style: $font-style;
             font-smoothing: subpixel-antialiased;
-        }
     }
 }
 
@@ -41,56 +38,25 @@ $lob: elv !default;
     @return $basePath + "/font" + "/" + $file;
 }
 
-// @mixin ds-theme($colors,  $fontPath: "../..") {
-//     // $vars: map.merge($colors) !global;
-
-//     // @if $fonts {
-//     //     @each $font, $details in $fonts {
-//     //         @include fontFace(
-//     //             map.get($details, name),
-//     //             wrappetFontPath($fontPath, map.get($details, file)),
-//     //             map.get($details, weight),
-//     //             map.get($details, style),
-//     //             map.get($details, ext),
-//     //             map.get($details, format)
-//     //         );
-//     //     }
-//     // }
-
-//     @each $var, $value in $vars {
-//         @if type-of($value) == "color" {
-//             #{"--ds-"+ $var}: $value;
-//         }
-//         @if type-of($value) == "map" {
-//             #{"--ds-"+ $var}: map.get($value, "name");
-//         }
-//     }
-
-//     @each $var, $elevation in $elevations {
-//         #{"--ds-"+ $var}: string.unquote(map.get($elevation, $lob));
-//     }
-//     // #{"--ds-el-1"}: 0px 1px 3px 0px rgba(0,0,0,0.20),0px 2px 2px 0px rgba(0,0,0,0.12),0px 0px 2px 0px rgba(0,0,0,0.14);
-//     // #{"--ds-el-2"}: 0px 1px 3px 0px rgba(0,0,0,0.20),0px 2px 2px 0pxrgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
-//     // #{"--ds-el-3"}: 0px 1px 10px 0px rgba(0,0,0,0.20),0px 4px 5px 0px rgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
-//     // #{"--ds-el-4"}: 0px 3px 5px 0px rgba(0,0,0,0.20),0px 1px 18px 0px rgba(0,0,0,0.12),0px 6px 10px 0px rgba(0,0,0,0.14);
-// }
-
 
 @mixin ds-theme($colors, $fonts: $inter, $fontPath: "../..") {
     $vars: map.merge($colors, $fonts) !global;
 
-    // @if $fonts {
-    //     @each $font, $details in $fonts {
-    //         @include fontFace(
-    //             map.get($details, name),
-    //             wrappetFontPath($fontPath, map.get($details, file)),
-    //             map.get($details, weight),
-    //             map.get($details, style),
-    //             map.get($details, ext),
-    //             map.get($details, format)
-    //         );
-    //     }
-    // }
+    @if $fonts {
+        @each $font, $details in $fonts {
+            @at-root {
+                @include fontFace(
+                    map.get($details, name),
+                    wrappetFontPath($fontPath, map.get($details, file)),
+                    map.get($details, weight),
+                    map.get($details, style),
+                    map.get($details, ext),
+                    map.get($details, format)
+                );
+            }
+        }
+    }
+
 
     @each $var, $value in $vars {
         @if type-of($value) == "color" {
@@ -108,6 +74,9 @@ $lob: elv !default;
     // #{"--ds-el-2"}: 0px 1px 3px 0px rgba(0,0,0,0.20),0px 2px 2px 0pxrgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
     // #{"--ds-el-3"}: 0px 1px 10px 0px rgba(0,0,0,0.20),0px 4px 5px 0px rgba(0,0,0,0.12),0px 2px 4px 0px rgba(0,0,0,0.14);
     // #{"--ds-el-4"}: 0px 3px 5px 0px rgba(0,0,0,0.20),0px 1px 18px 0px rgba(0,0,0,0.12),0px 6px 10px 0px rgba(0,0,0,0.14);
+
+    // @debug  $fonts;
+
 }
 
 @function hexToRba($variable, $alpha) {

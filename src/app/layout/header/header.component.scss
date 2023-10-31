@@ -1,4 +1,3 @@
-
 @use "../../../branding/src/assets/scss/index.scss" as *;
 
 .header-container {
@@ -6,9 +5,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    background: $CP5;
     color: $CB0;
+    background: $CP5;
+    transition: background 0.3s ease;
+
     --icon-color: #{$CB0};
+    &.header-blurred {
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+    }
+    
 
     .header-logo {
         display: flex;
@@ -31,5 +37,13 @@
                 transform: rotate(180deg);
             }
         }
+    }
+
+    .menu-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
     }
 }

@@ -1,11 +1,17 @@
-<header>
-  <div class="header-container">
+<header  class="header-container" [ngClass]="{'header-blurred': isScrolled}">
     <div class="header-logo">
-      <div class="px-icons {{isSideBarCollapsed ? 'close' : ' hamburger'}}" (click)="toggleSideBar()"></div>
-      <h1>Custom header</h1>
+      <div
+        class="px-icons {{ isSideBarCollapsed ? 'close' : ' hamburger' }}"
+        (click)="toggleSideBar()"
+      ></div>
+      <h1>UM-Design system</h1>
     </div>
-<div>
-  <app-mode-switch [modeConfig]="modeConfig"></app-mode-switch>
-</div>
-  </div>
+   
+    <div class="menu-wrap">
+      <a href="https://github.com/udaymunasu/theme-app" target="_blank" >
+      <ds-icon name="github"></ds-icon>
+        
+      </a>
+      <app-mode-switch [modeConfig]="modeConfig"></app-mode-switch>
+    </div>
 </header>

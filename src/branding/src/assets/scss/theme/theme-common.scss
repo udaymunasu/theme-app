@@ -1,10 +1,21 @@
-@use './theme-globals' as *;
+@use "./theme-globals" as *;
+
+$text-xxs: 10px;
+$text-xs: 12px;
+$text-sm: 14px;
+$text-base: 16px;
+$text-lg: 18px;
+$text-xl: 20px;
+$text-2xl: 24px;
+$text-3xl: 30px;
+$text-4xl: 36px;
 
 $box-shadow-xs: $EL1;
 $box-shadow-sm: $EL2;
 $box-shadow-md: $EL3;
 $box-shadow-lg: $EL4;
 
+$transition: all 0.3s ease-in-out;
 
 $border-radius: var(--border-rd, 8px);
 $outline-offest: var(--outline-offset, 2px);

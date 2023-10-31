@@ -212,11 +212,15 @@ export class IconDemoComponent implements OnInit {
       ],
     },
     {
-      category: 'Brands',
+      category: 'Brands and social',
       icons: [
         {
           name: 'apple',
           value: 'apple',
+        },
+        {
+          name: 'github',
+          value: 'github'
         },
         {
           name: 'facebook',
@@ -225,10 +229,6 @@ export class IconDemoComponent implements OnInit {
         {
           name: 'dropbox',
           value: 'dropbox',
-        },
-        {
-          name: 'github',
-          value: 'github',
         },
         {
           name: 'google',
