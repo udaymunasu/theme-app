@@ -8,6 +8,7 @@
     color: $CB0;
     background: $CP5;
     transition: background 0.3s ease;
+    height: var(--header-height);
 
     --icon-color: #{$CB0};
     &.header-blurred {
@@ -44,6 +45,9 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 24px;
+        gap: 24px; 
+        .custom-theme {
+            cursor: pointer;
+        }
     }
 }

@@ -27,6 +27,7 @@ import { DropdownMenuDemoComponent } from './demos/dropdown-menu-demo/dropdown-m
 import { InputDemoComponent } from './demos/input-demo/input-demo.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { IconDemoComponent } from './demos/icon-demo/icon-demo.component';
+import { CustomThemeComponent } from './mode-switch/custom-theme/custom-theme/custom-theme.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { IconDemoComponent } from './demos/icon-demo/icon-demo.component';
     InputDemoComponent,
     DashboardComponent,
     IconDemoComponent,
+    CustomThemeComponent,
   ],
   imports: [
     CustomComponentsModule,

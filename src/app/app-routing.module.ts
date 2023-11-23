@@ -16,6 +16,7 @@ import { PanelDemoComponent } from './demos/panel-demo/panel-demo.component';
 import { PopoverDemoComponent } from './demos/popover-demo/popover-demo.component';
 import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
+import { CustomThemeComponent } from './mode-switch/custom-theme/custom-theme/custom-theme.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'input',
     component: InputDemoComponent
+  },
+  {
+    path: 'customTheme',
+    component: CustomThemeComponent
   },
   {
     path: 'grid',
