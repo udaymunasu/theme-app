@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomThemeService {
   private apiUrl = 'assets/colors.json';
-  private themeUrl = 'assets/colors.json';
+  private themeUrl = 'assets/themes-data.json';
 
   constructor(private http: HttpClient) {}
 

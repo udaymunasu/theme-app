@@ -11,55 +11,107 @@ export class CustomThemeComponent implements OnInit {
   constructor(
     private colorsService: CustomThemeService,
     private hostElement: ElementRef
-  ) {}
+  ) { }
 
   themedata: any;
+  selectedItem: any;
   selectOptions: any;
   reset: boolean = false;
   baseColor: any = {};
   newThemeData: any;
-  selectedThemeCategory: any;
-  selectedThemeName: any;
+  selectedThemeCategory: any = 'Lavender';
+  selectedThemeName: any = 'Sunrise';
 
   ngOnInit(): void {
-    this.colorsService.getColors().subscribe((response) => {});
-
-    this.colorsService.getThemes().subscribe((response) => {
-      this.themedata = JSON.parse(JSON.stringify(response));
+    this.colorsService.getColors().subscribe((response) => {
+      this.newThemeData = JSON.parse(JSON.stringify(response));
+    });
+    this.colorsService.getThemes().subscribe((theme) => {
+      this.themedata = theme;
       this.selectOptions = Object.keys(this.themedata).map((Theme) => ({
-        lable: Theme,
+        label: Theme,
         value: Theme,
       }));
-      console.log(' this.themedata', this.themedata, this.selectOptions);
+      this.themeChange();
     });
   }
+
+  hexColor: any;
+  openCategoryPanel: { [key: string]: boolean } = {};
 
   hslChange($event, category, hsl) {
     let hslValue: any = parseInt($event.target.value);
     this.reset = true;
     this.baseColor[category][hsl] = hslValue;
-    this.baseColor[category]['hexValue'] = $event.target.value;
+    this.baseColor[category]['hexColor'] = this.HSLToHex(
+      this.baseColor[category]['h'],
+      this.baseColor[category]['s'],
+      this.baseColor[category]['l']
+    );
     this.baseColor[category]['isUpdated'] = true;
     this.applyTempTheme(category);
   }
 
   hexChange($event, category) {
-    this.baseColor[category] = this.hexToHSL($event.target.value);
-    this.baseColor[category]['hexValue'] = $event.target.value;
-    this.baseColor[category]['isUpdated'] = true;
+    if ($event.target.value.length === 7) {
+      // If baseColor[category] is not an object, initialize it
+
+      // Directly set the hexColor property
+      this.baseColor[category] = this.hexToHSL($event.target.value);
+      this.baseColor[category]['hexColor'] = $event.target.value;
+      this.baseColor[category]['isUpdated'] = true;
+      console.log('hslValue', this.baseColor[category]);
+    }
     this.applyTempTheme(category);
     this.reset = true;
   }
 
-
-  themeChange(event) {
-    if(event) {
-      this.selectedThemeName = event.trget.value;
+  themeChange(event?: any): void {
+    if (event?.target?.value) {
+      this.selectedThemeName = event.target.value;
     }
+    const selectedDiv =
+      this.hostElement.nativeElement.querySelector('.sb-palette-panel');
+    this.selectedItem = this.themedata[this.selectedThemeName];
+    Object.keys(this.selectedItem).forEach((section) => {
+      Object.keys(this.selectedItem[section]).forEach((subSection) => {
+        let baseColor: any = {};
+        for (
+          let i =
+            Object.keys(this.selectedItem[section][subSection]).length - 1;
+          i >= 0;
+          i--
+        ) {
+          this.closeSelector(subSection)
+          const keys = Object.keys(this.selectedItem[section][subSection])[i];
+          if (keys == 'base') {
+            baseColor = this.selectedItem[section][subSection][keys].hsl;
+            this.baseColor[subSection] = baseColor;
+            this.baseColor[subSection]['isUpdated'] = true;
+          } else {
+            let value;
+            if (this.selectedItem[section][subSection][keys].value) {
+              value = this.selectedItem[section][subSection][keys].value;
+            } else {
+              const { h, s, l } =
+                this.selectedItem[section][subSection][keys].hsl;
+              value = `hsl(${baseColor.h + h}, ${baseColor.s + s}%, ${baseColor.l + l
+                }%)`;
+            }
+
+            selectedDiv.style.setProperty(
+              `--ds-${this.newThemeData[section][subSection][keys].var}`,
+              value
+            );
+          }
+        }
+      });
+    });
+    this.convertToUiModel(this.selectedItem);
   }
 
   applyTempTheme(category) {
-    this.colorsService.getThemes().subscribe((theme) => {
+    this.colorsService.getColors().subscribe((theme) => {
       this.newThemeData = theme;
       this.setTempTheme(this.newThemeData, category);
     });
@@ -71,22 +123,78 @@ export class CustomThemeComponent implements OnInit {
     }
     this.selectedThemeCategory = category;
     const selectedDiv =
-      this.hostElement.nativeElement.querySelector('.div-selected');
+      this.hostElement.nativeElement.querySelector('.sb-palette-panel');
+    // console.log("selectedDiv", selectedDiv)
     Object.keys(this.newThemeData).forEach((section) => {
       Object.keys(this.newThemeData[section]).forEach((subSection) => {
         Object.keys(this.newThemeData[section][subSection]).forEach((keys) => {
-          if (subSection == category && keys != 'base') {
-            const { h, s, l } = this.newThemeData[section][subSection][keys].hsl;
-            selectedDiv.style.setProperety(
-              `--ds-${this.newThemeData[section][subSection][keys].var}`,
-              `hsl(${this.baseColor[category]['h'] + h}, ${
-                this.baseColor[category]['s'] + s
-              }%, ${this.baseColor[category]['l'] + l}%)`
-            );
+          if (subSection == category) {
+            if (keys != 'base') {
+              const { h, s, l } =
+                this.newThemeData[section][subSection][keys].hsl;
+              selectedDiv.style.setProperty(
+                `--ds-${this.newThemeData[section][subSection][keys].var}`,
+                `hsl(${this.baseColor[category]['h'] + h}, ${this.baseColor[category]['s'] + s
+                }%, ${this.baseColor[category]['l'] + l}%)`
+              );
+              // console.log("`hsl(${this.baseColor[category]['h'] + h}, ${this.baseColor[category]['s'] + s}%, ${this.baseColor[category]['l'] + l}%)`",`--ds-${this.newThemeData[section][subSection][keys].var}`, `hsl(${this.baseColor[category]['h'] + h}, ${this.baseColor[category]['s'] + s}%, ${this.baseColor[category]['l'] + l}%)`)
+            }
           }
         });
       });
     });
+  }
+
+  applyThemeGlobally() { }
+  uiModel: any[] = [];
+
+  convertToUiModel(jsonData) {
+    this.uiModel = [];
+    if (jsonData) {
+      for (const mode in jsonData) {
+        const metaData = jsonData[mode];
+
+        for (const category in metaData) {
+          const categoryData = metaData[category];
+          const baseName = categoryData?.base.baseName;
+          const baseValue = categoryData?.base.var;
+          const baseHsl = categoryData?.base.hsl;
+          const categoryObj: any = {
+            category,
+            baseName,
+            baseHsl,
+            baseValue,
+            subCategories: [] as any[],
+          };
+
+          for (const subCategory in categoryData) {
+            const subCategoryData = categoryData[subCategory];
+            const itemObj: any = {
+              type: subCategoryData.type,
+              var: subCategoryData.var,
+              basename: subCategoryData.baseName,
+              value: subCategoryData.vaue ? subCategoryData.vaue : '',
+              hsl: subCategoryData.hsl ? subCategoryData.hsl : '',
+            };
+
+            categoryObj.subCategories.push(itemObj);
+          }
+          this.uiModel.push(categoryObj);
+        }
+        console.log('this.uiModel', this.uiModel);
+      }
+    }
+  }
+
+  openSelector(category, hue, sat, lit) {
+    this.openCategoryPanel[category] = !this.openCategoryPanel[category];
+    const { h, s, l } = this.baseColor[category];
+    this.hexColor = this.HSLToHex(hue, sat, lit);
+    this.baseColor[category]['hexColor'] = this.hexColor;
+  }
+
+  closeSelector(category) {
+    this.openCategoryPanel[category] = false;
   }
 
   HSLToHex(h, s, l) {
@@ -142,13 +250,13 @@ export class CustomThemeComponent implements OnInit {
     // Convert hex to RGB first
     let r: any, g: any, b: any;
     if (H.length == 4) {
-      r = '0x' + H[1] + H[1];
-      g = '0x' + H[2] + H[2];
-      b = '0x' + H[3] + H[3];
+      r = parseInt('0x' + H[1] + H[1]);
+      g = parseInt('0x' + H[2] + H[2]);
+      b = parseInt('0x' + H[3] + H[3]);
     } else if (H.length == 7) {
-      r = '0x' + H[1] + H[2];
-      g = '0x' + H[3] + H[4];
-      b = '0x' + H[5] + H[6];
+      r = parseInt('0x' + H[1] + H[2]);
+      g = parseInt('0x' + H[3] + H[4]);
+      b = parseInt('0x' + H[5] + H[6]);
     }
     // Then to HSL
     r /= 255;
@@ -170,11 +278,12 @@ export class CustomThemeComponent implements OnInit {
 
     if (h < 0) h += 360;
 
-    l = (cmax + cmin) / 2;
-    s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-    s = +(s * 100).toFixed(1);
-    l = +(l * 100).toFixed(1);
+    l = Math.round(((cmax + cmin) / 2) * 100);
+    s =
+      delta == 0
+        ? 0
+        : Math.round((delta / (1 - Math.abs((2 * l) / 100 - 1))) * 100);
 
-    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+    return { h: h, s: s, l: l };
   }
 }

@@ -1,0 +1,189 @@
+.theme-container {
+    font-family: 'Arial', sans-serif;
+
+    ds-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 2px solid #ddd;
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #3498db;
+            border-radius: 3px;
+            color: #555;
+            cursor: pointer;
+            transition: border-color 0.3s;
+
+            &:hover {
+                border-color: #2980b9;
+            }
+
+            &.option-list {
+                font-size: 14px;
+            }
+        }
+
+        ds-header-action {
+            ds-button {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .sb-palette-panel {
+        padding: 20px;
+
+        margin-top: 20px;
+
+        .category-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+
+            .color-changer {
+                width: 40px;
+                height: 40px;
+                background-color: red;
+            }
+        }
+
+        .colors-select-panel {
+            height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+
+            .color-select-header {
+                display: flex;
+                gap: 8px;
+                line-height: normal;
+                align-items: center;
+
+
+
+                .ds-header-wrapper {
+                    .px-header {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 8px;
+                    }
+                }
+
+                .color-inputs {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 8px;
+
+                    .hsl-input-block {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 4px;
+
+                        input {
+                            border-radius: 8px;
+                            ;
+                        }
+
+                        .hue-input {
+                            width: 40px;
+                        }
+
+                        .sat-input {
+                            width: 40px;
+                        }
+
+                        .lit-input {
+                            width: 40px;
+                        }
+                    }
+
+
+                    input[type="number"]::-webkit-inner-spin-button,
+                    input[type="number"]::-webkit-outer-spin-button,
+                    input[type="number"] {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    /* Firefox */
+                    input[type="number"] {
+                        -moz-appearance: textfield;
+                    }
+
+                    .hex-input {
+                        width: 80px;
+                        height: 24px
+                    }
+
+                }
+            }
+
+
+
+            &.opened {
+                height: 150px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .color-input {
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                border: none;
+                outline: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+
+            .color-input::-webkit-color-swatch-wrapper {
+                padding: 0;
+                border: none;
+                border-radius: 5px;
+            }
+
+            .color-input::-moz-color-swatch {
+                border: none;
+            }
+
+            .color-input::-webkit-color-swatch {
+                border: none;
+                border-radius: 5px;
+            }
+
+        }
+
+        .color-group {
+            display: flex;
+
+            .color-boxes {
+                display: flex;
+
+                .theme-color {
+                    margin-right: 10px;
+
+                    .color-box {
+                        width: 40px;
+                        height: 40px;
+                        padding: 5px;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        appearance: none;
+                        background-color: #f5f5f5;
+                        color: #333;
+                    }
+
+
+                }
+            }
+        }
+    }
+}
+
+.color-box {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
