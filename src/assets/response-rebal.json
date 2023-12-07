@@ -1,0 +1,19 @@
+{
+    "responseStatus": {"exception": null, "exceptionTime": 3552},
+    "responseData" : {
+        "accountNumber": "10014130040",
+        "accountTitle": "Bnym Bank",
+        "assets": 87909890.98,
+        "officers": {
+            "investmentOfficer": "Richie rich",
+            "investmentOfficerCode": "WMX197",
+            "adminOfficerName":"robert t",
+            "adminOfficerCode": "22389",
+            "backupAdmin": "Benjmin",
+            "seniorAdmin": "Steven"
+        },
+        "equityAssets": 258000,
+        "taxability": "taxable"
+
+    }
+}

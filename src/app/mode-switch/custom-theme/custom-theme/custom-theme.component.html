@@ -13,63 +13,75 @@
   </ds-header>
 
   <!-- <ds-container> -->
-  <div class="sb-palette-panel">
-    <ng-container *ngIf="uiModel">
-      <ng-container *ngFor="let categories of uiModel">
-        <div class="theme-display-{{ categories.category }}">
-          <div class="category-name">
-            {{ categories.baseName | uppercase | slice : 0 : -2 }}
-            <div class="color-changer" style.background-color="var(--ds-{{ categories.baseName }})" (click)="
-                openSelector(
-                  categories.category,
-                  baseColor[categories.category]['h'],
-                  baseColor[categories.category]['s'],
-                  baseColor[categories.category]['l']
-                )
-              "></div>
-          </div>
-          <div class="colors-select-panel" [ngClass]="{ opened: openCategoryPanel[categories.category] }">
-            <ds-card>
-              <ds-header class="color-select-header-wrapper">
-                <div class="color-select-header">
-                  <input type="color" [value]="baseColor[categories.category]['hexColor']" class="color-input"
-                    (input)="hexChange($event, categories.category)" />
-                  <div class="color-inputs">
-                    <input class="hex-input" min="1" max="7" type="text"
-                      [value]="baseColor[categories.category]['hexColor']"
-                      (input)="hexChange($event, categories.category)" />
-                    <div class="hsl-inputs">
-                      <div class="hsl-input-block">hsl(
-                        <input class="hue-input" min="1" max="3" type="number"
-                          [value]="baseColor[categories.category]['h']"
-                          (input)="hslChange($event, categories.category, 'h')" />
-                        <input class="sat-input" type="number" min="1" max="3"
-                          [value]="baseColor[categories.category]['s']"
-                          (input)="hslChange($event, categories.category, 's')" />%
-                        <input class="lit-input" type="number" min="1" max="3"
-                          [value]="baseColor[categories.category]['l']"
-                          (input)="hslChange($event, categories.category, 'l')" />%)
+  <div class="sb-palette-panel custom-theme">
+    <ds-tabs>
+      <ds-tab [title]="'Palette'">
+        <ng-container *ngIf="uiModel">
+          <div class="theme-display-category">
+
+          <ng-container *ngFor="let categories of uiModel">
+            <div class="theme-display-category theme-display-{{ categories.category }}" *ngIf="categories.type=='color'">
+              <div class="category-name">
+                {{ categories.baseName | uppercase | slice : 0 : -2 }}
+                <div class="color-changer" style.background-color="var(--ds-{{ categories.baseName }})" (click)="
+                    openSelector(
+                      categories.category,
+                      baseColor[categories.category]['h'],
+                      baseColor[categories.category]['s'],
+                      baseColor[categories.category]['l']
+                    )
+                  "></div>
+              </div>
+              <div class="colors-select-panel" [ngClass]="{ opened: openCategoryPanel[categories.category] }">
+                <ds-card>
+                  <ds-header class="color-select-header-wrapper">
+                    <div class="color-select-header">
+                      <input type="color" [value]="baseColor[categories.category]['hexColor']" class="color-input"
+                        (input)="hexChange($event, categories.category)" />
+                      <div class="color-inputs">
+                        <input class="hex-input" min="1" max="7" type="text"
+                          [value]="baseColor[categories.category]['hexColor']"
+                          (input)="hexChange($event, categories.category)" />
+                        <div class="hsl-inputs">
+                          <div class="hsl-input-block">hsl(
+                            <input class="hue-input" min="1" max="3" type="number"
+                              [value]="baseColor[categories.category]['h']"
+                              (input)="hslChange($event, categories.category, 'h')" />
+                            <input class="sat-input" type="number" min="1" max="3"
+                              [value]="baseColor[categories.category]['s']"
+                              (input)="hslChange($event, categories.category, 's')" />%
+                            <input class="lit-input" type="number" min="1" max="3"
+                              [value]="baseColor[categories.category]['l']"
+                              (input)="hslChange($event, categories.category, 'l')" />%)
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </ds-header>
+                </ds-card>
+              </div>
+              <div class="color-group">
+                <div class="color-boxes">
+                  <ng-container *ngFor="let color of categories.subCategories">
+                    <ng-container *ngIf="color.var != 'base'">
+                      <div class="theme-color">
+                        <div class="color-box" style.background-color="var(--ds-{{ color.var }})"></div>
+                      </div>
+                    </ng-container>
+                  </ng-container>
                 </div>
-              </ds-header>
-            </ds-card>
-          </div>
-          <div class="color-group">
-            <div class="color-boxes">
-              <ng-container *ngFor="let color of categories.subCategories">
-                <ng-container *ngIf="color.var != 'base'">
-                  <div class="theme-color">
-                    <div class="color-box" style.background-color="var(--ds-{{ color.var }})"></div>
-                  </div>
-                </ng-container>
-              </ng-container>
+              </div>
             </div>
-          </div>
+          </ng-container>
         </div>
-      </ng-container>
-    </ng-container>
+
+        </ng-container>
+
+      </ds-tab>
+      <ds-tab [title]="'Spacers'">
+        Comming soon...
+      </ds-tab>
+    </ds-tabs>
   </div>
   <!-- </ds-container> -->
 </div>

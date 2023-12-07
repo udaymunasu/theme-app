@@ -1,175 +1,194 @@
-{
-    "Sunrise": {
-        "C": {
-            "P": {
-                "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 0.3,"s": 32,"l": 19 }},
-                "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "S": {
-                "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 17,"s": 53,"l": 33 }},
-                "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "G": {
-                "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 262,"s": 5,"l": 55 }},
-                "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+[
+    {
+        "Sunrise": [
+            {
+                "type": "color",
+                "values": {
+                    "P": {
+                        "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 0.3,"s": 32,"l": 19 }},
+                        "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "S": {
+                        "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 17,"s": 53,"l": 33 }},
+                        "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "G": {
+                        "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 262,"s": 5,"l": 55 }},
+                        "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    }
+                }
             }
-        }
+        ]
     },
-    "SeaGreen": {
-        "C": {
-            "P": {
-                "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 148,"s": 97,"l": 66 }},
-                "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "S": {
-                "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 352,"s": 80,"l": 59 }},
-                "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "G": {
-                "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 175,"s": 5,"l": 55 }},
-                "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+    {
+        "SeaGreen": [
+            {
+                "type":"color",
+                "values": {
+                    "P": {
+                        "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 148,"s": 97,"l": 66 }},
+                        "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "S": {
+                        "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 352,"s": 80,"l": 59 }},
+                        "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "G": {
+                        "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 175,"s": 5,"l": 55 }},
+                        "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    }
+                }
             }
-        }
+        ]
     },
-    "Lavender": {
-        "C": {
-            "P": {
-                "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 255,"s": 21,"l": 34 }},
-                "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "S": {
-                "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 171,"s": 99,"l": 43 }},
-                "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "G": {
-                "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 277,"s": 19,"l": 50 }},
-                "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+    {
+        "Lavender": [
+            {
+                "type": "color",
+                "values": {
+                    "P": {
+                        "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 255,"s": 21,"l": 34 }},
+                        "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "S": {
+                        "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 171,"s": 99,"l": 43 }},
+                        "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "G": {
+                        "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 277,"s": 19,"l": 50 }},
+                        "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    }
+                }
             }
-        }
+        ]
     },
-    "Oasis": {
-        "C": {
-            "P": {
-                "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 271,"s": 99,"l": 43 }},
-                "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "S": {
-                "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 171,"s": 99,"l": 43 }},
-                "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
-            },
-            "G": {
-                "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 262,"s": 5,"l": 55 }},
-                "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
-                "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
-                "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
-                "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
-                "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
-                "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
-                "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
-                "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
-                "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
-                "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+    {
+        "Oasis": [
+            {
+                "type":"color",
+                "values": {
+                    "P": {
+                        "base":{"type": "color", "var": "base", "baseName": "primary-6",     "value": "", "hsl": {"h": 271,"s": 99,"l": 43 }},
+                        "1":   {"type": "color", "var": "primary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "primary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "primary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "primary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "primary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "primary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "primary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "primary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "primary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "primary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "S": {
+                        "base":{"type": "color", "var": "base", "baseName": "secondary-6",     "value": "", "hsl": {"h": 171,"s": 99,"l": 43 }},
+                        "1":   {"type": "color", "var": "secondary-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "secondary-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "secondary-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "secondary-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "secondary-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "secondary-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "secondary-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "secondary-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "secondary-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "secondary-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    },
+                    "G": {
+                        "base":{"type": "color", "var": "base", "baseName": "grayscale-6",     "value": "", "hsl": {"h": 262,"s": 5,"l": 55 }},
+                        "1":   {"type": "color", "var": "grayscale-1", "value": "", "hsl": {"h": -11,"s": 1, "l": 54 }},
+                        "2":   {"type": "color", "var": "grayscale-2", "value": "", "hsl": {"h": -11,"s": 9, "l": 51 }},
+                        "3":   {"type": "color", "var": "grayscale-3", "value": "", "hsl": {"h": -9, "s": 16,"l": 45 }},
+                        "4":   {"type": "color", "var": "grayscale-4", "value": "", "hsl": {"h": -6, "s": 20,"l": 37 }},
+                        "5":   {"type": "color", "var": "grayscale-5", "value": "", "hsl": {"h": -2, "s": 23,"l": 30 }},
+                        "6":   {"type": "color", "var": "grayscale-6", "value": "", "hsl": {"h":  0, "s": 0, "l": 0  }},
+                        "7":   {"type": "color", "var": "grayscale-7", "value": "", "hsl": {"h":  2, "s": 10,"l": -13}},
+                        "8":   {"type": "color", "var": "grayscale-8", "value": "", "hsl": {"h":  6, "s": 30,"l": -28}},
+                        "9":   {"type": "color", "var": "grayscale-9", "value": "", "hsl": {"h": 12, "s": 38,"l": -31}},
+                        "10":  {"type": "color", "var": "grayscale-10","value": "", "hsl": {"h": 14, "s": 40,"l": -35}}
+                    }
+                }
             }
-        }
-    }
-    
-}
+        ]
+    }  
+]

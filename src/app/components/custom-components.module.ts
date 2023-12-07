@@ -39,6 +39,7 @@ import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { DropdownMenuService } from './dropdown-menu/dropdown-menu.service';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { InputComponent } from './input/input.component';
+import { CarouselDirective } from './carousel/carousel.directive';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { InputComponent } from './input/input.component';
     FlyoutComponent,
     DropdownMenuComponent,
     InputComponent,
-    IconsComponent
+    IconsComponent,
+    CarouselDirective
   ],
   imports: [CommonModule,
     FormsModule,OverlayModule],
@@ -115,7 +117,8 @@ import { InputComponent } from './input/input.component';
     FlyoutComponent,
     DropdownMenuComponent,
     InputComponent,
-    IconsComponent
+    IconsComponent,
+    CarouselDirective
   ],
   entryComponents: [   
      HeaderComponent,

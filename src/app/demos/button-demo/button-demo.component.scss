@@ -16,3 +16,16 @@
         }
     }
 }
+
+
+.carousel-demo {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    .carousel-text {
+        min-width: 200px;
+    display: flex;
+    min-height: 300px;
+    align-items: center;
+    }
+}

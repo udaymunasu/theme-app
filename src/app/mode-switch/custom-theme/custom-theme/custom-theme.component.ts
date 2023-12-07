@@ -1,6 +1,8 @@
 import { JsonpClientBackend } from '@angular/common/http';
 import { Component, ElementRef, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 import { CustomThemeService } from '../../custom-theme.service';
+import { DesignTokens } from './design-token';
 
 @Component({
   selector: 'app-custom-theme',
@@ -18,20 +20,33 @@ export class CustomThemeComponent implements OnInit {
   selectOptions: any;
   reset: boolean = false;
   baseColor: any = {};
-  newThemeData: any;
+  tokenTemplate: any;
   selectedThemeCategory: any = 'Lavender';
   selectedThemeName: any = 'Sunrise';
 
   ngOnInit(): void {
-    this.colorsService.getColors().subscribe((response) => {
-      this.newThemeData = JSON.parse(JSON.stringify(response));
+    this.selectOptions = [];
+
+    this.colorsService.getThemes().subscribe((response) => {
+      this.themedata = JSON.parse(JSON.stringify(response));
+
+      this.themedata.forEach(themes => {
+        let selectOpts = {
+          label: Object.keys(themes)[0],
+          value: Object.keys(themes)[0],
+        };
+        this.selectOptions.push(selectOpts);
+        console.log("this.selectOptions", Object.keys(themes)[0], this.themedata, this.selectOptions)
+
+      });
+
+      this.loadTokensTemplate();
     });
-    this.colorsService.getThemes().subscribe((theme) => {
-      this.themedata = theme;
-      this.selectOptions = Object.keys(this.themedata).map((Theme) => ({
-        label: Theme,
-        value: Theme,
-      }));
+  }
+
+  loadTokensTemplate() {
+    this.colorsService.getColors().subscribe((response) => {
+      this.tokenTemplate = JSON.parse(JSON.stringify(response));
       this.themeChange();
     });
   }
@@ -48,101 +63,61 @@ export class CustomThemeComponent implements OnInit {
       this.baseColor[category]['s'],
       this.baseColor[category]['l']
     );
-    this.baseColor[category]['isUpdated'] = true;
     this.applyTempTheme(category);
   }
 
   hexChange($event, category) {
     if ($event.target.value.length === 7) {
-      // If baseColor[category] is not an object, initialize it
-
-      // Directly set the hexColor property
       this.baseColor[category] = this.hexToHSL($event.target.value);
       this.baseColor[category]['hexColor'] = $event.target.value;
-      this.baseColor[category]['isUpdated'] = true;
-      console.log('hslValue', this.baseColor[category]);
+      this.applyTempTheme(category);
+      this.reset = true;
     }
-    this.applyTempTheme(category);
-    this.reset = true;
   }
 
   themeChange(event?: any): void {
     if (event?.target?.value) {
       this.selectedThemeName = event.target.value;
     }
-    const selectedDiv =
-      this.hostElement.nativeElement.querySelector('.sb-palette-panel');
-    this.selectedItem = this.themedata[this.selectedThemeName];
-    Object.keys(this.selectedItem).forEach((section) => {
-      Object.keys(this.selectedItem[section]).forEach((subSection) => {
-        let baseColor: any = {};
-        for (
-          let i =
-            Object.keys(this.selectedItem[section][subSection]).length - 1;
-          i >= 0;
-          i--
-        ) {
-          this.closeSelector(subSection)
-          const keys = Object.keys(this.selectedItem[section][subSection])[i];
-          if (keys == 'base') {
-            baseColor = this.selectedItem[section][subSection][keys].hsl;
-            this.baseColor[subSection] = baseColor;
-            this.baseColor[subSection]['isUpdated'] = true;
-          } else {
-            let value;
-            if (this.selectedItem[section][subSection][keys].value) {
-              value = this.selectedItem[section][subSection][keys].value;
-            } else {
-              const { h, s, l } =
-                this.selectedItem[section][subSection][keys].hsl;
-              value = `hsl(${baseColor.h + h}, ${baseColor.s + s}%, ${baseColor.l + l
-                }%)`;
-            }
+    this.themedata.forEach((theme) => {
+      if (theme[this.selectedThemeName]) {
+        this.selectedItem = theme[this.selectedThemeName];
+      }
+    })
+    const selectedItens = _.merge(this.tokenTemplate, this.selectedItem);
 
-            selectedDiv.style.setProperty(
-              `--ds-${this.newThemeData[section][subSection][keys].var}`,
-              value
-            );
-          }
-        }
-      });
-    });
-    this.convertToUiModel(this.selectedItem);
+    this.convertToUiModel(selectedItens);
+    DesignTokens.addTokens(this.selectedItem, ['.custom-theme']);
+    this.reset = true;
   }
 
-  applyTempTheme(category) {
-    this.colorsService.getColors().subscribe((theme) => {
-      this.newThemeData = theme;
-      this.setTempTheme(this.newThemeData, category);
-    });
-  }
-
-  setTempTheme(jsonData, category) {
-    if (jsonData == null) {
+  applyTempTheme(category, type?, path?, tokenValue?) {
+    if (this.tokenTemplate == null) {
       return;
     }
     this.selectedThemeCategory = category;
-    const selectedDiv =
-      this.hostElement.nativeElement.querySelector('.sb-palette-panel');
-    // console.log("selectedDiv", selectedDiv)
-    Object.keys(this.newThemeData).forEach((section) => {
-      Object.keys(this.newThemeData[section]).forEach((subSection) => {
-        Object.keys(this.newThemeData[section][subSection]).forEach((keys) => {
-          if (subSection == category) {
-            if (keys != 'base') {
-              const { h, s, l } =
-                this.newThemeData[section][subSection][keys].hsl;
-              selectedDiv.style.setProperty(
-                `--ds-${this.newThemeData[section][subSection][keys].var}`,
-                `hsl(${this.baseColor[category]['h'] + h}, ${this.baseColor[category]['s'] + s
-                }%, ${this.baseColor[category]['l'] + l}%)`
-              );
-              // console.log("`hsl(${this.baseColor[category]['h'] + h}, ${this.baseColor[category]['s'] + s}%, ${this.baseColor[category]['l'] + l}%)`",`--ds-${this.newThemeData[section][subSection][keys].var}`, `hsl(${this.baseColor[category]['h'] + h}, ${this.baseColor[category]['s'] + s}%, ${this.baseColor[category]['l'] + l}%)`)
+
+    Object.keys(this.tokenTemplate).forEach((section) => {
+      Object.keys(this.tokenTemplate[section]).forEach((subSection) => {
+        Object.keys(this.tokenTemplate[section].values).forEach((keys) => {
+          if (this.tokenTemplate[section].type == 'color') {
+            if (this.tokenTemplate[section].values[category]) {
+              debugger
+              this.tokenTemplate[section].values[category].base.hsl = this.baseColor[category];
+              console.log("this.tokenTemplate[section].values[category].base.hsl", this.tokenTemplate[section].values[category].base.hsl)
+              Object.keys(this.tokenTemplate[section].values[category]).forEach((values) => {
+                this.tokenTemplate[section].values[category][values].value = '';
+              })
+            }
+          } else {
+            if (this.tokenTemplate[section].values[category]) {
+              this.tokenTemplate[section].values[category][path].value = tokenValue
             }
           }
         });
       });
     });
+    DesignTokens.addTokens(this.tokenTemplate, ['.custom-theme'])
   }
 
   applyThemeGlobally() { }
@@ -150,39 +125,62 @@ export class CustomThemeComponent implements OnInit {
 
   convertToUiModel(jsonData) {
     this.uiModel = [];
-    if (jsonData) {
-      for (const mode in jsonData) {
-        const metaData = jsonData[mode];
+    let categoryObj: any = {};
 
-        for (const category in metaData) {
-          const categoryData = metaData[category];
-          const baseName = categoryData?.base.baseName;
-          const baseValue = categoryData?.base.var;
-          const baseHsl = categoryData?.base.hsl;
-          const categoryObj: any = {
+    if (jsonData == null) {
+      return;
+    }
+
+    for (const key in jsonData) {
+      for (const category in jsonData[key].values) {
+        const type = jsonData[key].type;
+        if (jsonData[key].type == 'color') {
+          const baseName = jsonData[key].values[category]?.base.baseName;
+          const baseValue = jsonData[key].values[category]?.base.value
+            ? jsonData[key].values[category]?.base.value
+            : '';
+          const baseHsl = jsonData[key].values[category]?.base.hsl
+            ? jsonData[key].values[category]?.base.hsl
+            : '';
+          this.baseColor[category] = baseHsl;
+          this.baseColor[category]['hexColor'] = baseValue;
+          categoryObj = {
+            type,
             category,
             baseName,
             baseHsl,
             baseValue,
             subCategories: [] as any[],
           };
-
-          for (const subCategory in categoryData) {
-            const subCategoryData = categoryData[subCategory];
+        } else {
+          const baseName =
+            jsonData[key].values[category][Object.keys(jsonData[key].values[category])[0]].var.split('.')[0];
+          categoryObj = {
+            type,
+            category,
+            baseName,
+            subCategories: [] as any[],
+          };
+        }
+        for (const subCategory in jsonData[key].values[category]) {
+          if (subCategory != 'base') {
             const itemObj: any = {
-              type: subCategoryData.type,
-              var: subCategoryData.var,
-              basename: subCategoryData.baseName,
-              value: subCategoryData.vaue ? subCategoryData.vaue : '',
-              hsl: subCategoryData.hsl ? subCategoryData.hsl : '',
+              var: jsonData[key].values[category][subCategory]?.var,
+              hsl: jsonData[key].values[category][subCategory]?.hsl
+                ? jsonData[key].values[category][subCategory]?.hsl: '',
+              value: jsonData[key].values[category][subCategory]?.value
+                ? jsonData[key].values[category][subCategory]?.value
+                : '',
+              scssVar: `${category}${subCategory}`,
+              path: subCategory,
             };
-
             categoryObj.subCategories.push(itemObj);
           }
-          this.uiModel.push(categoryObj);
         }
-        console.log('this.uiModel', this.uiModel);
+        this.uiModel.push(categoryObj);
       }
+
+      console.log('this.uiModel', this.uiModel);
     }
   }
 
