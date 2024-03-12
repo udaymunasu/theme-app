@@ -38,6 +38,11 @@
 
         margin-top: 20px;
 
+        .theme-display-category {
+            display:flex;
+            flex-direction: column;
+        }
+
         .category-name {
             font-size: 18px;
             font-weight: bold;
