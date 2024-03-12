@@ -1,27 +1,35 @@
-<div class="dashboard-header">Design Library</div>
-<p>Explore the important dashboard lists for a construction company:</p>
-<h2>GENERAL MERCHANDISE</h2>
-<div class="frame" >
-  <ng-container *ngFor="let item of items">
-  <button  class="custom-btn btn-1">
-    <a (click)="navigate(item.routerLink)" [routerLinkActive]="['is-active']">{{ item.label }}</a></button>
-  </ng-container>
+<div class="container">
+  <h1>Design Library</h1>
+  <div class="frame">
+    <div class="Display-text">
+      <div class="Text-to-showcase">
+        <h1 class="text-6xl">
+          The Most Complete UI Suite for <span class="">Angular</span>
+        </h1>
+        <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">
+          Elevate your web applications with PrimeNG's comprehensive suite of
+          customizable, feature-rich UI components. With PrimeNG, turning your
+          development vision into reality has never been easier.
+        </p>
+      </div>
+    </div>
+    <div class="button-frame">
+      <ng-container *ngFor="let item of items">
+        <button class="custom-btn btn-1">
+          <a (click)="navigate(item.routerLink)" [routerLinkActive]="['is-active']">{{ item.label }}</a>
+        </button>
+      </ng-container>
+    </div>
+  </div>
 </div>
 
-
-<!-- Footer section -->
 <footer class="footer">
   <p style="font-family: Cabin Medium, Cabin">Home Builder | Web Developer</p>
 
   <div class="social-media">
-    <a href="https://github.com/jmgconstruction"
-      ><span class="social-btn"><i class="fab fa-github"></i></span
-    ></a>
-    <a href="https://codepen.io/jaspergementiza"
-      ><span class="social-btn"><i class="fab fa-codepen"></i></span
-    ></a>
-    <a href="https://www.linkedin.com/in/jaspergementiza/"
-      ><span class="social-btn"><i class="fab fa-linkedin"></i></span
-    ></a>
+    <a href="https://github.com/jmgconstruction"><span class="social-btn"><i class="fab fa-github"></i></span></a>
+    <a href="https://codepen.io/jaspergmentiza"><span class="social-btn"><i class="fab fa-codepen"></i></span></a>
+    <a href="https://www.linkedin.com/in/jaspergmentiza/"><span class="social-btn"><i
+          class="fab fa-linkedin"></i></span></a>
   </div>
 </footer>

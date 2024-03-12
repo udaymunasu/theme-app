@@ -5,14 +5,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    color: $CB0;
-    background: $CP5;
+    color: $CB1;
+    background: linear-gradient(135deg, #e5e5e5, #ececec, #f2f2f2);
     transition: background 0.3s ease;
     height: var(--header-height);
 
     --icon-color: #{$CB0};
     &.header-blurred {
-        background: rgba(0,0,0,0.5);
+        background: rgba(255,255,255,.7);
         backdrop-filter: blur(5px);
     }
     
@@ -29,13 +29,16 @@
         }
 
         .px-icons {
+           
             cursor: pointer;
             &.hamburger {
                 transition: 0.3s all ease-in-out;
+                --icon-color: #000000;
             }
             &.close {
                 transition: 0.3s all ease-in-out;
                 transform: rotate(180deg);
+                --icon-color: #000000;
             }
         }
     }
