@@ -4,7 +4,7 @@ ds-tabs {
     width: 100%;
     height: 100%;
     $ds-tab-header-height: var(--tab-header-height, var(--ds-tab-header-height, 42px));
-
+    transition: all 0.3s ease-in-out;
     .ds-tabs {
         display: flex;
         align-items: center;
@@ -19,6 +19,7 @@ ds-tabs {
         column-gap: 10px;
         margin-bottom: var(--ds-tabs-margin-bottom, 3px);
         padding-left: var(--ds-tabs-padding-left, 16px);
+        transition: all 0.3s ease-in-out;
 
         .ds-tab {
             display: flex;
@@ -30,6 +31,7 @@ ds-tabs {
             outline: 2px solid transparent;
             outline-offset: 2px;
             font-family: inter bold;
+            transition: all 0.3s ease-in-out;
 
             &.active {
                 font-size: 24px;
@@ -78,6 +80,7 @@ ds-tabs {
         box-shadow: 0px 2px 2px 1px #f6f6f6;
         display: flex;
         flex-flow: column;
+        transition: all 0.3s ease-in-out;
 
         .ds-tabs-carousal-content {
             height: 100%;
@@ -87,19 +90,19 @@ ds-tabs {
             justify-content: flex-start;
             transform: translate(calc(calc(100% / var(--tabs-cnt)) * var(--tabs-pos, 0) * -1));
             transition: all 0.3s ease-in-out;
-
-            ds-tab-body {
+            padding: 14px;
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+            width: calc(100% / var(--tabs-cnt));
+            padding: 14px;
+            margin: 14px;
+            > div {
                 display: flex;
-                flex-flow: column;
                 height: 100%;
-                width: calc(100% / var(--tabs-cnt));
-                padding: 14px;
-                margin: 14px;
-                > div {
-                    display: flex;
-                    height: 100%;
-                }
             }
+
+           
         }
     }
 }

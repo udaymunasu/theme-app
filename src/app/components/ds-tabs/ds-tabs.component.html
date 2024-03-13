@@ -1,4 +1,24 @@
-<ds-tab-header>
+<div class="ds-tabs">
+  <div *ngFor="let tab of tabs" (click)="selectTab(tab)">
+
+    <div class="ds-tab">
+      <ng-template [ngIf]="tab.titleTemplate" [ngIfElse]="tabTextLabel">
+        <ng-template *ngTemplateOutlet="tab.titleTemplate"></ng-template>
+      </ng-template>
+      <ng-template #tabTextLabel>{{ tab.title }}</ng-template>
+    </div>
+
+  </div>
+</div>
+
+<div class="ds-tabs-carousal" [style.--tabs-cnt]="tabs.length" [style.--tabs-pos]="selectedIndex">
+  <div class="ds-tabs-carousal-content">
+    <ng-content></ng-content>
+  </div>
+</div>
+
+
+<!-- <ds-tab-header>
   <div class="ds-tabs" #tabRef>
     <ng-container *ngFor="let tab of tabs; let i = index">
       <div
@@ -41,4 +61,4 @@
       <ds-tab-body [content]="tab.content!"> </ds-tab-body>
     </ng-container>
   </div>
-</div>
+</div> -->

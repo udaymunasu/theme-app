@@ -1,5 +1,5 @@
 import {CdkPortalOutlet, Portal, TemplatePortal } from '@angular/cdk/portal';
-import { AfterViewInit, Component, ContentChildren, Input, OnInit, QueryList, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ContentChildren, Input, OnInit, QueryList, TemplateRef, ViewContainerRef } from '@angular/core';
 import { DsTabComponent } from '../ds-tab/ds-tab.component';
 
 @Component({
@@ -11,7 +11,7 @@ export class DsTabBodyComponent implements OnInit, AfterViewInit {
 
   @ContentChildren(DsTabComponent, {descendants: true}) tabs: QueryList<DsTabComponent>
 
-  @Input('content') _content: TemplatePortal;
+  @Input('content') _content: { templateRef: TemplateRef<any> };
   @Input() tabPos: number |null;
   @Input() tabsLength: number | null;
   @Input() selectedIndex: number | null;

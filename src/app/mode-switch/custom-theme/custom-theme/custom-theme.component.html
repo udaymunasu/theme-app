@@ -1,7 +1,7 @@
 <div class="theme-container">
   <ds-header>
     <select (change)="themeChange($event)">
-      <option [selected]="selectedThemeName">{{ selectedThemeName }}</option>
+      <!-- <option [selected]="selectedThemeName">{{ selectedThemeName }}</option> -->
       <option class="option-list" *ngFor="let options of selectOptions" [value]="options.label">
         {{ options.label }}
       </option>
@@ -14,9 +14,10 @@
 
   <!-- <ds-container> -->
   <div class="sb-palette-panel custom-theme">
-    <ds-tabs>
-      <ds-tab [title]="'Palette'">
+     <ds-tabs>
+      <ds-tab [title]="'Palette'"> 
         <ng-container *ngIf="uiModel">
+         
           <div class="theme-display-category">
 
           <ng-container *ngFor="let categories of uiModel">
@@ -81,7 +82,7 @@
       <ds-tab [title]="'Spacers'">
         Comming soon...
       </ds-tab>
-    </ds-tabs>
+    </ds-tabs> 
   </div>
   <!-- </ds-container> -->
 </div>

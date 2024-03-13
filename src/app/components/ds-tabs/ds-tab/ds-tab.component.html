@@ -1,5 +1,10 @@
-<ng-template>
+<!-- <ng-template>
   <div *ngIf="active" @fadein @fadeOut>
     <ng-content></ng-content>
   </div>
-</ng-template>
+</ng-template> -->
+
+
+<div [hidden]="!active">
+  <ng-content></ng-content>
+</div>

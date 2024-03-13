@@ -19,6 +19,7 @@ import {
 } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { DSTabsService } from '../ds-tab.service';
+import { DsTabsComponent } from '../ds-tabs.component';
 export const enterTransition = transition(':enter', [
   style({
     opacity: 0,
@@ -71,8 +72,11 @@ export class DsTabComponent implements OnInit, OnChanges {
 
   constructor(
     private _viewContainerRef: ViewContainerRef,
-    private tabsService: DSTabsService
-  ) {}
+    private tabsService: DSTabsService,
+    tabs: DsTabsComponent
+  ) {
+    tabs.addTab(this)
+  }
 
   ngOnInit(): void {
     this._contentPortal = new TemplatePortal(
