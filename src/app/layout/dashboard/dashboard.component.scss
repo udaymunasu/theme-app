@@ -7,7 +7,7 @@
     width: 50px;
     height: 30px;
     border-radius: 15px; /* half of height for rounded edges */
-    background-color: #dddddd;
+    background-color: $CG5;
     cursor: pointer;
   
     &::before {
@@ -17,14 +17,14 @@
       left: 2px;
       width: 26px;
       height: 26px;
-      background-color: white;
+      background-color: $CB0;
       border-radius: 50%; /* to make it round */
       transition: transform 0.3s ease;
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 2px $CB0;
     }
   
     &:hover::before {
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 3px $CB0;
     }
   
     input[type="checkbox"]:checked + &::before {
@@ -115,7 +115,7 @@
 .custom-btn {
     width: 100px;
     height: 100px;
-    color: #fff;
+    color: $CB0;
     border-radius: 5px;
     padding: 10px 25px;
     font-family: "Lato", sans-serif;
@@ -125,8 +125,8 @@
     transition: all 0.3s ease;
     position: relative;
     display: flex;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
-        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 2px 2px 2px 0px $CG6, 7px 7px 20px 0px $CB0,
+        4px 4px 5px 0px $CB0;
     outline: none;
     align-items: center;
     justify-content: center;

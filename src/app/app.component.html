@@ -1,10 +1,8 @@
 <div class="app">
-  <app-comp-header></app-comp-header>
+  <app-comp-header (sidebarToggle)="sidebarToggle()"></app-comp-header>
 
-  <div class="container">
-    <div class="app-comp-sidebar">
+  <div class="container" [ngClass]="{'sidebar-open': sidebarShow}">
       <app-comp-sidebar></app-comp-sidebar>
-    </div>
 
     <div class="content">
       <router-outlet></router-outlet>

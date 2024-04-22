@@ -1,34 +1,52 @@
+@use "../../../branding/src/assets/scss/index.scss" as *;
+
+
 .sidebar {
+    --icon-color: #{$CP6};
     width: 0px;
-    background-color: rgba(225, 225, 225, 0.7);
-    backdrop-filter: blur(5px);
-    font-size: 20px;
-    transition: width 0.5s ease-in-out;
-    color: #000;
-    overflow: hidden;
-    height: 100%;
-    padding: 20px 0;
+    background-color: $CG2; // Light gray background
+    color: $CB1;
+    border-right: 1px solid $CG3; // Light border color
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-250px);
+    padding: 24px;
+    // padding: 0 12px;
+    /* Initially off-screen */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    overflow-y: auto; // Add scrollbar if content exceeds height
+    font-family: 'Roboto', sans-serif; // Use Roboto font for a sleek look
 
     .sidebar-panel {
         transition: all 0.4s ease-in-out;
         overflow: hidden;
+        padding: 0px 32px;
 
         .sidebar-header {
             cursor: pointer;
             display: flex;
             align-items: center;
             padding: 10px;
-            color: #000;
-            border-bottom: 1px solid #ddd;
+            color: $CB1;
+            font-weight: 600;
+            font-size: 16px;
+            padding: .5rem 0;
+            margin-bottom: .25rem;
 
-            .expand-icon {
-                --icon-color: #000;
-                margin-right: 10px;
-                transition: all 0.3s ease-in-out;
+            px-icons {
+                &.expand-icon {
+                    transition: transform 0.3s ease;
+                }
             }
 
+            .expand-icon {
+                margin-right: 10px;
+                color: $CG3; // Light gray expand icon color
+                transition: transform 0.5s ease-in-out;
+            }
         }
-
 
         .sidebar-content {
             max-height: 0;
@@ -45,47 +63,59 @@
                     cursor: pointer;
 
                     &.is-active {
-                        background-color: #007bbf;
-                        color: #000;
-                        font-weight: bold;
+                        border-left: 1px solid $CP6;
+                        color: $CP6;
+                        font-weight: 450;
+                        font-size: 18px;
                         text-decoration: none;
-                        transition: background-color 0.3s, color 0.3s;
+                        transition: background-color 0.5s, color 0.5s;
+
+                        a{
+                            color: $CP6
+                        }
                     }
 
                     a {
                         text-decoration: none;
-                        color: #000;
+                        color: $CG7; // Dark gray text color for links
+                        transition: color 0.5s ease-in-out;
+
+                        &:hover {
+                            color: $CP6; // Dark blue color on hover
+                        }
                     }
                 }
             }
 
             &.expanded {
-                padding: 10px;
+                // padding: 12px 24px;
                 max-height: 1000px;
+                transform: translateX(0)
             }
         }
     }
 
     &.expanded {
         width: 300px;
-        padding: 20px;
+        transform: translateX(0);
+        transition: all 0.5s ease-in-out;
     }
 
     .link {
         padding: 6px 8px 6px 16px;
         text-decoration: none;
-        font-size: 25px;
-        color: #ffffff;
+        font-size: 16px; // Increase font size for better readability
+        color: $CG8; // Dark gray text color for links
         display: block;
         cursor: pointer;
 
         &:hover {
-            color: #64b5f6;
+            color: $CP6; // Dark blue color on hover
         }
 
         &.active {
             font-weight: bold;
-            color: #ff7043;
+            color: $CE2; // Red color for active links
         }
     }
 }

@@ -40,6 +40,7 @@ import { DropdownMenuService } from './dropdown-menu/dropdown-menu.service';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { InputComponent } from './input/input.component';
 import { CarouselDirective } from './carousel/carousel.directive';
+import { ShowCodeComponent } from './show-code/show-code.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { CarouselDirective } from './carousel/carousel.directive';
     DropdownMenuComponent,
     InputComponent,
     IconsComponent,
-    CarouselDirective
+    CarouselDirective,
+    ShowCodeComponent
   ],
   imports: [CommonModule,
     FormsModule,OverlayModule],
@@ -118,11 +120,12 @@ import { CarouselDirective } from './carousel/carousel.directive';
     DropdownMenuComponent,
     InputComponent,
     IconsComponent,
-    CarouselDirective
+    CarouselDirective,
+    ShowCodeComponent
   ],
   entryComponents: [   
      HeaderComponent,
-     DsModalWindow, NgbModalBackdrop
+     DsModalWindow, NgbModalBackdrop,ShowCodeComponent
   ]
 })
 export class CustomComponentsModule {}

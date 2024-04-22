@@ -41,6 +41,15 @@ export class IconDemoComponent implements OnInit {
         {
           name: 'hamburger',
         },
+        {
+          name: 'copy',
+          value: 'alarm',
+        },
+
+        {
+          name: 'copy2',
+          value: 'copy2',
+        },
       ],
     },
     {

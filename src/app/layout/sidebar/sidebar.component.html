@@ -11,7 +11,7 @@
       <ul>
         <li *ngFor="let labels of item.labels"
         [routerLink]="labels.routerLink" [routerLinkActive]="['is-active']">
-          <a > {{ labels.label }}</a>
+          <a   [pTooltip]="labels.label" tooltipPosition="bottom"> {{ labels.label }}</a>
         </li>
       </ul>
     </div>

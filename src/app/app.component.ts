@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './components/sidebar/sidebar.service';
 import { appSidebarComponent } from './layout/sidebar/sidebar.component';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +15,11 @@ export class AppComponent implements OnInit {
   public sidebarShow: boolean = false;
 
   openSidebar() {
-    this.sidebar.open(appSidebarComponent);
+    this.sidebar.open(appSidebarComponent, { position: 'right' });
+  }
+
+  sidebarToggle() {
+    this.sidebarShow = !this.sidebarShow;
   }
 
   items = [

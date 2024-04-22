@@ -6,14 +6,16 @@
     justify-content: space-between;
     padding: 15px;
     color: $CB1;
-    background: linear-gradient(135deg, #e5e5e5, #ececec, #f2f2f2);
+    background:  #e6d6ff80;
     transition: background 0.3s ease;
+
     height: var(--header-height);
 
-    --icon-color: #{$CB0};
+    --icon-color: #{$CB1};
     &.header-blurred {
-        background: rgba(255,255,255,.7);
-        backdrop-filter: blur(5px);
+        background:  #e6d6ff80;
+    backdrop-filter: blur(8px);
+
     }
     
 
@@ -32,7 +34,7 @@
             text-decoration: none;
             .design-system-text {
                 font-size: 24px;
-                color: #333;
+                color: $CG9;
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 font-weight: bold;
@@ -44,12 +46,12 @@
             cursor: pointer;
             &.hamburger {
                 transition: 0.3s all ease-in-out;
-                --icon-color: #000000;
+                --icon-color: #{$CB1};
             }
             &.close {
                 transition: 0.3s all ease-in-out;
                 transform: rotate(180deg);
-                --icon-color: #000000;
+                --icon-color: #{$CB1};
             }
         }
     }

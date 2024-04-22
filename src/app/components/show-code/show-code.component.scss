@@ -1,0 +1,181 @@
+/* showcode.component.css */
+
+.code-container {
+    position: relative;
+    --icon-color: white;
+}
+
+.copy-code {
+    display:flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+pre {
+    background-color: #f8f9fa;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    white-space: pre-wrap;
+}
+
+button {}
+
+/* Basic syntax highlighting styles */
+.tag {
+    color: blue;
+}
+
+.number {
+    color: purple;
+}
+
+.comment {
+    color: green;
+}
+
+/* Add more styles for other code elements as needed */
+
+
+
+code[class*=language-],
+pre[class*=language-] {
+    background: none;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+div.code-toolbar>.toolbar {
+    display: none;
+}
+
+pre[class*=language-] {
+    position: relative;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    max-height: 40rem;
+    overflow: auto;
+    color-scheme: dark;
+}
+
+pre[class*=language-]:before,
+pre[class*=language-]:after {
+    display: none !important;
+}
+
+pre[class*=language-] code {
+    border-left: 1rem solid transparent;
+    box-shadow: none;
+    margin: 0;
+    font-size: 14px;
+    border-radius: 10px;
+    color: #ffffff;
+    max-height: inherit;
+    height: inherit;
+    padding: 0 1rem;
+    display: block;
+    overflow: auto;
+}
+
+pre[class*=language-] code .token.comment,
+pre[class*=language-] code .token.block-comment,
+pre[class*=language-] code .token.prolog,
+pre[class*=language-] code .token.doctype,
+pre[class*=language-] code .token.cdata {
+    color: #bbf7d0;
+}
+
+pre[class*=language-] code .token.punctuation {
+    color: #bfdbfe;
+}
+
+pre[class*=language-] code .token.property,
+pre[class*=language-] code .token.tag,
+pre[class*=language-] code .token.boolean,
+pre[class*=language-] code .token.number,
+pre[class*=language-] code .token.function-name,
+pre[class*=language-] code .token.constant,
+pre[class*=language-] code .token.symbol,
+pre[class*=language-] code .token.deleted {
+    color: #93c5fd;
+}
+
+pre[class*=language-] code .token.selector,
+pre[class*=language-] code .token.attr-name,
+pre[class*=language-] code .token.string,
+pre[class*=language-] code .token.char,
+pre[class*=language-] code .token.function,
+pre[class*=language-] code .token.builtin,
+pre[class*=language-] code .token.inserted {
+    color: #eff6ff;
+}
+
+pre[class*=language-] code .token.operator,
+pre[class*=language-] code .token.entity,
+pre[class*=language-] code .token.url,
+pre[class*=language-] code .token.variable {
+    color: #ffffff;
+}
+
+pre[class*=language-] code .token.atrule,
+pre[class*=language-] code .token.attr-value,
+pre[class*=language-] code .token.keyword,
+pre[class*=language-] code .token.class-name {
+    color: #bbf7d0;
+}
+
+pre[class*=language-] code .token.regex,
+pre[class*=language-] code .token.important {
+    color: #fde68a;
+}
+
+pre[class*=language-] code .language-css .token.string,
+pre[class*=language-] code .style .token.string {
+    color: #fde68a;
+}
+
+pre[class*=language-] code .token.important {
+    font-weight: normal;
+}
+
+pre[class*=language-] code .token.bold {
+    font-weight: bold;
+}
+
+pre[class*=language-] code .token.italic {
+    font-style: italic;
+}
+
+pre[class*=language-] code .token.entity {
+    cursor: help;
+}
+
+.copy-to-clipboard-button {
+    display: none;
+}
+
+pre[class*=language-] code {
+    background: #374151;
+}

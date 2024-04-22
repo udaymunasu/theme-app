@@ -1,0 +1,39 @@
+<div class="code-container">
+        <div *ngIf="code" class="doc-section-code">
+                <pre *ngIf="lang === 'basic'" class="language-markup">
+            <code #codeElement>
+{{code.basic}}
+
+</code>
+</pre>
+
+                <pre *ngIf="lang === 'html'" class="language-markup"><code #codeElement>
+{{code.html}}
+
+</code></pre>
+
+                <pre *ngIf="lang === 'typescript'" class="language-typescript"><code #codeElement>
+{{code.typescript}}
+
+</code></pre>
+
+                <pre *ngIf="lang === 'data'" class="language-json"><code #codeElement>
+{{code.data}}
+
+</code></pre>
+
+                <pre *ngIf="lang === 'scss'" class="language-scss"><code #codeElement>
+{{code.scss}}
+
+</code></pre>
+
+                <pre *ngIf="lang === 'command'" class="language-shell"><code #codeElement>
+{{code.command}}
+
+</code></pre>
+        </div>
+        <div class="copy-code" (click)="copyCode()">
+                Copy
+                <ds-icon name="copy2"></ds-icon>
+        </div>
+</div>

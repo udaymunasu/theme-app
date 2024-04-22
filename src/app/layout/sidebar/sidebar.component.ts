@@ -38,6 +38,11 @@ export const Sidebar_menu: Array<{
     category: 'components',
   },
   {
+    label: 'Tooltip',
+    routerLink: 'tooltip',
+    category: 'components',
+  },
+  {
     label: 'Card',
     routerLink: 'card',
     category: 'components',

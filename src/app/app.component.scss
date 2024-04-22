@@ -1,49 +1,56 @@
-@use "../branding/src/assets/scss/index.scss" as *;
+@use '../branding/src/assets/scss/index.scss' as *;
+
 
 .app {
-    --header-height: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: $CB0;
+    background-blend-mode: hard-light, multiply;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% 90px;
+    background-image: url(https://cdn.pixabay.com/photo/2023/08/19/13/42/water-8200502_1280.jpg);
+
     app-comp-header {
         position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        // background-color: $CP5;
-        color: $CB0;
-        z-index: 10000;
+        z-index: 1000;
     }
 
     .container {
         display: flex;
-        padding-top:100px;
+        flex: 1;
         position: relative;
-        right: 0%;
-        height: 100%;
-        left: 0%;
-    
-    
-        .content {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            width:100%;
-            overflow-y: auto;
-            max-height: calc(100% - 40px);
-            padding: 0 0 0 64px;
-            
+        margin-top: 90px;
 
-            &::-webkit-scrollbar {
-                width:0
+        transition: all 0.5s ease-in-out;
+        margin-left: 0;
+
+        &.sidebar-open {
+            .content {
+                transition: all 0.5s ease-in-out;
+                margin-left: 350px; // Adjust as per sidebar width
             }
         }
 
-        
+        .content {
+            background: $CB0;
+            color: $CB1;
+            flex-grow: 1;
+            padding: 24px 48px;
+            transition: all 0.5s ease-in-out;
+        }
     }
+
     .footer {
-        background-color: #333;
-        color: #fff;
+        background-color: $CP6;
+        color: $CB0;
+        padding: 20px;
         text-align: center;
-        padding: 20px 0;
-        width: 100%;
+        margin-top: auto; // Push footer to the bottom
     }
+
 }
-
-
-

@@ -2,7 +2,8 @@
 
 @mixin tooltip {
     .bny-css-tooltip {
-        position:relative;
+        position: relative;
+
         &::before {
             content: "";
             width: 12px;
@@ -34,6 +35,7 @@
         }
 
         &:hover {
+
             &::before,
             &::after {
                 display: block;
@@ -46,6 +48,7 @@
                 left: 50%;
                 transform: translate(-50%, calc(-100% - 5px)) rotate(45deg);
             }
+
             &::after {
                 top: 0;
                 left: 50%;
@@ -55,6 +58,7 @@
 
         &.tooltip-left {
             @extend .tooltip-top;
+
             &::before,
             &::after {
                 left: 20%;
@@ -63,6 +67,7 @@
 
         &.tooltip-top-right {
             @extend .tooltip-top;
+
             &::before,
             &::after {
                 left: 80%;
@@ -70,12 +75,14 @@
         }
 
         &.tooltip-bottom {
+
             // @extend .tooltip-top;
             &::before {
                 bottom: 0;
                 left: 50%;
                 transform: translate(-50%, calc(100% + 5px)) rotate(45deg);
             }
+
             &::after {
                 bottom: 0;
                 left: 50%;
@@ -85,11 +92,13 @@
 
         &.tooltip-right {
             @extend .tooltip-top;
+
             &::before {
                 top: 50%;
                 right: 0;
-                transform: translate( calc(100% + 5px), -50%) rotate(45deg);
+                transform: translate(calc(100% + 5px), -50%) rotate(45deg);
             }
+
             &::after {
                 top: -50%;
                 right: 0;
@@ -99,16 +108,99 @@
 
         &.tooltip-left {
             @extend .tooltip-top;
+
             &::before {
                 top: 50%;
                 right: 0;
-                transform: translate( calc(-100% - 5px), -50%) rotate(45deg);
+                transform: translate(calc(-100% - 5px), -50%) rotate(45deg);
             }
+
             &::after {
                 top: -50%;
                 right: 0;
                 transform: translate(calc(-100% + 10px));
             }
         }
+    }
+
+
+    .popover {
+        position: absolute;
+        padding: 0.25em 0.5rem;
+        max-width: 12.5rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        background: #fff;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .popover-right {
+        transform-origin: center left;
+    }
+
+    .p-tooltip {
+        position: absolute;
+        display: none;
+        padding: 0.25em 0.5rem;
+        max-width: 12.5rem;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        background: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        display: none;
+    }
+
+    .p-tooltip.p-tooltip-right,
+    .p-tooltip.p-tooltip-left {
+        padding: 0 0.25rem;
+        
+    }
+
+    .p-tooltip.p-tooltip-top,
+    .p-tooltip.p-tooltip-bottom {}
+
+    .p-tooltip .p-tooltip-text {
+        white-space: pre-line;
+        word-break: break-word;
+        padding:8px;
+    }
+
+    .p-tooltip-arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: $CP1;
+        border-style: solid;
+    }
+
+    .p-tooltip-right .p-tooltip-arrow {
+        top: 50%;
+        left: 0;
+        margin-top: -0.25rem;
+        border-width: 0.25em 0.25em 0.25em 0;
+    }
+
+    .p-tooltip-left .p-tooltip-arrow {
+       
+    }
+
+    .p-tooltip.p-tooltip-top {
+        padding: 0.25em 0;
+    }
+
+    .p-tooltip-top .p-tooltip-arrow {
+        bottom: 0;
+        left: 50%;
+        margin-left: -0.25rem;
+        border-width: 0.25em 0.25em 0;
+    }
+
+    .p-tooltip-bottom .p-tooltip-arrow {
+        top: 0;
+        left: 50%;
+        margin-left: -0.25rem;
+        border-width: 0 0.25em 0.25rem;
     }
 }

@@ -4,20 +4,21 @@
         <div class="header-name">Header without sub header line/sepeartor</div>
         <ds-header [size]="'sm'">Tax Transition Scenario Planning
         </ds-header>
+        <app-code-display [code]="header"></app-code-display>
      </div>
 
     
 
      <div class="header-demo">
         <div class="header-name">Header without sub header line/sepeartor</div>
-        <ds-header  [size]="'md'">Tax Transition Scenario Planning
-        </ds-header>
+        <ds-header  [size]="'md'">Tax Transition Scenario Planning</ds-header>
+        <app-code-display [code]="headerMd"></app-code-display>
      </div>
 
      <div class="header-demo">
         <div class="header-name">Header without sub header line/sepeartor</div>
-        <ds-header [size]="'lg'">Tax Transition Scenario Planning
-        </ds-header>
+        <ds-header [size]="'lg'">Tax Transition Scenario Planning</ds-header>
+        <app-code-display [code]="headerLg"></app-code-display>
      </div>
 
 
@@ -27,6 +28,8 @@
             <ds-sub-header>Run a tax transition for an existing or new accout</ds-sub-header>
             <ds-header-action>Action</ds-header-action>
         </ds-header>
+
+        <app-code-display [code]="headerSWoutLine"></app-code-display>
     </div>
 
     <div class="header-demo">
@@ -35,5 +38,6 @@
             <ds-sub-header>Run a tax transition for an existing or new accout</ds-sub-header>
             <ds-header-action>Action</ds-header-action>
         </ds-header>
+        <app-code-display [code]="headerSWithLine"></app-code-display>
      </div>
 </div>

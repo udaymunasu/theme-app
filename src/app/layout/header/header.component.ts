@@ -20,8 +20,8 @@ export class appHeaderComponent implements OnInit, AfterViewInit {
   // @ViewChild(appSidebarComponent) sidebar: appSidebarComponent;
 
   modeConfig = {
-    themes: ['blue'],
-    defaultTheme: 'blue',
+    themes: ['purple', 'blue'],
+    defaultTheme: 'purple',
     enableDarkModeSwitch: true,
     enableThemeSwitch: true,
     position: "'top-right'",

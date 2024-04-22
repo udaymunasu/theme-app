@@ -17,6 +17,7 @@ import { PopoverDemoComponent } from './demos/popover-demo/popover-demo.componen
 import { TabsDemoComponent } from './demos/tabs-demo/tabs-demo.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { CustomThemeComponent } from './mode-switch/custom-theme/custom-theme/custom-theme.component';
+import { TooltipDemoComponent } from './demos/tooltip-demo/tooltip-demo.component';
 
 
 const routes: Routes = [
@@ -88,6 +89,10 @@ const routes: Routes = [
   {
     path: 'dropdown-menu',
     component: DropdownMenuDemoComponent
+  },
+  {
+    path: 'tooltip',
+    component: TooltipDemoComponent
   },
 ];
 

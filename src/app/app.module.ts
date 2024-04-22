@@ -28,6 +28,9 @@ import { InputDemoComponent } from './demos/input-demo/input-demo.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { IconDemoComponent } from './demos/icon-demo/icon-demo.component';
 import { CustomThemeComponent } from './mode-switch/custom-theme/custom-theme/custom-theme.component';
+import { ShowCodeComponent } from './components/show-code/show-code.component';
+import { CarouselDemoComponent } from './demos/carousel-demo/carousel-demo.component';
+import { TooltipDemoComponent } from './demos/tooltip-demo/tooltip-demo.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import { CustomThemeComponent } from './mode-switch/custom-theme/custom-theme/cu
     DashboardComponent,
     IconDemoComponent,
     CustomThemeComponent,
+    CarouselDemoComponent,
+    TooltipDemoComponent,
   ],
   imports: [
     CustomComponentsModule,
