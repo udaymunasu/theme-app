@@ -523,6 +523,8 @@ export class Tooltip implements AfterViewInit, OnDestroy {
       (DomHandler.getOuterHeight(this.el.nativeElement) -
         DomHandler.getOuterHeight(this.container)) /
         2;
+
+    console.log("position", left, top)
     this.container.style.left = left + this.getOption('positionLeft') + 'px';
     this.container.style.top = top + this.getOption('positionTop') + 'px';
   }

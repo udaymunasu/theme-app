@@ -41,6 +41,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { InputComponent } from './input/input.component';
 import { CarouselDirective } from './carousel/carousel.directive';
 import { ShowCodeComponent } from './show-code/show-code.component';
+import { TooltipDirective } from './tooltip/tooltip.directive';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { ShowCodeComponent } from './show-code/show-code.component';
     InputComponent,
     IconsComponent,
     CarouselDirective,
-    ShowCodeComponent
+    ShowCodeComponent,
+    TooltipDirective,
+    TooltipComponent
   ],
   imports: [CommonModule,
     FormsModule,OverlayModule],
@@ -121,7 +125,9 @@ import { ShowCodeComponent } from './show-code/show-code.component';
     InputComponent,
     IconsComponent,
     CarouselDirective,
-    ShowCodeComponent
+    ShowCodeComponent,
+    TooltipDirective,
+    TooltipComponent
   ],
   entryComponents: [   
      HeaderComponent,

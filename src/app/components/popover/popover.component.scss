@@ -1,67 +1,72 @@
+// /* Common styles for all popovers */
+// .p-tooltip {
+//     position: absolute;
+//     display: none;
+//     padding: 0.25em 0.5rem;
+//     max-width: 12.5rem;
+// }
 
+// .p-tooltip .p-tooltip-text {
+//     white-space: pre-line;
+//     word-break: break-word;
+// }
 
-.popover-right {
-    transform-origin: center left;
-}
+// /* Right-aligned popover */
+// .p-tooltip-right {
+//     padding: 0.25em 0.25rem;
+// }
 
-.p-tooltip {
-    position:absolute;
-    display:none;
-    padding: .25em .5rem;
-    max-width: 12.5rem;
-}
+// .p-tooltip-right .p-tooltip-arrow {
+//     position: absolute;
+//     top: 50%;
+//     left: 0;
+//     margin-top: -0.25rem;
+//     border-width: 0.25em 0.25em 0.25em 0;
+//     border-color: transparent;
+//     border-style: solid;
+// }
 
-.p-tooltip.p-tooltip-right,
-.p-tooltip.p-tooltip-left {
-    padding: 0 .25rem;
-}
+// /* Left-aligned popover */
+// .p-tooltip-left {
+//     padding: 0.25em 0.25rem;
+// }
 
-.p-tooltip.p-tooltip-top,
-.p-tooltip.p-tooltip-bottom {
-    padding:.25em 0;
-}
+// .p-tooltip-left .p-tooltip-arrow {
+//     position: absolute;
+//     top: 50%;
+//     right: 0;
+//     margin-top: -0.25rem;
+//     border-width: 0.25em 0 0.25em 0.25rem;
+//     border-color: transparent;
+//     border-style: solid;
+// }
 
-.p-tooltip .p-tooltip-text {
-   white-space: pre-line;
-   word-break: break-word;
-}
+// /* Top-aligned popover */
+// .p-tooltip-top {
+//     padding: 0.25em 0;
+// }
 
-.p-tooltip-arrow {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-}
+// .p-tooltip-top .p-tooltip-arrow {
+//     position: absolute;
+//     bottom: 0;
+//     left: 50%;
+//     margin-left: -0.25rem;
+//     border-width: 0.25em 0.25em 0;
+//     border-color: whute;
+//     border-style: solid;
+// }
 
-.p-tooltip-right .p-tooltip-arrow {
-    top: 50%;
-    left: 0;
-    margin-top: -.25rem;
-    border-width: .25em .25em .25em 0;
-}
+// /* Bottom-aligned popover */
+// .p-tooltip-bottom {
+//     padding: 0 0.25rem;
+// }
 
-.p-tooltip-left .p-tooltip-arrow {
-    top: 50%;
-    right: 0;
-    margin-top: -.25rem;
-    border-width: .25em 0 .25em .25rem;
-}
-
-.p-tooltip.p-tooltip-top {
-    padding: .25em 0;
-}
-
-.p-tooltip-top .p-tooltip-arrow {
-    bottom: 0;
-    left: 50%;
-    margin-left: -.25rem;
-    border-width: .25em .25em 0;
-}
-
-.p-tooltip-bottom .p-tooltip-arrow {
-    top: 0;
-    left: 50%;
-    margin-left: -.25rem;
-    border-width: 0 .25em .25rem;
-}
+// .p-tooltip-bottom .p-tooltip-arrow {
+//     position: absolute;
+//     top: 0;
+//     left: 50%;
+//     margin-left: -0.25rem;
+//     border-width: 0 0.25em 0.25em;
+//     border-color: white;
+//     border-style: solid;
+// }
